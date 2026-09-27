@@ -1,0 +1,447 @@
+.sap-mig {
+  --logo-blue: #2a6aae;
+  --logo-yellow: #e8b828;
+
+  background: #ffffff;
+  padding: 100px 0 110px;
+  overflow: hidden;
+}
+
+/* ---------- Header ---------- */
+.sap-mig__header {
+  text-align: center;
+  max-width: 1080px;
+  margin: 0 auto 56px;
+}
+
+.sap-mig__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--logo-blue);
+  background: linear-gradient(90deg, rgba(42, 106, 174, 0.12), rgba(232, 184, 40, 0.16));
+  border: 1px solid rgba(42, 106, 174, 0.25);
+  border-radius: 999px;
+  padding: 9px 20px 9px 16px;
+  margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(42, 106, 174, 0.1);
+}
+
+.sap-mig__eyebrow::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--logo-blue), var(--logo-yellow));
+  box-shadow: 0 0 0 4px rgba(42, 106, 174, 0.15);
+}
+
+.sap-mig__title {
+  font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #111111;
+  margin-bottom: 20px;
+}
+
+.sap-mig__highlight {
+  background: linear-gradient(90deg, var(--logo-blue) 0%, var(--logo-blue) 35%, var(--logo-yellow) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.sap-mig__intro {
+  color: #333a47;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  margin-bottom: 12px;
+}
+
+.sap-mig__subhead {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+  font-weight: 800;
+  color: #111111;
+  margin-bottom: 26px;
+}
+
+/* Thin gradient rule after the subheading */
+.sap-mig__subhead::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, rgba(42, 106, 174, 0.35), rgba(232, 184, 40, 0.1));
+}
+
+/* ---------- Capability cards ---------- */
+.sap-mig__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  list-style: none;
+  margin: 0 0 80px;
+  padding: 0;
+}
+
+.sap-mig__card {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 24px 46px 24px 22px;
+  border-radius: 18px;
+  background: #f7f9fc;
+  border: 1px solid rgba(42, 106, 174, 0.12);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, translate 0.35s ease;
+}
+
+.is-in .sap-mig__card {
+  animation: sapMigCardIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes sapMigCardIn {
+  to { opacity: 1; transform: none; }
+}
+
+/* Gradient sweep along the bottom on hover */
+.sap-mig__card::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--logo-blue), var(--logo-yellow));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s ease;
+}
+
+.sap-mig__card:hover {
+  background: #ffffff;
+  border-color: rgba(42, 106, 174, 0.3);
+  box-shadow: 0 18px 40px rgba(42, 106, 174, 0.13);
+  translate: 0 -5px;
+}
+
+.sap-mig__card:hover::after {
+  transform: scaleX(1);
+}
+
+.sap-mig__icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--logo-blue), #4a8bd0);
+  box-shadow: 0 10px 22px rgba(42, 106, 174, 0.26);
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.sap-mig__icon--alt {
+  background: linear-gradient(135deg, var(--logo-yellow), #f3cf55);
+  box-shadow: 0 10px 22px rgba(232, 184, 40, 0.3);
+}
+
+.sap-mig__icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.sap-mig__card:hover .sap-mig__icon {
+  transform: rotate(-8deg) scale(1.1);
+}
+
+.sap-mig__card-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1.3;
+  color: #111111;
+  margin-bottom: 6px;
+  transition: color 0.35s ease;
+}
+
+.sap-mig__card:hover .sap-mig__card-title {
+  color: var(--logo-blue);
+}
+
+.sap-mig__card-text {
+  color: #4a5262;
+  font-size: 0.93rem;
+  line-height: 1.6;
+}
+
+/* "Moving across" arrow in the corner */
+.sap-mig__card-arrow {
+  position: absolute;
+  right: 18px;
+  top: 22px;
+  color: rgba(42, 106, 174, 0.35);
+  font-size: 1.2rem;
+  font-weight: 700;
+  transition: color 0.35s ease, transform 0.35s ease;
+}
+
+.sap-mig__card:hover .sap-mig__card-arrow {
+  color: var(--logo-blue);
+  transform: translateX(5px);
+}
+
+/* ---------- Migration approach roadmap ---------- */
+.sap-mig__road {
+  --steps: 7;
+  --step: 0;
+  --dot: 54px;
+
+  position: relative;
+  padding: 50px 40px 54px;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 8% 15%, rgba(232, 184, 40, 0.12), transparent 35%),
+    radial-gradient(circle at 92% 85%, rgba(42, 106, 174, 0.12), transparent 40%),
+    #f5f8fd;
+  border: 1px solid rgba(42, 106, 174, 0.14);
+}
+
+.sap-mig__road-title {
+  text-align: center;
+  font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+  font-weight: 800;
+  color: #111111;
+  margin-bottom: 64px;
+}
+
+.sap-mig__route {
+  position: relative;
+}
+
+.sap-mig__track {
+  position: absolute;
+  top: calc(var(--dot) / 2 - 3px);
+  left: calc(50% / var(--steps));
+  right: calc(50% / var(--steps));
+  height: 6px;
+  border-radius: 6px;
+  background: repeating-linear-gradient(90deg, rgba(42, 106, 174, 0.2) 0 10px, transparent 10px 18px);
+}
+
+.sap-mig__track-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--logo-blue), var(--logo-yellow));
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.is-in .sap-mig__track-fill {
+  transform: scaleX(calc(var(--step) / (var(--steps) - 1)));
+}
+
+/* Rocket riding above the track */
+.sap-mig__rocket {
+  position: absolute;
+  bottom: 34px;
+  left: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin-left: -20px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--logo-blue);
+  box-shadow: 0 8px 20px rgba(42, 106, 174, 0.25);
+  opacity: 0;
+  transition: left 1s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.5s ease;
+}
+
+.sap-mig__rocket svg {
+  width: 22px;
+  height: 22px;
+  transform: rotate(45deg);
+}
+
+.is-in .sap-mig__rocket {
+  opacity: 1;
+  left: calc(100% * var(--step) / (var(--steps) - 1));
+  animation: sapMigHover 1.2s ease-in-out infinite;
+}
+
+@keyframes sapMigHover {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -5px; }
+}
+
+.sap-mig__steps {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--steps), 1fr);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sap-mig__step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.is-in .sap-mig__step {
+  animation: sapMigStepIn 0.6s ease forwards;
+}
+
+@keyframes sapMigStepIn {
+  to { opacity: 1; transform: none; }
+}
+
+.sap-mig__milestone {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: var(--dot);
+  height: var(--dot);
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid rgba(42, 106, 174, 0.25);
+  color: #8a94a6;
+  font-weight: 800;
+  font-size: 1.05rem;
+  transition: background 0.45s ease, color 0.45s ease, border-color 0.45s ease, transform 0.45s ease, box-shadow 0.45s ease;
+}
+
+.sap-mig__step.is-done .sap-mig__milestone {
+  background: var(--logo-blue);
+  border-color: var(--logo-blue);
+  color: #ffffff;
+}
+
+.sap-mig__step.is-active .sap-mig__milestone {
+  background: linear-gradient(135deg, var(--logo-blue), var(--logo-yellow));
+  border-color: #ffffff;
+  color: #ffffff;
+  transform: scale(1.18);
+  box-shadow: 0 0 0 6px rgba(232, 184, 40, 0.22), 0 14px 30px rgba(42, 106, 174, 0.3);
+}
+
+.sap-mig__step-label {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #4a5262;
+  transition: color 0.45s ease;
+}
+
+.sap-mig__step.is-done .sap-mig__step-label {
+  color: #111111;
+}
+
+.sap-mig__step.is-active .sap-mig__step-label {
+  color: var(--logo-blue);
+  font-weight: 800;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .sap-mig__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Vertical roadmap on small screens */
+@media (max-width: 760px) {
+  .sap-mig__road {
+    --dot: 46px;
+    padding: 36px 22px 40px;
+  }
+
+  .sap-mig__road-title {
+    margin-bottom: 30px;
+  }
+
+  .sap-mig__track {
+    top: calc(var(--dot) / 2);
+    bottom: calc(var(--dot) / 2);
+    left: calc(var(--dot) / 2 - 3px);
+    right: auto;
+    width: 6px;
+    height: auto;
+    background: repeating-linear-gradient(180deg, rgba(42, 106, 174, 0.2) 0 10px, transparent 10px 18px);
+  }
+
+  .sap-mig__track-fill {
+    transform-origin: top;
+    transform: scaleY(0);
+  }
+
+  .is-in .sap-mig__track-fill {
+    transform: scaleY(calc(var(--step) / (var(--steps) - 1)));
+  }
+
+  .sap-mig__rocket {
+    display: none;
+  }
+
+  .sap-mig__steps {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .sap-mig__step {
+    flex-direction: row;
+    gap: 18px;
+    text-align: left;
+  }
+}
+
+@media (max-width: 600px) {
+  .sap-mig {
+    padding: 72px 0 80px;
+  }
+  .sap-mig__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 56px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sap-mig__card,
+  .is-in .sap-mig__card,
+  .sap-mig__step,
+  .is-in .sap-mig__step {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .sap-mig__track-fill,
+  .sap-mig__rocket,
+  .sap-mig__milestone {
+    transition: none;
+  }
+  .is-in .sap-mig__rocket {
+    animation: none;
+  }
+}

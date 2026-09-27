@@ -1,0 +1,308 @@
+.transformation {
+  --logo-blue: #2a6aae;
+  --logo-yellow: #e8b828;
+
+  background: #f7f9fc;
+  padding: 100px 0;
+}
+
+.transformation__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+/* Heading stays pinned while the steps scroll past */
+.transformation__text {
+  position: sticky;
+  top: 120px;
+}
+
+.section-eyebrow.transformation__eyebrow {
+  color: var(--logo-blue);
+}
+
+.transformation__title {
+  font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #111111;
+  margin-bottom: 20px;
+}
+
+.transformation__highlight {
+  background: linear-gradient(90deg, var(--logo-blue) 0%, var(--logo-blue) 35%, var(--logo-yellow) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.transformation__intro {
+  color: #111111;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  margin-bottom: 18px;
+}
+
+.transformation__lead {
+  color: #111111;
+  font-size: 1.02rem;
+  font-weight: 600;
+}
+
+/* Step counter under the heading */
+.transformation__meter {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 32px;
+  max-width: 320px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.transformation__meter-count {
+  font-size: 1.6rem;
+  color: var(--logo-blue);
+  min-width: 2ch;
+}
+
+.transformation__meter-total {
+  font-size: 0.9rem;
+  color: #8a94a6;
+}
+
+.transformation__meter-bar {
+  flex: 1;
+  height: 4px;
+  border-radius: 4px;
+  background: rgba(42, 106, 174, 0.12);
+  overflow: hidden;
+}
+
+.transformation__meter-bar > span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--logo-blue), var(--logo-yellow));
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+/* Vertical timeline */
+.transformation__list {
+  --progress: 0;
+  --num-size: 44px;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.transformation__track {
+  position: absolute;
+  left: calc(var(--num-size) / 2 - 1px);
+  top: calc(var(--num-size) / 2);
+  bottom: calc(var(--num-size) / 2);
+  width: 2px;
+  background: rgba(42, 106, 174, 0.15);
+  border-radius: 2px;
+}
+
+.transformation__track-fill {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, var(--logo-blue), var(--logo-yellow));
+  transform-origin: top;
+  transform: scaleY(var(--progress));
+  border-radius: 2px;
+}
+
+.transformation__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.transformation__item.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.transformation__num {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: var(--num-size);
+  height: var(--num-size);
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid rgba(42, 106, 174, 0.2);
+  color: #8a94a6;
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  transition: background 0.4s ease, color 0.4s ease, border-color 0.4s ease, transform 0.4s ease;
+}
+
+.transformation__item.is-active .transformation__num {
+  background: linear-gradient(135deg, var(--logo-blue), var(--logo-yellow));
+  border-color: transparent;
+  color: #ffffff;
+  transform: scale(1.06);
+}
+
+/* Pulse ring when a step lights up */
+.transformation__num::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 2px solid var(--logo-blue);
+  opacity: 0;
+}
+
+.transformation__item.is-active .transformation__num::after {
+  animation: transformation-pulse 0.9s ease-out;
+}
+
+@keyframes transformation-pulse {
+  from {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+}
+
+.transformation__card {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff;
+  border: 1px solid rgba(42, 106, 174, 0.14);
+  border-radius: 12px;
+  padding: 16px 18px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #5b6475;
+  line-height: 1.45;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* Accent bar that grows in on the active card */
+.transformation__card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--logo-blue), var(--logo-yellow));
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.45s ease;
+}
+
+.transformation__item.is-active .transformation__card {
+  color: #111111;
+  border-color: rgba(42, 106, 174, 0.3);
+  box-shadow: 0 10px 26px rgba(42, 106, 174, 0.08);
+}
+
+.transformation__item.is-active .transformation__card::before {
+  transform: scaleY(1);
+}
+
+.transformation__card:hover {
+  transform: translateX(6px);
+  box-shadow: 0 14px 30px rgba(42, 106, 174, 0.12);
+}
+
+/* Gradient tick badge */
+.transformation__check {
+  flex-shrink: 0;
+  position: relative;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(42, 106, 174, 0.15);
+  transition: background 0.4s ease;
+}
+
+.transformation__item.is-active .transformation__check {
+  background: linear-gradient(135deg, var(--logo-blue), var(--logo-yellow));
+}
+
+.transformation__check::after {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 4px;
+  width: 6px;
+  height: 11px;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  transform: rotate(45deg);
+}
+
+@media (max-width: 960px) {
+  .transformation__inner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .transformation__text {
+    position: static;
+  }
+}
+
+@media (max-width: 560px) {
+  .transformation {
+    padding: 72px 0;
+  }
+  .transformation__list {
+    --num-size: 36px;
+    gap: 14px;
+  }
+  .transformation__item {
+    gap: 14px;
+    transform: translateY(24px);
+  }
+  .transformation__card {
+    padding: 14px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .transformation__item,
+  .transformation__num,
+  .transformation__card,
+  .transformation__card::before,
+  .transformation__track-fill,
+  .transformation__meter-bar > span {
+    transition: none;
+  }
+  .transformation__item {
+    opacity: 1;
+    transform: none;
+  }
+  .transformation__item.is-active .transformation__num::after {
+    animation: none;
+  }
+}

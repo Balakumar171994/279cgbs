@@ -1,0 +1,312 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: transparent;
+  transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+  padding: 18px 0;
+}
+
+.navbar--scrolled {
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 24px rgba(10, 44, 110, 0.08);
+  padding: 10px 0;
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.navbar__logo img {
+  height: 42px;
+  width: auto;
+  display: block;
+}
+
+.navbar__menu {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.navbar__item {
+  position: relative;
+}
+
+.navbar__link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #1f2937;
+  border-radius: 6px;
+  transition: color 0.2s ease, background 0.2s ease;
+  white-space: nowrap;
+}
+
+.navbar--scrolled .navbar__link {
+  color: #1f2937;
+}
+
+.navbar__link:hover,
+.navbar__link--active,
+.navbar--scrolled .navbar__link--active {
+  color: #2a6aae;
+}
+
+.navbar__caret {
+  width: 7px;
+  height: 7px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  margin-top: -3px;
+  transition: transform 0.2s ease;
+}
+
+.navbar__dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(10, 44, 110, 0.16);
+  padding: 10px;
+  min-width: 280px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  border: 1px solid #eef1f8;
+}
+
+.navbar__dropdown--open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Last menu item sits at the right edge — anchor its dropdown to the right */
+.navbar__item:last-child .navbar__dropdown {
+  left: auto;
+  right: 0;
+  transform: translateY(8px);
+}
+
+.navbar__item:last-child .navbar__dropdown--open {
+  transform: translateY(0);
+}
+
+.navbar__dropdown-link {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: background 0.15s ease;
+}
+
+.navbar__dropdown-link:hover {
+  background: #eaf1fb;
+}
+
+.navbar__dropdown-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.navbar__cta {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: var(--gold);
+  color: #0a2c6e;
+  font-weight: 700;
+  font-size: 0.88rem;
+  white-space: nowrap;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.navbar__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(201, 150, 43, 0.35);
+}
+
+/* LinkedIn button with a light streak sweeping across it */
+.navbar__linkedin {
+  position: relative;
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #ffffff;
+  background: linear-gradient(135deg, #0a66c2, #2a6aae);
+  box-shadow: 0 6px 16px rgba(10, 102, 194, 0.35);
+  animation: linkedinGlow 3s ease-in-out infinite;
+  transition: transform 0.25s ease;
+}
+
+.navbar__linkedin svg {
+  position: relative;
+  z-index: 1;
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.navbar__linkedin::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 0;
+  width: 45%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.85) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: translateX(-160%) rotate(25deg);
+  animation: linkedinShine 3s ease-in-out infinite;
+}
+
+.navbar__linkedin:hover {
+  transform: translateY(-2px) scale(1.06);
+}
+
+/* Streak crosses in the first ~40% of each cycle, then rests */
+@keyframes linkedinShine {
+  0% { transform: translateX(-160%) rotate(25deg); }
+  40%, 100% { transform: translateX(300%) rotate(25deg); }
+}
+
+@keyframes linkedinGlow {
+  0%, 100% { box-shadow: 0 6px 16px rgba(10, 102, 194, 0.35); }
+  20% { box-shadow: 0 6px 22px rgba(10, 102, 194, 0.6), 0 0 0 3px rgba(10, 102, 194, 0.15); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar__linkedin,
+  .navbar__linkedin::after {
+    animation: none;
+  }
+  .navbar__linkedin::after {
+    display: none;
+  }
+}
+
+/* Burger (mobile) */
+.navbar__burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 30px;
+  padding: 6px;
+}
+
+.navbar__burger span {
+  height: 2.5px;
+  width: 100%;
+  background: var(--navy);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease, background 0.25s ease;
+}
+
+.navbar__burger--open span:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+}
+.navbar__burger--open span:nth-child(2) {
+  opacity: 0;
+}
+.navbar__burger--open span:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
+}
+
+/* Mobile menu panel */
+.navbar__mobile {
+  max-height: 0;
+  overflow: hidden;
+  background: #ffffff;
+  transition: max-height 0.3s ease;
+}
+
+.navbar__mobile--open {
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 16px 30px rgba(10, 44, 110, 0.12);
+}
+
+.navbar__mobile-item {
+  border-bottom: 1px solid #eef1f8;
+}
+
+.navbar__mobile-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.navbar__mobile-link .navbar__caret {
+  border-color: var(--navy);
+  transition: transform 0.2s ease;
+}
+
+.navbar__caret--open {
+  transform: rotate(225deg);
+}
+
+.navbar__mobile-sub {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+  background: #f7f9fc;
+}
+
+.navbar__mobile-sub--open {
+  max-height: 300px;
+}
+
+.navbar__mobile-sub a {
+  display: block;
+  padding: 12px 40px;
+  font-size: 0.88rem;
+  color: #4b5563;
+}
+
+.navbar__cta--mobile {
+  display: block;
+  text-align: center;
+  margin: 20px 24px;
+}
+
+@media (max-width: 1024px) {
+  .navbar__menu,
+  .navbar__cta {
+    display: none;
+  }
+  .navbar__burger {
+    display: flex;
+  }
+  .navbar__linkedin {
+    margin-left: auto;
+  }
+}

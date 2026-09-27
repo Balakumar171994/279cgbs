@@ -1,0 +1,296 @@
+.sap-hero {
+  --logo-blue: #2a6aae;
+  --logo-yellow: #e8b828;
+
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #ffffff 0%, #f5f8fd 100%);
+  padding: 150px 0 90px;
+  border-bottom: 1px solid rgba(42, 106, 174, 0.1);
+}
+
+.sap-hero__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.sap-hero__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 56px;
+  align-items: center;
+}
+
+/* ---------- Text ---------- */
+.sap-hero__title {
+  font-size: clamp(1.9rem, 3.8vw, 2.9rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #111111;
+  margin-bottom: 22px;
+  animation: sapHeroUp 0.8s ease both;
+}
+
+.sap-hero__highlight {
+  display: block;
+  background: linear-gradient(90deg, var(--logo-blue) 0%, var(--logo-blue) 40%, var(--logo-yellow) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.sap-hero__para {
+  color: #333a47;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  margin-bottom: 14px;
+  animation: sapHeroUp 0.8s ease 0.15s both;
+}
+
+.sap-hero__para + .sap-hero__para {
+  animation-delay: 0.3s;
+}
+
+.sap-hero__cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+  animation: sapHeroUp 0.8s ease 0.45s both;
+}
+
+@keyframes sapHeroUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: none; }
+}
+
+.sap-hero__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 30px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.sap-hero__btn--primary {
+  background: linear-gradient(90deg, var(--logo-blue), var(--logo-yellow));
+  color: #ffffff;
+}
+
+.sap-hero__btn--primary span {
+  transition: transform 0.25s ease;
+}
+
+.sap-hero__btn--primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(42, 106, 174, 0.3);
+}
+
+.sap-hero__btn--primary:hover span {
+  transform: translateX(4px);
+}
+
+.sap-hero__btn--ghost {
+  border: 1.5px solid var(--logo-blue);
+  color: #111111;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.sap-hero__btn--ghost:hover {
+  background: rgba(42, 106, 174, 0.08);
+  transform: translateY(-3px);
+}
+
+/* ---------- Visual: SAP core + orbiting offerings ---------- */
+.sap-hero__visual {
+  --size: 440px;
+  --r: 190px;
+
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+  max-width: 100%;
+  margin: 0 auto;
+  animation: sapHeroFade 1s ease 0.3s both;
+}
+
+@keyframes sapHeroFade {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: none; }
+}
+
+.sap-hero__ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sap-hero__ring--outer {
+  width: calc(var(--r) * 2);
+  height: calc(var(--r) * 2);
+  border: 1.5px dashed rgba(42, 106, 174, 0.25);
+  animation: sapSpin 60s linear infinite;
+}
+
+.sap-hero__ring--inner {
+  width: calc(var(--r) * 1.3);
+  height: calc(var(--r) * 1.3);
+  background: radial-gradient(circle, rgba(42, 106, 174, 0.1), rgba(232, 184, 40, 0.06) 60%, transparent 70%);
+}
+
+.sap-hero__orbit {
+  position: absolute;
+  inset: 0;
+  animation: sapSpin 40s linear infinite;
+}
+
+@keyframes sapSpin {
+  from { rotate: 0deg; }
+  to { rotate: 360deg; }
+}
+
+.sap-hero__chip {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(var(--angle)) translateX(var(--r)) rotate(calc(-1 * var(--angle)));
+}
+
+/* Counter-spin so the labels stay upright */
+.sap-hero__chip-inner {
+  display: block;
+  white-space: nowrap;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid rgba(42, 106, 174, 0.25);
+  color: var(--logo-blue);
+  font-size: 0.8rem;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(42, 106, 174, 0.14);
+  animation: sapSpin 40s linear infinite reverse;
+}
+
+.sap-hero__chip--alt .sap-hero__chip-inner {
+  border-color: rgba(232, 184, 40, 0.55);
+  color: #9a7512;
+}
+
+.sap-hero__core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 170px;
+  height: 170px;
+  transform: translate(-50%, -50%);
+}
+
+.sap-hero__core-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(135deg, var(--logo-blue), var(--logo-yellow)) border-box;
+  border: 4px solid transparent;
+  box-shadow: 0 20px 50px rgba(42, 106, 174, 0.22);
+}
+
+.sap-hero__logo {
+  width: 92px;
+  height: auto;
+}
+
+.sap-hero__core-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #5b6475;
+}
+
+.sap-hero__pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(42, 106, 174, 0.35);
+  animation: sapPulse 3s ease-out infinite;
+}
+
+.sap-hero__pulse--delay {
+  border-color: rgba(232, 184, 40, 0.45);
+  animation-delay: 1.5s;
+}
+
+@keyframes sapPulse {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(1.7); opacity: 0; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .sap-hero__inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .sap-hero__text {
+    text-align: center;
+  }
+  .sap-hero__cta-row {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 560px) {
+  .sap-hero {
+    padding: 120px 0 64px;
+  }
+  .sap-hero__visual {
+    --size: 320px;
+    --r: 128px;
+  }
+  .sap-hero__core {
+    width: 124px;
+    height: 124px;
+  }
+  .sap-hero__logo {
+    width: 64px;
+  }
+  .sap-hero__chip-inner {
+    font-size: 0.68rem;
+    padding: 6px 10px;
+  }
+  .sap-hero__btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sap-hero__title,
+  .sap-hero__para,
+  .sap-hero__cta-row,
+  .sap-hero__visual,
+  .sap-hero__orbit,
+  .sap-hero__chip-inner,
+  .sap-hero__ring--outer,
+  .sap-hero__pulse {
+    animation: none;
+  }
+}

@@ -1,0 +1,115 @@
+.products {
+  background: linear-gradient(180deg, #050f2e 0%, #0a2c6e 100%);
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.products::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(201, 150, 43, 0.25), transparent 70%);
+  border-radius: 50%;
+  filter: blur(30px);
+}
+
+.products__head {
+  position: relative;
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 56px;
+}
+
+.section-eyebrow--light {
+  color: #e8b94d;
+}
+
+.products__title {
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 14px;
+}
+
+.products__subtitle {
+  color: #a9b7d6;
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.products__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.products__card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  scroll-margin-top: 100px;
+}
+
+.products__card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(201, 150, 43, 0.5);
+}
+
+.products__accent {
+  height: 6px;
+  width: 100%;
+}
+
+.products__body {
+  padding: 32px 28px 30px;
+}
+
+.products__body h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.products__tagline {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #e8b94d;
+  margin-bottom: 16px;
+}
+
+.products__body p {
+  color: #c7d2e8;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+
+.products__link {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ffffff;
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 2px;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.products__link:hover {
+  color: #e8b94d;
+  border-color: #e8b94d;
+}
+
+@media (max-width: 1024px) {
+  .products__grid {
+    grid-template-columns: 1fr;
+  }
+}

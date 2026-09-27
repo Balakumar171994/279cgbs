@@ -1,0 +1,476 @@
+.sap-journey {
+  --logo-blue: #2a6aae;
+  --logo-yellow: #e8b828;
+
+  background: #ffffff;
+  padding: 100px 0 110px;
+  overflow: hidden;
+}
+
+/* ---------- Centred header ---------- */
+.sap-journey__header {
+  text-align: center;
+  max-width: 1100px;
+  margin: 0 auto 64px;
+}
+
+/* Wide enough that each paragraph sits on two lines on desktop */
+.sap-journey__intro {
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sap-journey__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 22px 8px 8px;
+  margin-bottom: 22px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(42, 106, 174, 0.12), rgba(232, 184, 40, 0.16));
+  border: 1px solid rgba(42, 106, 174, 0.25);
+  box-shadow: 0 8px 22px rgba(42, 106, 174, 0.12);
+}
+
+.sap-journey__badge-logo {
+  width: 64px;
+  height: 40px;
+  object-fit: contain;
+  padding: 6px 8px;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 3px 10px rgba(17, 17, 17, 0.08);
+}
+
+.sap-journey__badge-text {
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--logo-blue);
+}
+
+.sap-journey__title {
+  font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #111111;
+  margin-bottom: 20px;
+}
+
+.sap-journey__highlight {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  white-space: nowrap;
+  background: linear-gradient(90deg, var(--logo-blue) 0%, var(--logo-blue) 35%, var(--logo-yellow) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.sap-journey__intro {
+  color: #333a47;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  margin-bottom: 14px;
+}
+
+/* ---------- Journey path ---------- */
+.sap-journey__path {
+  --node: 96px;
+  --step: 0;
+  --steps: 4;
+
+  position: relative;
+}
+
+/* Horizontal track through the node centres */
+.sap-journey__track {
+  position: absolute;
+  top: calc(var(--node) / 2 - 2px);
+  left: calc(50% / var(--steps));
+  right: calc(50% / var(--steps));
+  height: 4px;
+  border-radius: 4px;
+  background: rgba(42, 106, 174, 0.12);
+}
+
+.sap-journey__track-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--logo-blue), var(--logo-yellow));
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.9s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.is-in .sap-journey__track-fill {
+  transform: scaleX(calc(var(--step) / (var(--steps) - 1)));
+}
+
+/* Glowing dot that travels to the current stage */
+.sap-journey__runner {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid var(--logo-blue);
+  box-shadow: 0 0 0 6px rgba(42, 106, 174, 0.15), 0 0 16px rgba(42, 106, 174, 0.5);
+  opacity: 0;
+  transition: left 0.9s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.4s ease;
+}
+
+.is-in .sap-journey__runner {
+  opacity: 1;
+  left: calc(100% * var(--step) / (var(--steps) - 1));
+}
+
+.sap-journey__stages {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sap-journey__stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+  padding: 0 12px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.is-in .sap-journey__stage {
+  animation: sapStageIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes sapStageIn {
+  to { opacity: 1; transform: none; }
+}
+
+/* Round icon node on the track */
+.sap-journey__node {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: var(--node);
+  height: var(--node);
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid rgba(42, 106, 174, 0.2);
+  color: var(--logo-blue);
+  box-shadow: 0 10px 26px rgba(42, 106, 174, 0.12);
+  transition: background 0.45s ease, color 0.45s ease, border-color 0.45s ease, transform 0.45s ease, box-shadow 0.45s ease;
+}
+
+.sap-journey__node svg {
+  width: 38px;
+  height: 38px;
+}
+
+.sap-journey__node::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 2px solid var(--logo-blue);
+  opacity: 0;
+}
+
+.sap-journey__stage.is-done .sap-journey__node {
+  border-color: rgba(42, 106, 174, 0.55);
+}
+
+.sap-journey__stage.is-active .sap-journey__node {
+  background: linear-gradient(135deg, var(--logo-blue), var(--logo-yellow));
+  border-color: #ffffff;
+  color: #ffffff;
+  transform: scale(1.12);
+  box-shadow: 0 18px 40px rgba(42, 106, 174, 0.35);
+}
+
+.sap-journey__stage.is-active .sap-journey__node::after {
+  animation: sapNodePulse 1.6s ease-out infinite;
+}
+
+@keyframes sapNodePulse {
+  from { opacity: 0.7; transform: scale(1); }
+  to { opacity: 0; transform: scale(1.5); }
+}
+
+.sap-journey__num {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  min-width: 30px;
+  height: 24px;
+  padding: 0 7px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--logo-blue);
+  font-size: 0.72rem;
+  font-weight: 800;
+  box-shadow: 0 4px 10px rgba(17, 17, 17, 0.12);
+}
+
+/* Stage card */
+.sap-journey__card {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  padding: 24px 22px 26px;
+  border-radius: 16px;
+  background: #f7f9fc;
+  border: 1px solid rgba(42, 106, 174, 0.12);
+  overflow: hidden;
+  transition: background 0.45s ease, border-color 0.45s ease, box-shadow 0.45s ease, transform 0.45s ease;
+}
+
+/* Top accent bar grows in on the active stage */
+.sap-journey__card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--logo-blue), var(--logo-yellow));
+  transform: scaleX(0);
+  transition: transform 0.5s ease;
+}
+
+.sap-journey__stage.is-active .sap-journey__card {
+  background: #ffffff;
+  border-color: rgba(42, 106, 174, 0.3);
+  box-shadow: 0 20px 44px rgba(42, 106, 174, 0.14);
+  transform: translateY(-6px);
+}
+
+.sap-journey__stage.is-active .sap-journey__card::before {
+  transform: scaleX(1);
+}
+
+.sap-journey__stage-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #111111;
+  margin-bottom: 10px;
+  transition: color 0.45s ease;
+}
+
+.sap-journey__stage.is-active .sap-journey__stage-title {
+  color: var(--logo-blue);
+}
+
+.sap-journey__stage-text {
+  color: #4a5262;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Loop from Manage back to Transform */
+.sap-journey__loop {
+  position: relative;
+  height: 60px;
+  margin-top: 6px;
+}
+
+.sap-journey__loop-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.sap-journey__loop-line {
+  fill: none;
+  stroke: rgba(42, 106, 174, 0.45);
+  stroke-width: 2;
+  stroke-dasharray: 6 8;
+  vector-effect: non-scaling-stroke;
+  opacity: 0;
+  transition: opacity 0.8s ease 1s;
+}
+
+.is-in .sap-journey__loop-line {
+  opacity: 1;
+  animation: sapLoopFlow 1.4s linear infinite;
+}
+
+@keyframes sapLoopFlow {
+  to { stroke-dashoffset: 28; }
+}
+
+/* Arrow head pointing back up into Transform */
+.sap-journey__loop::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: calc(50% / var(--steps));
+  margin-left: -7px;
+  border: 7px solid transparent;
+  border-bottom: 10px solid var(--logo-blue);
+  border-top: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease 1s;
+}
+
+.is-in .sap-journey__loop::before {
+  opacity: 1;
+}
+
+.sap-journey__loop-label {
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid rgba(42, 106, 174, 0.25);
+  color: var(--logo-blue);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 0 8px 20px rgba(42, 106, 174, 0.12);
+}
+
+.sap-journey__loop-icon {
+  display: inline-block;
+  font-size: 1.1rem;
+  animation: sapLoopSpin 3s linear infinite;
+}
+
+@keyframes sapLoopSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---------- Tablet / phone: vertical journey ---------- */
+@media (max-width: 900px) {
+  .sap-journey__highlight {
+    white-space: normal;
+  }
+
+  .sap-journey__path {
+    --node: 72px;
+  }
+
+  .sap-journey__track {
+    top: calc(var(--node) / 2);
+    bottom: calc(var(--node) / 2);
+    left: calc(var(--node) / 2 - 2px);
+    right: auto;
+    width: 4px;
+    height: auto;
+  }
+
+  .sap-journey__track-fill {
+    transform-origin: top;
+    transform: scaleY(0);
+  }
+
+  .is-in .sap-journey__track-fill {
+    transform: scaleY(calc(var(--step) / (var(--steps) - 1)));
+  }
+
+  .sap-journey__runner {
+    left: 50%;
+    top: 0;
+    transition: top 0.9s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.4s ease;
+  }
+
+  .is-in .sap-journey__runner {
+    left: 50%;
+    top: calc(100% * var(--step) / (var(--steps) - 1));
+  }
+
+  .sap-journey__stages {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .sap-journey__stage {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 0;
+    text-align: left;
+  }
+
+  .sap-journey__node {
+    flex-shrink: 0;
+  }
+
+  .sap-journey__node svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .sap-journey__stage.is-active .sap-journey__card {
+    transform: translateX(4px);
+  }
+
+  .sap-journey__loop {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .sap-journey {
+    padding: 72px 0 80px;
+  }
+  .sap-journey__path {
+    --node: 60px;
+  }
+  .sap-journey__node svg {
+    width: 26px;
+    height: 26px;
+  }
+  .sap-journey__card {
+    padding: 18px 18px 20px;
+  }
+  .sap-journey__stage-title {
+    font-size: 1.15rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sap-journey__stage,
+  .is-in .sap-journey__stage {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .sap-journey__track-fill,
+  .sap-journey__runner,
+  .sap-journey__node,
+  .sap-journey__card {
+    transition: none;
+  }
+  .sap-journey__stage.is-active .sap-journey__node::after,
+  .is-in .sap-journey__loop-line,
+  .sap-journey__loop-icon {
+    animation: none;
+  }
+}

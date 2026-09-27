@@ -1,0 +1,94 @@
+.banner {
+  position: relative;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #0b1a33;
+}
+
+/* The clip box limits the fixed layer to this section's area, so the photo
+   stays put on screen while the section scrolls over it (works on iOS too,
+   unlike background-attachment: fixed) */
+.banner__bg-clip {
+  position: absolute;
+  inset: 0;
+  clip: rect(0, auto, auto, 0);
+  clip-path: inset(0);
+}
+
+.banner__bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.banner__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(10, 30, 66, 0.82) 0%, rgba(10, 30, 66, 0.55) 50%, rgba(10, 30, 66, 0.82) 100%),
+    linear-gradient(180deg, rgba(42, 106, 174, 0.15), rgba(232, 184, 40, 0.1));
+}
+
+.banner__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  text-align: center;
+}
+
+.banner__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: clamp(2rem, 4.4vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: #ffffff;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Lighter blue-to-yellow so it stays readable on the dark photo */
+.banner__highlight {
+  background: linear-gradient(90deg, #8cbcf0 0%, #8cbcf0 30%, #f3cf55 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: none;
+}
+
+.banner__rule {
+  display: block;
+  width: 90px;
+  height: 4px;
+  border-radius: 4px;
+  margin: 26px auto;
+  background: linear-gradient(90deg, #2a6aae, #e8b828);
+}
+
+.banner__text {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+  font-weight: 700;
+  line-height: 1.6;
+  color: #ffffff;
+}
+
+@media (max-width: 640px) {
+  .banner {
+    min-height: 400px;
+  }
+  .banner__content {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+}

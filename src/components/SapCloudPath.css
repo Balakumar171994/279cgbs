@@ -1,0 +1,486 @@
+.sap-cloud {
+  --logo-blue: #2a6aae;
+  --logo-yellow: #e8b828;
+
+  background: linear-gradient(180deg, #f7f9fc 0%, #ffffff 100%);
+  padding: 100px 0 110px;
+  overflow: hidden;
+}
+
+/* ---------- Header ---------- */
+.sap-cloud__header {
+  text-align: center;
+  max-width: 1080px;
+  margin: 0 auto 56px;
+}
+
+.sap-cloud__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--logo-blue);
+  background: linear-gradient(90deg, rgba(42, 106, 174, 0.12), rgba(232, 184, 40, 0.16));
+  border: 1px solid rgba(42, 106, 174, 0.25);
+  border-radius: 999px;
+  padding: 9px 20px 9px 16px;
+  margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(42, 106, 174, 0.1);
+}
+
+.sap-cloud__eyebrow::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--logo-blue), var(--logo-yellow));
+  box-shadow: 0 0 0 4px rgba(42, 106, 174, 0.15);
+}
+
+.sap-cloud__title {
+  font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #111111;
+  margin-bottom: 20px;
+}
+
+.sap-cloud__highlight {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  background: linear-gradient(90deg, var(--logo-blue) 0%, var(--logo-blue) 35%, var(--logo-yellow) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.sap-cloud__intro {
+  color: #333a47;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  margin-bottom: 12px;
+}
+
+/* ---------- GROW vs RISE ---------- */
+.sap-cloud__paths {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 80px;
+}
+
+.sap-cloud__path {
+  --accent: var(--logo-blue);
+  --accent-soft: rgba(42, 106, 174, 0.1);
+
+  position: relative;
+  padding: 34px 34px 36px;
+  border-radius: 22px;
+  background: #ffffff;
+  border: 1px solid rgba(42, 106, 174, 0.14);
+  box-shadow: 0 16px 40px rgba(42, 106, 174, 0.08);
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.sap-cloud__path--grow {
+  transform: translateX(-50px);
+}
+
+.sap-cloud__path--rise {
+  --accent: #c99a12;
+  --accent-soft: rgba(232, 184, 40, 0.14);
+
+  transform: translateX(50px);
+  transition-delay: 0.15s;
+}
+
+.is-in .sap-cloud__path {
+  opacity: 1;
+  transform: none;
+}
+
+/* Coloured band across the top */
+.sap-cloud__path::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--logo-blue), #4a8bd0);
+}
+
+.sap-cloud__path--rise::before {
+  background: linear-gradient(90deg, var(--logo-yellow), #f3cf55);
+}
+
+.sap-cloud__path:hover {
+  border-color: var(--accent);
+  box-shadow: 0 26px 56px rgba(42, 106, 174, 0.16);
+}
+
+.sap-cloud__path-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px dashed rgba(42, 106, 174, 0.2);
+}
+
+.sap-cloud__path-icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--logo-blue), #4a8bd0);
+  box-shadow: 0 12px 26px rgba(42, 106, 174, 0.28);
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.sap-cloud__path--rise .sap-cloud__path-icon {
+  background: linear-gradient(135deg, var(--logo-yellow), #f3cf55);
+  box-shadow: 0 12px 26px rgba(232, 184, 40, 0.3);
+}
+
+.sap-cloud__path-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.sap-cloud__path:hover .sap-cloud__path-icon {
+  transform: rotate(-8deg) scale(1.08);
+}
+
+.sap-cloud__path-title {
+  font-size: 1.55rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.sap-cloud__path-tagline {
+  color: #333a47;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.sap-cloud__points {
+  display: grid;
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sap-cloud__point {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: var(--accent-soft);
+  color: #111111;
+  font-size: 0.97rem;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.5s ease, transform 0.5s ease, background 0.25s ease;
+}
+
+.is-in .sap-cloud__point {
+  opacity: 1;
+  transform: none;
+}
+
+.sap-cloud__point:hover {
+  background: #ffffff;
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+.sap-cloud__check {
+  flex-shrink: 0;
+  position: relative;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.sap-cloud__check::after {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 4px;
+  width: 6px;
+  height: 11px;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  transform: rotate(45deg);
+}
+
+/* "OR" badge between the two cards */
+.sap-cloud__or {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid transparent;
+  background-image: linear-gradient(#ffffff, #ffffff), linear-gradient(135deg, var(--logo-blue), var(--logo-yellow));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  color: var(--logo-blue);
+  font-weight: 800;
+  font-size: 0.95rem;
+  box-shadow: 0 10px 26px rgba(42, 106, 174, 0.2);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s;
+}
+
+.is-in .sap-cloud__or {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* ---------- From SAP Vision to SAP Value ---------- */
+.sap-cloud__value {
+  position: relative;
+  padding: 56px 48px 60px;
+  border-radius: 28px;
+  text-align: center;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(232, 184, 40, 0.18), transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(74, 139, 208, 0.35), transparent 45%),
+    linear-gradient(135deg, #0a2c6e 0%, #123f8c 55%, #0a2c6e 100%);
+  box-shadow: 0 30px 70px rgba(10, 44, 110, 0.3);
+  overflow: hidden;
+}
+
+.sap-cloud__value-title {
+  font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 40px;
+}
+
+.sap-cloud__value-highlight {
+  background: linear-gradient(90deg, #f3cf55, var(--logo-yellow));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.sap-cloud__steps {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px 0;
+  list-style: none;
+  margin: 0 0 44px;
+  padding: 0;
+}
+
+.sap-cloud__step {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px 12px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.02rem;
+  font-weight: 700;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: background 0.4s ease, border-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease, scale 0.4s ease;
+}
+
+.is-in .sap-cloud__step {
+  animation: sapCloudStepIn 0.6s ease forwards;
+}
+
+@keyframes sapCloudStepIn {
+  to { opacity: 1; transform: none; }
+}
+
+/* Arrow between steps */
+.sap-cloud__step:not(:last-child) {
+  margin-right: 44px;
+}
+
+.sap-cloud__step:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  right: -34px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 1.3rem;
+  transition: color 0.4s ease;
+}
+
+.sap-cloud__step.is-done::after {
+  color: var(--logo-yellow);
+}
+
+.sap-cloud__step-num {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-size: 0.85rem;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+.sap-cloud__step.is-done {
+  border-color: rgba(232, 184, 40, 0.5);
+  color: #ffffff;
+}
+
+.sap-cloud__step.is-done .sap-cloud__step-num {
+  background: rgba(232, 184, 40, 0.3);
+}
+
+.sap-cloud__step.is-active {
+  background: linear-gradient(90deg, var(--logo-yellow), #f3cf55);
+  border-color: transparent;
+  color: #0a2c6e;
+  scale: 1.08;
+  box-shadow: 0 0 0 6px rgba(232, 184, 40, 0.2), 0 14px 30px rgba(232, 184, 40, 0.35);
+}
+
+.sap-cloud__step.is-active .sap-cloud__step-num {
+  background: #0a2c6e;
+  color: #ffffff;
+}
+
+.sap-cloud__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 34px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--logo-yellow), #f3cf55);
+  color: #0a2c6e;
+  font-weight: 800;
+  font-size: 1rem;
+  box-shadow: 0 14px 30px rgba(232, 184, 40, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.sap-cloud__cta span {
+  transition: transform 0.25s ease;
+}
+
+.sap-cloud__cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(232, 184, 40, 0.45);
+}
+
+.sap-cloud__cta:hover span {
+  transform: translateX(5px);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+  .sap-cloud__step:not(:last-child) {
+    margin-right: 34px;
+  }
+  .sap-cloud__step:not(:last-child)::after {
+    right: -26px;
+  }
+}
+
+@media (max-width: 900px) {
+  .sap-cloud__paths {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .sap-cloud__path--grow,
+  .sap-cloud__path--rise {
+    transform: translateY(40px);
+  }
+  .sap-cloud__highlight {
+    white-space: normal;
+  }
+  .sap-cloud__steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .sap-cloud__step,
+  .sap-cloud__step:not(:last-child) {
+    margin-right: 0;
+    justify-content: flex-start;
+  }
+  .sap-cloud__step::after,
+  .sap-cloud__step:not(:last-child)::after {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .sap-cloud {
+    padding: 72px 0 80px;
+  }
+  .sap-cloud__path {
+    padding: 26px 20px 28px;
+  }
+  .sap-cloud__path-head {
+    flex-direction: column;
+    gap: 14px;
+  }
+  .sap-cloud__value {
+    padding: 40px 20px 44px;
+    border-radius: 22px;
+  }
+  .sap-cloud__steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .sap-cloud__cta {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sap-cloud__path,
+  .sap-cloud__point,
+  .sap-cloud__or {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .sap-cloud__or {
+    transform: translate(-50%, -50%);
+  }
+  .sap-cloud__step,
+  .is-in .sap-cloud__step {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

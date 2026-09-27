@@ -1,0 +1,234 @@
+.footer {
+  background: var(--navy-darker, #050f2e);
+  color: #c7d0e3;
+  padding-top: 4.5rem;
+}
+
+.footer__top {
+  display: grid;
+  grid-template-columns: 1.2fr 2fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* cgbs white.png has wide transparent padding (logo fills ~35% of its
+   height), so the image is sized up and the padding pulled in with negative
+   margins — the visible logo ends up ~48px tall */
+.footer__logo {
+  display: block;
+  height: 137px;
+  width: auto;
+  margin: -43px 0 calc(1.1rem - 46px) -17px;
+}
+
+.footer__tagline {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: #9aa4bd;
+  max-width: 360px;
+}
+
+.footer__social {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1.4rem;
+}
+
+.footer__social-link {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.footer__social-link svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  fill: currentColor;
+}
+
+.footer__social-link:hover {
+  transform: translateY(-2px);
+}
+
+/* Each icon lights up in its own brand colour */
+.footer__social-link--linkedin:hover { background: #0a66c2; }
+.footer__social-link--youtube:hover { background: #ff0000; }
+.footer__social-link--x:hover { background: #000000; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25); }
+
+.footer__cols {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.footer__col h4 {
+  color: #ffffff;
+  font-size: 0.92rem;
+  font-weight: 700;
+  margin-bottom: 1.1rem;
+}
+
+.footer__col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.footer__col a {
+  font-size: 0.88rem;
+  color: #9aa4bd;
+}
+
+.footer__col a:hover {
+  color: var(--gold-light, #e8b94d);
+}
+
+/* ---------- Global offices ---------- */
+.footer__offices {
+  padding-top: 2.8rem;
+}
+
+.footer__offices-head {
+  margin-bottom: 1.8rem;
+}
+
+.footer__offices-title {
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.footer__offices-sub {
+  font-size: 0.88rem;
+  color: #9aa4bd;
+  margin-top: 0.3rem;
+}
+
+.footer__offices-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.2rem;
+}
+
+.footer__office {
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding-left: 0.85rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  min-width: 0;
+}
+
+.footer__office-country {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #f3cf55;
+  margin-bottom: 0.25rem;
+}
+
+.footer__flag {
+  width: 1.3rem;
+  height: 1.3rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.85);
+}
+
+.footer__office-company {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.footer__office-address {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: #9aa4bd;
+}
+
+.footer__office-contact {
+  font-size: 0.78rem;
+  color: #c7d0e3;
+  overflow-wrap: anywhere;
+}
+
+.footer__office-contact span {
+  display: block;
+  font-size: 0.72rem;
+  color: #7c88a8;
+}
+
+.footer__office-contact:hover {
+  color: #f3cf55;
+}
+
+.footer__bottom {
+  margin-top: 2.5rem;
+  padding: 1.4rem 0;
+  background: #030a1f;
+}
+
+.footer__bottom-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  font-size: 0.82rem;
+  color: #7c88a8;
+}
+
+.footer__legal {
+  display: flex;
+  gap: 1.4rem;
+}
+
+.footer__legal a {
+  color: #7c88a8;
+}
+
+.footer__legal a:hover {
+  color: #ffffff;
+}
+
+@media (max-width: 1200px) {
+  .footer__offices-grid {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer__offices-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 420px) {
+  .footer__offices-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .footer__top {
+    grid-template-columns: 1fr;
+  }
+  .footer__cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

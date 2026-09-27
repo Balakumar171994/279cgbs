@@ -1,0 +1,589 @@
+.sap-ms-hero,
+.sap-ms {
+  --logo-blue: #2a6aae;
+  --logo-yellow: #e8b828;
+  --ok: #1f9d6b;
+}
+
+/* ---------- Banner ---------- */
+.sap-ms-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #ffffff 0%, #f5f8fd 100%);
+  padding: 150px 0 90px;
+  border-bottom: 1px solid rgba(42, 106, 174, 0.1);
+}
+
+.sap-ms-hero__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.sap-ms-hero__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.sap-ms-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 22px 8px 8px;
+  margin-bottom: 22px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(42, 106, 174, 0.12), rgba(232, 184, 40, 0.16));
+  border: 1px solid rgba(42, 106, 174, 0.25);
+  box-shadow: 0 8px 22px rgba(42, 106, 174, 0.12);
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--logo-blue);
+  animation: sapMsUp 0.7s ease both;
+}
+
+.sap-ms-hero__badge-logo {
+  width: 64px;
+  height: 40px;
+  object-fit: contain;
+  padding: 6px 8px;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 3px 10px rgba(17, 17, 17, 0.08);
+}
+
+.sap-ms-hero__title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #111111;
+  margin-bottom: 24px;
+  animation: sapMsUp 0.7s ease 0.1s both;
+}
+
+.sap-ms-hero__words {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.3em;
+}
+
+/* Each word lands one after another */
+.sap-ms-hero__word {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--logo-blue) 0%, var(--logo-blue) 30%, var(--logo-yellow) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: sapMsWord 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.sap-ms-hero__word:nth-child(2) {
+  background-image: linear-gradient(90deg, #3a78b8, #b9a23a);
+}
+
+.sap-ms-hero__word:nth-child(3) {
+  background-image: linear-gradient(90deg, #7f8f78, var(--logo-yellow));
+}
+
+@keyframes sapMsWord {
+  from { opacity: 0; transform: translateY(24px); filter: blur(4px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+
+.sap-ms-hero__lead {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 12px;
+  padding-left: 14px;
+  border-left: 4px solid var(--logo-yellow);
+  animation: sapMsUp 0.7s ease 0.9s both;
+}
+
+.sap-ms-hero__intro {
+  color: #333a47;
+  font-size: 1.04rem;
+  line-height: 1.75;
+  animation: sapMsUp 0.7s ease 1.05s both;
+}
+
+@keyframes sapMsUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---------- Live health panel ---------- */
+.sap-ms-panel {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+  padding: 0 0 22px;
+  border-radius: 22px;
+  background: #ffffff;
+  border: 1px solid rgba(42, 106, 174, 0.16);
+  box-shadow: 0 30px 70px rgba(42, 106, 174, 0.18);
+  overflow: hidden;
+  animation: sapMsPanel 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both, sapMsFloat 6s ease-in-out 1.3s infinite;
+}
+
+@keyframes sapMsPanel {
+  from { opacity: 0; transform: translateY(30px) scale(0.96); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes sapMsFloat {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -8px; }
+}
+
+.sap-ms-panel__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: #f5f8fd;
+  border-bottom: 1px solid rgba(42, 106, 174, 0.1);
+}
+
+.sap-ms-panel__dots {
+  display: flex;
+  gap: 6px;
+}
+
+.sap-ms-panel__dots i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #d7dce5;
+}
+
+.sap-ms-panel__dots i:nth-child(1) { background: #f08a7e; }
+.sap-ms-panel__dots i:nth-child(2) { background: #f3cf55; }
+.sap-ms-panel__dots i:nth-child(3) { background: #6cc49b; }
+
+.sap-ms-panel__name {
+  flex: 1;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #4a5262;
+}
+
+.sap-ms-panel__live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(31, 157, 107, 0.1);
+  color: var(--ok);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sap-ms-panel__live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ok);
+  animation: sapMsBlink 1.4s ease-in-out infinite;
+}
+
+@keyframes sapMsBlink {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(31, 157, 107, 0.5); }
+  50% { box-shadow: 0 0 0 6px rgba(31, 157, 107, 0); }
+}
+
+.sap-ms-panel__status {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 22px 8px;
+}
+
+.sap-ms-panel__status strong {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #111111;
+}
+
+.sap-ms-panel__status small {
+  font-size: 0.85rem;
+  color: #6b7485;
+}
+
+.sap-ms-panel__ring {
+  position: relative;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--ok), #3fbf8c);
+  color: #ffffff;
+  box-shadow: 0 10px 22px rgba(31, 157, 107, 0.3);
+}
+
+.sap-ms-panel__ring::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--ok);
+  animation: sapMsRing 2s ease-out infinite;
+}
+
+@keyframes sapMsRing {
+  from { opacity: 0.7; transform: scale(1); }
+  to { opacity: 0; transform: scale(1.6); }
+}
+
+.sap-ms-panel__ring svg {
+  width: 26px;
+  height: 26px;
+}
+
+/* Heartbeat line */
+.sap-ms-panel__pulse {
+  height: 64px;
+  margin: 6px 22px 14px;
+  border-radius: 12px;
+  background:
+    linear-gradient(rgba(42, 106, 174, 0.06) 1px, transparent 1px) 0 0 / 100% 16px,
+    #fbfcfe;
+  border: 1px solid rgba(42, 106, 174, 0.08);
+  overflow: hidden;
+}
+
+.sap-ms-panel__pulse svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.sap-ms-panel__beat {
+  fill: none;
+  stroke: var(--logo-blue);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 420 420;
+  animation: sapMsBeat 2.6s linear infinite;
+}
+
+@keyframes sapMsBeat {
+  from { stroke-dashoffset: 420; }
+  to { stroke-dashoffset: -420; }
+}
+
+.sap-ms-panel__checks {
+  display: grid;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0 22px;
+}
+
+.sap-ms-panel__checks li {
+  display: grid;
+  grid-template-columns: auto 110px 1fr;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #333a47;
+}
+
+.sap-ms-panel__check {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--ok);
+}
+
+.sap-ms-panel__check::after {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  transform: rotate(45deg);
+}
+
+.sap-ms-panel__bar {
+  position: relative;
+  height: 8px;
+  border-radius: 8px;
+  background: rgba(42, 106, 174, 0.1);
+  overflow: hidden;
+}
+
+.sap-ms-panel__bar span {
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  background: linear-gradient(90deg, var(--logo-blue), var(--logo-yellow));
+  transform-origin: left;
+  animation: sapMsBar 3.2s ease-in-out infinite;
+}
+
+@keyframes sapMsBar {
+  0% { transform: scaleX(0.55); }
+  50% { transform: scaleX(0.95); }
+  100% { transform: scaleX(0.55); }
+}
+
+/* ---------- Services grid ---------- */
+.sap-ms {
+  background: #ffffff;
+  padding: 90px 0 110px;
+}
+
+.sap-ms__header {
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.sap-ms__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--logo-blue);
+  background: linear-gradient(90deg, rgba(42, 106, 174, 0.12), rgba(232, 184, 40, 0.16));
+  border: 1px solid rgba(42, 106, 174, 0.25);
+  border-radius: 999px;
+  padding: 9px 20px 9px 16px;
+  box-shadow: 0 6px 18px rgba(42, 106, 174, 0.1);
+}
+
+.sap-ms__eyebrow::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--logo-blue), var(--logo-yellow));
+  box-shadow: 0 0 0 4px rgba(42, 106, 174, 0.15);
+}
+
+.sap-ms__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sap-ms__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 26px 24px 28px;
+  border-radius: 18px;
+  background: #f7f9fc;
+  border: 1px solid rgba(42, 106, 174, 0.12);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(36px) scale(0.97);
+  transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, translate 0.35s ease;
+}
+
+.is-in .sap-ms__card {
+  animation: sapMsCardIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes sapMsCardIn {
+  to { opacity: 1; transform: none; }
+}
+
+/* Scanning line across the top — "always monitoring" */
+.sap-ms__card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--logo-blue), var(--logo-yellow), transparent);
+  background-size: 50% 100%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.sap-ms__card:hover {
+  background: #ffffff;
+  border-color: rgba(42, 106, 174, 0.3);
+  box-shadow: 0 22px 46px rgba(42, 106, 174, 0.15);
+  translate: 0 -8px;
+}
+
+.sap-ms__card:hover::before {
+  opacity: 1;
+  animation: sapMsScan 1.4s linear infinite;
+}
+
+@keyframes sapMsScan {
+  from { background-position: -100% 0; }
+  to { background-position: 200% 0; }
+}
+
+.sap-ms__card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.sap-ms__icon {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--logo-blue), #4a8bd0);
+  box-shadow: 0 12px 26px rgba(42, 106, 174, 0.28);
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.sap-ms__icon--alt {
+  background: linear-gradient(135deg, var(--logo-yellow), #f3cf55);
+  box-shadow: 0 12px 26px rgba(232, 184, 40, 0.3);
+}
+
+.sap-ms__icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.sap-ms__card:hover .sap-ms__icon {
+  transform: rotate(-8deg) scale(1.1);
+}
+
+.sap-ms__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(31, 157, 107, 0.1);
+  color: var(--ok);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sap-ms__status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ok);
+  animation: sapMsBlink 1.6s ease-in-out infinite;
+}
+
+.sap-ms__title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.3;
+  color: #111111;
+  margin-bottom: 10px;
+  transition: color 0.35s ease;
+}
+
+.sap-ms__card:hover .sap-ms__title {
+  color: var(--logo-blue);
+}
+
+.sap-ms__text {
+  color: #4a5262;
+  font-size: 0.94rem;
+  line-height: 1.65;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+  .sap-ms__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .sap-ms-hero__inner {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+  .sap-ms-hero__text {
+    text-align: center;
+  }
+  .sap-ms-hero__words {
+    justify-content: center;
+  }
+  .sap-ms-hero__lead {
+    display: inline-block;
+  }
+}
+
+@media (max-width: 600px) {
+  .sap-ms-hero {
+    padding: 120px 0 64px;
+  }
+  .sap-ms {
+    padding: 64px 0 80px;
+  }
+  .sap-ms__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .sap-ms-panel__checks li {
+    grid-template-columns: auto 96px 1fr;
+    font-size: 0.85rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sap-ms-hero__badge,
+  .sap-ms-hero__title,
+  .sap-ms-hero__word,
+  .sap-ms-hero__lead,
+  .sap-ms-hero__intro,
+  .sap-ms-panel,
+  .sap-ms-panel__live-dot,
+  .sap-ms-panel__ring::after,
+  .sap-ms-panel__beat,
+  .sap-ms-panel__bar span,
+  .sap-ms__status-dot {
+    animation: none;
+  }
+  .sap-ms-panel__beat {
+    stroke-dasharray: none;
+  }
+  .sap-ms__card,
+  .is-in .sap-ms__card {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

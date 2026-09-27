@@ -1,0 +1,378 @@
+.why {
+  --logo-blue: #2a6aae;
+  --logo-yellow: #e8b828;
+
+  background: #f7f9fc;
+  padding: 100px 0;
+}
+
+.why__inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.section-eyebrow.why__eyebrow {
+  color: var(--logo-blue);
+}
+
+.why__title {
+  font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #111111;
+  margin-bottom: 20px;
+}
+
+.why__highlight {
+  background: linear-gradient(90deg, var(--logo-blue) 0%, var(--logo-blue) 35%, var(--logo-yellow) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.why__intro {
+  color: #111111;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  margin-bottom: 14px;
+}
+
+/* Feature points — accordion rows */
+.why__points {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.why__point {
+  background: #ffffff;
+  border: 1px solid rgba(42, 106, 174, 0.12);
+  border-radius: 14px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.why__point:hover,
+.why__point.is-open {
+  border-color: rgba(42, 106, 174, 0.32);
+  box-shadow: 0 12px 28px rgba(42, 106, 174, 0.1);
+}
+
+.why__point-head {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  text-align: left;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  border-radius: 14px;
+}
+
+.why__point-head:focus-visible {
+  outline: 3px solid rgba(42, 106, 174, 0.35);
+  outline-offset: 2px;
+}
+
+.why__icon {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--logo-blue), #4a8bd0);
+}
+
+.why__icon--alt {
+  background: linear-gradient(135deg, var(--logo-yellow), #f3cf55);
+}
+
+.why__icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.why__point-title {
+  flex: 1;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111111;
+  line-height: 1.35;
+}
+
+/* Round arrow at the right; flips up when open */
+.why__arrow {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--logo-blue);
+  background: rgba(42, 106, 174, 0.08);
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.why__arrow svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.why__point.is-open .why__arrow {
+  transform: rotate(180deg);
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--logo-blue), var(--logo-yellow));
+}
+
+/* Smooth open/close: animate the row height from 0fr to 1fr */
+.why__point-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.why__point.is-open .why__point-body {
+  grid-template-rows: 1fr;
+}
+
+.why__point-inner {
+  overflow: hidden;
+}
+
+.why__point-text {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: #111111;
+  /* line up with the heading text (icon 42px + gap 14px) */
+  padding: 0 18px 16px 74px;
+}
+
+/* ---------- Photo slider ---------- */
+.why__media {
+  position: sticky;
+  top: 110px;
+}
+
+.why__frame {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #dfe7f2;
+  box-shadow: 0 30px 60px rgba(17, 38, 77, 0.18);
+}
+
+/* Offset brand-coloured square behind the photo */
+.why__frame-wrap {
+  position: relative;
+  z-index: 0;
+}
+
+.why__frame-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translate(18px, 18px);
+  border-radius: 22px;
+  background: linear-gradient(135deg, var(--logo-blue), var(--logo-yellow));
+  opacity: 0.9;
+  z-index: -1;
+}
+
+.why__slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  z-index: 0;
+}
+
+.why__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* The outgoing photo stays underneath while the new one comes in */
+.why__slide.is-leaving {
+  opacity: 1;
+  z-index: 1;
+}
+
+.why__slide.is-active {
+  opacity: 1;
+  z-index: 2;
+  animation-duration: 1.2s;
+  animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+  animation-fill-mode: both;
+}
+
+/* Slow "Ken Burns" push-in while a photo is on screen */
+.why__slide.is-active img {
+  animation: whyKenBurns 7s ease-out both;
+}
+
+@keyframes whyKenBurns {
+  from { transform: scale(1.12); }
+  to { transform: scale(1); }
+}
+
+/* Entry effects — each photo uses a different one */
+.why__slide.fx-zoom.is-active { animation-name: fxZoom; }
+.why__slide.fx-wipe.is-active { animation-name: fxWipe; }
+.why__slide.fx-circle.is-active { animation-name: fxCircle; }
+.why__slide.fx-split.is-active { animation-name: fxSplit; }
+
+@keyframes fxZoom {
+  from { opacity: 0; transform: scale(1.08); filter: blur(6px); }
+  to { opacity: 1; transform: scale(1); filter: blur(0); }
+}
+
+@keyframes fxWipe {
+  from { clip-path: inset(0 0 0 100%); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes fxCircle {
+  from { clip-path: circle(0% at 50% 50%); }
+  to { clip-path: circle(75% at 50% 50%); }
+}
+
+@keyframes fxSplit {
+  from { clip-path: inset(50% 0 50% 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+/* Soft brand tint at the bottom so the badge reads well */
+.why__shade {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 55%, rgba(17, 38, 77, 0.55) 100%);
+}
+
+.why__progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  width: 100%;
+  z-index: 5;
+  transform-origin: left;
+  background: linear-gradient(90deg, var(--logo-blue), var(--logo-yellow));
+  animation: whyProgress linear both;
+}
+
+.why__progress.is-paused {
+  animation-play-state: paused;
+}
+
+@keyframes whyProgress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.why__badge {
+  position: absolute;
+  left: 20px;
+  bottom: 22px;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 14px;
+  padding: 12px 18px;
+  box-shadow: 0 10px 26px rgba(17, 38, 77, 0.2);
+}
+
+.why__badge-value {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1.2;
+  background: linear-gradient(90deg, var(--logo-blue), var(--logo-yellow));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.why__badge-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #111111;
+}
+
+.why__dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 34px;
+}
+
+.why__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(42, 106, 174, 0.25);
+  cursor: pointer;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+.why__dot.is-active {
+  width: 28px;
+  background: linear-gradient(90deg, var(--logo-blue), var(--logo-yellow));
+}
+
+.why__dot:focus-visible {
+  outline: 3px solid rgba(42, 106, 174, 0.35);
+  outline-offset: 2px;
+}
+
+@media (max-width: 1024px) {
+  .why__inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .why__media {
+    position: relative;
+    top: auto;
+    max-width: 520px;
+    width: 100%;
+    margin: 0 auto;
+    order: -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .why {
+    padding: 72px 0;
+  }
+  .why__point-text {
+    padding-left: 18px;
+  }
+  .why__frame-wrap::before {
+    transform: translate(10px, 10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .why__slide.is-active,
+  .why__slide.is-active img,
+  .why__progress {
+    animation: none;
+  }
+}

@@ -1,0 +1,228 @@
+.sap-coe {
+  --logo-blue: #2a6aae;
+  --logo-yellow: #e8b828;
+  --hex: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0 50%);
+
+  position: relative;
+  background: #f5f8fd;
+  padding: 100px 0 110px;
+  overflow: hidden;
+}
+
+/* Faint honeycomb texture, top-right */
+.sap-coe__honey {
+  position: absolute;
+  right: -80px;
+  top: -40px;
+  width: 520px;
+  height: 520px;
+  opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='98' viewBox='0 0 56 98'%3E%3Cpath d='M28 66L0 50V16L28 0l28 16v34L28 66zm0 32L0 82V66l28 16 28-16v16L28 98z' fill='none' stroke='%232a6aae' stroke-opacity='0.14' stroke-width='1.5'/%3E%3C/svg%3E");
+  -webkit-mask: radial-gradient(circle at 70% 30%, #000 20%, transparent 70%);
+  mask: radial-gradient(circle at 70% 30%, #000 20%, transparent 70%);
+  pointer-events: none;
+}
+
+.sap-coe__inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.sap-coe__title {
+  font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #111111;
+  margin-bottom: 20px;
+}
+
+.sap-coe__highlight {
+  display: block;
+  width: fit-content;
+}
+
+.sap-coe__intro {
+  color: #333a47;
+  font-size: 1.04rem;
+  line-height: 1.75;
+}
+
+/* CoE emblem */
+.sap-coe__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 30px;
+  padding: 12px 22px 12px 12px;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid rgba(42, 106, 174, 0.14);
+  box-shadow: 0 14px 34px rgba(42, 106, 174, 0.1);
+}
+
+.sap-coe__badge-hex {
+  display: grid;
+  place-items: center;
+  width: 70px;
+  height: 64px;
+  clip-path: var(--hex);
+  background: linear-gradient(135deg, var(--logo-blue), var(--logo-yellow));
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1.1rem;
+  animation: sapCoeSpin 8s linear infinite;
+}
+
+@keyframes sapCoeSpin {
+  0%, 80% { rotate: 0deg; }
+  100% { rotate: 360deg; }
+}
+
+.sap-coe__badge-text {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6b7485;
+  line-height: 1.3;
+}
+
+.sap-coe__badge-text strong {
+  display: block;
+  font-size: 1.2rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--logo-blue);
+}
+
+.sap-coe__subhead {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 800;
+  color: #111111;
+  margin-bottom: 20px;
+}
+
+/* ---------- Cards ---------- */
+.sap-coe__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sap-coe__card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 20px 22px;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid rgba(42, 106, 174, 0.12);
+  box-shadow: 0 8px 22px rgba(42, 106, 174, 0.05);
+  opacity: 0;
+  transform: translateY(26px);
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, translate 0.35s ease;
+}
+
+.is-in .sap-coe__card {
+  animation: sapCoeIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes sapCoeIn {
+  to { opacity: 1; transform: none; }
+}
+
+.sap-coe__card:hover {
+  translate: 0 -5px;
+  border-color: rgba(42, 106, 174, 0.3);
+  box-shadow: 0 20px 40px rgba(42, 106, 174, 0.13);
+}
+
+.sap-coe__hex {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 52px;
+  clip-path: var(--hex);
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--logo-blue), #4a8bd0);
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.sap-coe__hex--alt {
+  background: linear-gradient(135deg, var(--logo-yellow), #f3cf55);
+}
+
+.sap-coe__hex svg {
+  width: 24px;
+  height: 24px;
+}
+
+.sap-coe__card:hover .sap-coe__hex {
+  transform: rotate(60deg);
+}
+
+.sap-coe__card:hover .sap-coe__hex svg {
+  transform: rotate(-60deg);
+}
+
+.sap-coe__hex svg {
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.sap-coe__card-title {
+  font-size: 1.08rem;
+  font-weight: 800;
+  color: #111111;
+  margin-bottom: 6px;
+  transition: color 0.3s ease;
+}
+
+.sap-coe__card:hover .sap-coe__card-title {
+  color: var(--logo-blue);
+}
+
+.sap-coe__card-text {
+  color: #4a5262;
+  font-size: 0.93rem;
+  line-height: 1.6;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .sap-coe__inner {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sap-coe {
+    padding: 72px 0 80px;
+  }
+  .sap-coe__grid {
+    grid-template-columns: 1fr;
+  }
+  .sap-coe__honey {
+    width: 320px;
+    height: 320px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sap-coe__card,
+  .is-in .sap-coe__card {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .sap-coe__badge-hex {
+    animation: none;
+  }
+}

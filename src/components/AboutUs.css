@@ -1,0 +1,1118 @@
+/* ============ About Us page ============ */
+.au-hero,
+.au-story,
+.au-phil,
+.au-vm,
+.au-team,
+.au-geo,
+.au-cta {
+  --logo-blue: #2a6aae;
+  --logo-yellow: #e8b828;
+}
+
+/* ---------- Banner ---------- */
+.au-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #ffffff 0%, #f5f8fd 100%);
+  padding: 160px 0 90px;
+  border-bottom: 1px solid rgba(42, 106, 174, 0.1);
+}
+
+.au-hero__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.au-hero__content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 1040px;
+}
+
+.au-hero__eyebrow {
+  animation: auUp 0.7s ease both;
+}
+
+.au-hero__title {
+  font-size: clamp(2.1rem, 4.6vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #111111;
+  margin-bottom: 22px;
+  animation: auUp 0.7s ease 0.12s both;
+}
+
+.au-hero__highlight {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.au-hero__intro {
+  color: #333a47;
+  font-size: clamp(1.02rem, 1.5vw, 1.18rem);
+  line-height: 1.75;
+  max-width: 900px;
+  margin: 0 auto;
+  animation: auUp 0.7s ease 0.24s both;
+}
+
+@keyframes auUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---------- Story ---------- */
+.au-story {
+  background: #ffffff;
+  padding: 100px 0;
+}
+
+.au-story__inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.au-story__para {
+  color: #333a47;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+.au-story__para:first-of-type::first-line {
+  font-weight: 700;
+  color: #111111;
+}
+
+.au-story__caps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  margin: 26px 0 0;
+  padding: 0;
+}
+
+.au-story__caps li {
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: #f5f8fd;
+  border: 1px solid rgba(42, 106, 174, 0.18);
+  color: var(--logo-blue);
+  font-size: 0.9rem;
+  font-weight: 700;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.is-in .au-story__caps li {
+  animation: auUp 0.5s ease forwards;
+}
+
+.au-story__caps li:hover {
+  background: var(--logo-blue);
+  border-color: var(--logo-blue);
+  color: #ffffff;
+}
+
+/* Milestone timeline */
+.au-story__timeline {
+  position: relative;
+  display: grid;
+  gap: 26px;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 8px;
+}
+
+.au-story__line {
+  position: absolute;
+  left: 52px;
+  top: 30px;
+  bottom: 30px;
+  width: 3px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, var(--logo-blue), var(--logo-yellow));
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: transform 1.4s cubic-bezier(0.65, 0, 0.35, 1) 0.2s;
+}
+
+.is-in .au-story__line {
+  transform: scaleY(1);
+}
+
+.au-story__milestone {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+.is-in .au-story__milestone {
+  animation: auSlide 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes auSlide {
+  to { opacity: 1; transform: none; }
+}
+
+.au-story__tag {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--logo-blue), #4a8bd0);
+  border: 4px solid #ffffff;
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 800;
+  box-shadow: 0 12px 28px rgba(42, 106, 174, 0.28);
+}
+
+.au-story__milestone:nth-child(3) .au-story__tag {
+  background: linear-gradient(135deg, #4a8bd0, #9aa35a);
+}
+
+.au-story__milestone:nth-child(4) .au-story__tag {
+  background: linear-gradient(135deg, var(--logo-yellow), #f3cf55);
+  color: #0a2c6e;
+}
+
+.au-story__card {
+  flex: 1;
+  padding: 18px 22px;
+  border-radius: 16px;
+  background: #f7f9fc;
+  border: 1px solid rgba(42, 106, 174, 0.12);
+  transition: background 0.3s ease, box-shadow 0.3s ease, translate 0.3s ease;
+}
+
+.au-story__milestone:hover .au-story__card {
+  background: #ffffff;
+  box-shadow: 0 16px 34px rgba(42, 106, 174, 0.12);
+  translate: 4px 0;
+}
+
+.au-story__card h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #111111;
+  margin-bottom: 4px;
+}
+
+.au-story__card p {
+  font-size: 0.94rem;
+  line-height: 1.55;
+  color: #4a5262;
+}
+
+/* ---------- Philosophy band ---------- */
+.au-phil {
+  padding: 70px 0;
+  background:
+    radial-gradient(circle at 10% 50%, rgba(232, 184, 40, 0.18), transparent 35%),
+    linear-gradient(135deg, #0a2c6e, #123f8c);
+  color: #ffffff;
+  text-align: center;
+}
+
+.au-phil__lead {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #f3cf55;
+  margin-bottom: 26px;
+}
+
+.au-phil__steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.au-phil__step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 24px 18px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  opacity: 0;
+  transform: translateY(20px) scale(0.96);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.is-in .au-phil__step {
+  animation: auPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes auPop {
+  to { opacity: 1; transform: none; }
+}
+
+.au-phil__step:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  right: -16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(243, 207, 85, 0.7);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.au-phil__step:hover {
+  background: rgba(255, 255, 255, 0.13);
+  border-color: rgba(243, 207, 85, 0.5);
+}
+
+.au-phil__num {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #f3cf55;
+}
+
+.au-phil__text {
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.au-phil__step:last-child .au-phil__text {
+  background: linear-gradient(90deg, #f3cf55, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- Vision & Mission ---------- */
+.au-vm {
+  background: #f5f8fd;
+  padding: 100px 0;
+}
+
+.au-vm__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.au-vm__card {
+  position: relative;
+  padding: 40px 38px 42px;
+  border-radius: 24px;
+  background: #ffffff;
+  border: 1px solid rgba(42, 106, 174, 0.14);
+  box-shadow: 0 18px 44px rgba(42, 106, 174, 0.08);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(36px);
+  transition: box-shadow 0.35s ease, border-color 0.35s ease, translate 0.35s ease;
+}
+
+.is-in .au-vm__card {
+  animation: auSlide 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.au-vm__card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--logo-blue), #4a8bd0);
+}
+
+.au-vm__card--mission::before {
+  background: linear-gradient(90deg, var(--logo-yellow), #f3cf55);
+}
+
+.au-vm__card:hover {
+  translate: 0 -6px;
+  border-color: rgba(42, 106, 174, 0.3);
+  box-shadow: 0 28px 60px rgba(42, 106, 174, 0.15);
+}
+
+/* Big faded icon in the corner */
+.au-vm__watermark {
+  position: absolute;
+  right: -30px;
+  bottom: -30px;
+  width: 200px;
+  height: 200px;
+  color: rgba(42, 106, 174, 0.06);
+  transition: transform 0.6s ease;
+}
+
+.au-vm__card:hover .au-vm__watermark {
+  transform: rotate(-10deg) scale(1.08);
+}
+
+.au-vm__head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.au-vm__icon {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--logo-blue), #4a8bd0);
+  box-shadow: 0 12px 26px rgba(42, 106, 174, 0.28);
+}
+
+.au-vm__card--mission .au-vm__icon {
+  background: linear-gradient(135deg, var(--logo-yellow), #f3cf55);
+  box-shadow: 0 12px 26px rgba(232, 184, 40, 0.3);
+}
+
+.au-vm__icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.au-vm__eyebrow {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--logo-blue);
+}
+
+.au-vm__card--mission .au-vm__eyebrow {
+  color: #b8890f;
+}
+
+.au-vm__title {
+  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+  font-weight: 800;
+  line-height: 1.3;
+  color: #111111;
+  margin-bottom: 20px;
+}
+
+.au-vm__statement {
+  position: relative;
+  margin: 0 0 18px;
+  padding: 18px 20px 18px 24px;
+  border-radius: 14px;
+  background: #f7f9fc;
+  border-left: 4px solid var(--logo-blue);
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.65;
+  color: #1c2331;
+}
+
+.au-vm__card--mission .au-vm__statement {
+  border-left-color: var(--logo-yellow);
+}
+
+.au-vm__text {
+  position: relative;
+  color: #4a5262;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* ---------- Leadership ---------- */
+.au-team {
+  background: #ffffff;
+  padding: 100px 0 110px;
+}
+
+.au-team__header {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 52px;
+}
+
+.au-team__intro {
+  color: #333a47;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.au-team__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.au-team__card {
+  opacity: 0;
+  transform: translateY(34px);
+}
+
+.is-in .au-team__card {
+  animation: auSlide 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.au-team__photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #eef3fa;
+  box-shadow: 0 14px 32px rgba(17, 17, 17, 0.1);
+}
+
+.au-team__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  transition: transform 0.6s ease;
+}
+
+/* Gradient border glow on hover */
+.au-team__photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  border: 3px solid transparent;
+  background: linear-gradient(135deg, var(--logo-blue), var(--logo-yellow)) border-box;
+  -webkit-mask: linear-gradient(#000 0 0) padding-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.au-team__card:hover .au-team__photo img {
+  transform: scale(1.06);
+}
+
+.au-team__card:hover .au-team__photo::after {
+  opacity: 1;
+}
+
+/* Bio slides up over the photo */
+.au-team__overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 50px 16px 16px;
+  background: linear-gradient(180deg, transparent, rgba(7, 29, 74, 0.92) 40%);
+  color: #ffffff;
+  transform: translateY(100%);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.au-team__card:hover .au-team__overlay,
+.au-team__card:focus-within .au-team__overlay {
+  transform: none;
+}
+
+.au-team__bio {
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.au-team__linkedin {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: #0a66c2;
+  color: #ffffff;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.au-team__linkedin:hover {
+  background: #ffffff;
+  color: #0a66c2;
+  transform: translateY(-2px);
+}
+
+.au-team__linkedin svg {
+  width: 17px;
+  height: 17px;
+}
+
+.au-team__info {
+  padding: 16px 4px 0;
+  text-align: center;
+}
+
+.au-team__name {
+  font-size: 1.08rem;
+  font-weight: 800;
+  color: #111111;
+  margin-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.au-team__card:hover .au-team__name {
+  color: var(--logo-blue);
+}
+
+.au-team__role {
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #5b6475;
+}
+
+/* ---------- Global presence ---------- */
+.au-geo {
+  position: relative;
+  padding: 100px 0 110px;
+  overflow: hidden;
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(74, 139, 208, 0.3), transparent 45%),
+    linear-gradient(135deg, #071d4a 0%, #0a2c6e 60%, #0d3a86 100%);
+}
+
+.au-geo__header {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 40px;
+}
+
+.au-geo__title {
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+.au-geo__highlight {
+  background: linear-gradient(90deg, #8fc0f5, #f3cf55);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.au-geo__intro {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.04rem;
+  line-height: 1.75;
+}
+
+.au-geo__map {
+  position: relative;
+  max-width: 1100px;
+  aspect-ratio: 360 / 140;
+  margin: 0 auto 48px;
+}
+
+.au-geo__svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.au-geo__dot {
+  fill: rgba(143, 192, 245, 0.35);
+}
+
+.au-geo__arc {
+  fill: none;
+  stroke: rgba(243, 207, 85, 0.35);
+  stroke-width: 0.5;
+  stroke-dasharray: 2 2;
+}
+
+.au-geo__arc-run {
+  fill: none;
+  stroke: #f3cf55;
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-dasharray: 8 300;
+  stroke-dashoffset: 8;
+  opacity: 0;
+}
+
+.is-in .au-geo__arc-run {
+  opacity: 1;
+  animation: auArc 2.8s ease-in-out infinite;
+}
+
+@keyframes auArc {
+  to { stroke-dashoffset: -220; }
+}
+
+.au-geo__pin {
+  position: absolute;
+  z-index: 1;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.is-in .au-geo__pin {
+  animation: auFade 0.6s ease forwards;
+}
+
+@keyframes auFade {
+  to { opacity: 1; }
+}
+
+.au-geo__pin-dot {
+  position: absolute;
+  left: -7px;
+  top: -7px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #f3cf55;
+  box-shadow: 0 0 12px rgba(243, 207, 85, 0.9);
+}
+
+.au-geo__pin-dot::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 2px solid #f3cf55;
+  animation: auPing 2s ease-out infinite;
+}
+
+@keyframes auPing {
+  from { transform: scale(1); opacity: 0.9; }
+  to { transform: scale(3); opacity: 0; }
+}
+
+.au-geo__pin--hub .au-geo__pin-dot {
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(243, 207, 85, 0.6), 0 0 16px rgba(255, 255, 255, 0.8);
+}
+
+.au-geo__pin-label {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px 5px 6px;
+  border-radius: 999px;
+  background: rgba(7, 29, 74, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 0.78rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.au-geo__pin--top .au-geo__pin-label { left: 0; bottom: 14px; transform: translateX(-50%); }
+.au-geo__pin--bottom .au-geo__pin-label { left: 0; top: 14px; transform: translateX(-50%); }
+.au-geo__pin--left .au-geo__pin-label { right: 14px; top: 0; transform: translateY(-50%); }
+.au-geo__pin--right .au-geo__pin-label { left: 14px; top: 0; transform: translateY(-50%); }
+
+.au-geo__flag {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.au-geo__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 880px;
+  margin: 0 auto 40px;
+}
+
+.au-geo__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 26px 16px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.au-geo__stat-value {
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1;
+  background: linear-gradient(90deg, #ffffff, #f3cf55);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.au-geo__stat-label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.au-geo__countries {
+  text-align: center;
+}
+
+.au-geo__lead {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 14px;
+}
+
+.au-geo__countries ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.au-geo__countries li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px 10px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-weight: 700;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.au-geo__countries li:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-3px);
+}
+
+.au-geo__countries .au-geo__flag {
+  width: 24px;
+  height: 24px;
+}
+
+/* ---------- Closing CTA ---------- */
+.au-cta {
+  background: #ffffff;
+  padding: 100px 0 110px;
+}
+
+.au-cta__panel {
+  position: relative;
+  border-radius: 30px;
+  overflow: hidden;
+  text-align: center;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(74, 139, 208, 0.35), transparent 55%),
+    linear-gradient(135deg, #06173d, #0a2c6e 55%, #123f8c);
+  box-shadow: 0 34px 80px rgba(10, 44, 110, 0.35);
+}
+
+.au-cta__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: 0.7;
+}
+
+/* Soft expanding rings behind the heading */
+.au-cta__ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 520px;
+  height: 520px;
+  margin: -260px 0 0 -260px;
+  border-radius: 50%;
+  border: 1px solid rgba(243, 207, 85, 0.25);
+  animation: auRing 6s ease-out infinite;
+  pointer-events: none;
+}
+
+.au-cta__ring--2 {
+  animation-delay: 3s;
+}
+
+@keyframes auRing {
+  from { transform: scale(0.4); opacity: 0.8; }
+  to { transform: scale(1.8); opacity: 0; }
+}
+
+.au-cta__content {
+  position: relative;
+  z-index: 1;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 72px 32px 76px;
+  color: #ffffff;
+}
+
+.au-cta__title {
+  font-size: clamp(1.9rem, 3.8vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+.au-cta__highlight {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  background: linear-gradient(90deg, #8fc0f5, #f3cf55);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.au-cta__lines {
+  margin-bottom: 18px;
+}
+
+.au-cta__line {
+  font-size: clamp(1.02rem, 1.6vw, 1.2rem);
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.au-cta__line--0 {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.au-cta__line--1 {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.is-in .au-cta__line--0 {
+  animation: auUp 0.6s ease 0.2s forwards;
+}
+
+.is-in .au-cta__line--1 {
+  animation: auUp 0.6s ease 0.7s forwards;
+}
+
+.au-cta__text {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 22px;
+}
+
+.au-cta__tagline {
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  font-weight: 800;
+  color: #f3cf55;
+  margin-bottom: 32px;
+}
+
+.au-cta__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+.au-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 32px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.97rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.au-cta__btn--primary {
+  background: linear-gradient(90deg, var(--logo-yellow), #f3cf55);
+  color: #0a2c6e;
+  box-shadow: 0 14px 30px rgba(232, 184, 40, 0.35);
+}
+
+.au-cta__btn--primary span {
+  transition: transform 0.25s ease;
+}
+
+.au-cta__btn--primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(232, 184, 40, 0.45);
+}
+
+.au-cta__btn--primary:hover span {
+  transform: translateX(5px);
+}
+
+.au-cta__btn--ghost {
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.au-cta__btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.14);
+  transform: translateY(-3px);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+  .au-team__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .au-story__inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .au-phil__steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .au-phil__step::after {
+    display: none;
+  }
+  .au-vm__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .au-team__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+  /* On touch screens show the bio under the name instead of on hover */
+  .au-team__overlay {
+    position: static;
+    transform: none;
+    padding: 10px 0 0;
+    background: none;
+    color: #4a5262;
+  }
+  .au-team__photo {
+    overflow: visible;
+  }
+  .au-team__photo img {
+    border-radius: 20px;
+  }
+  .au-team__card {
+    display: flex;
+    flex-direction: column;
+  }
+  .au-team__info {
+    order: -1;
+  }
+  .au-geo__pin-label {
+    font-size: 0.62rem;
+    padding: 3px 7px 3px 4px;
+  }
+  .au-geo__pin-label .au-geo__flag {
+    width: 12px;
+    height: 12px;
+  }
+  .au-geo__stats {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 600px) {
+  .au-hero {
+    padding: 130px 0 64px;
+  }
+  .au-story,
+  .au-vm,
+  .au-team,
+  .au-geo,
+  .au-cta {
+    padding: 72px 0 80px;
+  }
+  .au-phil__steps {
+    grid-template-columns: 1fr;
+  }
+  .au-story__tag {
+    width: 72px;
+    height: 72px;
+    font-size: 0.9rem;
+  }
+  .au-story__line {
+    left: 42px;
+  }
+  .au-vm__card {
+    padding: 32px 22px 34px;
+  }
+  .au-cta__btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .au-hero__eyebrow,
+  .au-hero__title,
+  .au-hero__intro,
+  .au-geo__pin-dot::after,
+  .is-in .au-geo__arc-run,
+  .au-cta__ring {
+    animation: none;
+  }
+  .au-story__caps li,
+  .au-story__milestone,
+  .au-phil__step,
+  .au-vm__card,
+  .au-team__card,
+  .au-geo__pin,
+  .au-cta__line,
+  .is-in .au-story__caps li,
+  .is-in .au-story__milestone,
+  .is-in .au-phil__step,
+  .is-in .au-vm__card,
+  .is-in .au-team__card,
+  .is-in .au-geo__pin,
+  .is-in .au-cta__line--0,
+  .is-in .au-cta__line--1 {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .au-story__line {
+    transform: none;
+    transition: none;
+  }
+}

@@ -1,0 +1,316 @@
+.sap-ai {
+  --logo-blue: #2a6aae;
+  --logo-yellow: #e8b828;
+
+  position: relative;
+  padding: 100px 0 110px;
+  overflow: hidden;
+  /* faint dotted "neural" texture */
+  background:
+    radial-gradient(rgba(42, 106, 174, 0.12) 1px, transparent 1px) 0 0 / 22px 22px,
+    linear-gradient(180deg, #f5f8fd 0%, #ffffff 100%);
+}
+
+.sap-ai__header {
+  text-align: center;
+  max-width: 1040px;
+  margin: 0 auto 56px;
+}
+
+.sap-ai__title {
+  font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #111111;
+  margin-bottom: 20px;
+}
+
+.sap-ai__highlight {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.sap-ai__intro {
+  color: #333a47;
+  font-size: 1.03rem;
+  line-height: 1.75;
+  margin-bottom: 12px;
+}
+
+.sap-ai__subhead {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+  font-weight: 800;
+  color: #111111;
+  margin-bottom: 28px;
+}
+
+.sap-ai__subhead-icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--logo-blue), var(--logo-yellow));
+}
+
+.sap-ai__subhead-icon svg {
+  width: 22px;
+  height: 22px;
+  animation: sapAiTwinkle 2.4s ease-in-out infinite;
+}
+
+@keyframes sapAiTwinkle {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.15) rotate(15deg); }
+}
+
+/* ---------- Possibilities ---------- */
+.sap-ai__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  list-style: none;
+  margin: 0 0 72px;
+  padding: 0;
+}
+
+/* Gradient border that shimmers across each card */
+.sap-ai__card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 20px;
+  border-radius: 16px;
+  border: 1.5px solid transparent;
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(110deg, rgba(42, 106, 174, 0.18) 30%, var(--logo-blue) 45%, var(--logo-yellow) 55%, rgba(42, 106, 174, 0.18) 70%) border-box;
+  background-size: 100% 100%, 300% 100%;
+  background-position: 0 0, 100% 0;
+  box-shadow: 0 10px 26px rgba(42, 106, 174, 0.07);
+  opacity: 0;
+  transform: translateY(26px);
+  transition: box-shadow 0.35s ease, translate 0.35s ease;
+}
+
+.is-in .sap-ai__card {
+  animation:
+    sapAiCardIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards,
+    sapAiShimmer 3.2s linear infinite;
+  animation-delay: 0s, var(--shimmer-delay);
+}
+
+@keyframes sapAiCardIn {
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes sapAiShimmer {
+  from { background-position: 0 0, 100% 0; }
+  to { background-position: 0 0, -200% 0; }
+}
+
+.sap-ai__card:hover {
+  translate: 0 -6px;
+  box-shadow: 0 20px 40px rgba(42, 106, 174, 0.16);
+}
+
+.sap-ai__card-icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  color: var(--logo-blue);
+  background: linear-gradient(135deg, rgba(42, 106, 174, 0.12), rgba(232, 184, 40, 0.18));
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.3s ease;
+}
+
+.sap-ai__card-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.sap-ai__card:hover .sap-ai__card-icon {
+  transform: rotate(20deg) scale(1.12);
+  color: #c99a12;
+}
+
+.sap-ai__card-text {
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #111111;
+}
+
+/* ---------- Chain + tagline ---------- */
+.sap-ai__chain {
+  text-align: center;
+}
+
+.sap-ai__chain-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 26px;
+}
+
+.sap-ai__chain-part {
+  display: flex;
+  align-items: center;
+}
+
+.sap-ai__chain-node {
+  padding: 16px 28px;
+  border-radius: 999px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  white-space: nowrap;
+  opacity: 0;
+  transform: scale(0.7);
+}
+
+.is-in .sap-ai__chain-node {
+  animation: sapAiPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes sapAiPop {
+  to { opacity: 1; transform: none; }
+}
+
+.sap-ai__chain-node--0 {
+  background: #ffffff;
+  border: 2px solid rgba(42, 106, 174, 0.35);
+  color: var(--logo-blue);
+}
+
+.sap-ai__chain-node--1 {
+  background: linear-gradient(135deg, var(--logo-blue), #4a8bd0);
+  color: #ffffff;
+  box-shadow: 0 12px 28px rgba(42, 106, 174, 0.3);
+}
+
+.sap-ai__chain-node--2 {
+  background: linear-gradient(135deg, var(--logo-yellow), #f3cf55);
+  color: #0a2c6e;
+  box-shadow: 0 0 0 6px rgba(232, 184, 40, 0.18), 0 14px 32px rgba(232, 184, 40, 0.35);
+}
+
+.sap-ai__link {
+  position: relative;
+  width: 90px;
+  height: 3px;
+  margin: 0 6px;
+  border-radius: 3px;
+  background: repeating-linear-gradient(90deg, rgba(42, 106, 174, 0.35) 0 8px, transparent 8px 14px);
+}
+
+.sap-ai__link::after {
+  content: '';
+  position: absolute;
+  right: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 6px solid transparent;
+  border-left: 9px solid var(--logo-blue);
+  border-right: 0;
+}
+
+.sap-ai__link-dot {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+  border-radius: 50%;
+  background: var(--logo-yellow);
+  box-shadow: 0 0 10px rgba(232, 184, 40, 0.9);
+  opacity: 0;
+}
+
+.is-in .sap-ai__link-dot {
+  animation: sapAiFlow 1.6s ease-in-out infinite;
+}
+
+@keyframes sapAiFlow {
+  0% { left: 0; opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+.sap-ai__tagline {
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  font-weight: 800;
+  line-height: 1.4;
+  color: #111111;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+  .sap-ai__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .sap-ai__chain-row {
+    flex-direction: column;
+  }
+  .sap-ai__chain-part {
+    flex-direction: column;
+  }
+  .sap-ai__link {
+    width: 3px;
+    height: 40px;
+    margin: 6px 0;
+    background: repeating-linear-gradient(180deg, rgba(42, 106, 174, 0.35) 0 8px, transparent 8px 14px);
+  }
+  .sap-ai__link::after {
+    right: auto;
+    left: 50%;
+    top: auto;
+    bottom: -4px;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top: 9px solid var(--logo-blue);
+    border-bottom: 0;
+  }
+  .sap-ai__link-dot {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .sap-ai {
+    padding: 72px 0 80px;
+  }
+  .sap-ai__grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 56px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sap-ai__card,
+  .is-in .sap-ai__card,
+  .sap-ai__chain-node,
+  .is-in .sap-ai__chain-node {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .sap-ai__subhead-icon svg,
+  .is-in .sap-ai__link-dot {
+    animation: none;
+  }
+}
