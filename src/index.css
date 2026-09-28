@@ -46,7 +46,8 @@ h5 {
 .section-eyebrow.transformation__eyebrow,
 .section-eyebrow.service-hub__eyebrow,
 .section-eyebrow.industries__eyebrow,
-.section-eyebrow.why__eyebrow {
+.section-eyebrow.why__eyebrow,
+.section-eyebrow.partners__eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -65,7 +66,8 @@ h5 {
 .section-eyebrow.transformation__eyebrow::before,
 .section-eyebrow.service-hub__eyebrow::before,
 .section-eyebrow.industries__eyebrow::before,
-.section-eyebrow.why__eyebrow::before {
+.section-eyebrow.why__eyebrow::before,
+.section-eyebrow.partners__eyebrow::before {
   content: '';
   width: 10px;
   height: 10px;

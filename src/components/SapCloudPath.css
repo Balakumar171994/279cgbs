@@ -66,6 +66,16 @@
   margin-bottom: 12px;
 }
 
+/* Wide screens: each intro paragraph on a single line */
+@media (min-width: 1200px) {
+  .sap-cloud__header {
+    max-width: none;
+  }
+  .sap-cloud__intro {
+    white-space: nowrap;
+  }
+}
+
 /* ---------- GROW vs RISE ---------- */
 .sap-cloud__paths {
   position: relative;

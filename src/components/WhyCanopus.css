@@ -286,7 +286,7 @@
   to { transform: scaleX(1); }
 }
 
-.why__badge {
+/* .why__badge {
   position: absolute;
   left: 20px;
   bottom: 22px;
@@ -297,7 +297,7 @@
   border-radius: 14px;
   padding: 12px 18px;
   box-shadow: 0 10px 26px rgba(17, 38, 77, 0.2);
-}
+} */
 
 .why__badge-value {
   font-family: 'Poppins', sans-serif;

@@ -68,9 +68,12 @@ export default function Partners() {
   return (
     <section id="partners" className="partners">
       <div className="container-xl partners__inner">
-        <h2 className="partners__title">
-          Partners &amp; Technology <span className="partners__highlight">Ecosystem</span>
-        </h2>
+        <div className="partners__head">
+          <span className="section-eyebrow partners__eyebrow">Partners &amp; Certifications</span>
+          <h2 className="partners__title">
+            Trusted Technology. <span className="partners__highlight">Recognized Expertise.</span>
+          </h2>
+        </div>
 
         <div className="partners__logos">
           <div className="partners__marquee">

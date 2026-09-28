@@ -178,11 +178,12 @@ export default function WhyCanopus() {
                 className={`why__progress ${paused ? 'is-paused' : ''}`}
                 style={{ animationDuration: `${SLIDE_DELAY}ms` }}
               />
-
+              {/*
               <div className="why__badge">
                 <span className="why__badge-value">10+ Years</span>
                 <span className="why__badge-label">SAP &amp; IT Experience</span>
               </div>
+              */}
             </div>
           </div>
 

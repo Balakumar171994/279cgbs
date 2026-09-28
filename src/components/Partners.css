@@ -7,10 +7,13 @@
 }
 
 .partners__inner {
-  display: grid;
-  grid-template-columns: minmax(240px, 0.8fr) 2.2fr;
-  gap: 48px;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+.partners__head {
+  text-align: center;
 }
 
 .partners__title {
@@ -191,11 +194,7 @@
 
 @media (max-width: 1024px) {
   .partners__inner {
-    grid-template-columns: 1fr;
     gap: 32px;
-  }
-  .partners__title {
-    text-align: center;
   }
 }
 

@@ -35,8 +35,8 @@ export const nav = [
     label: 'Resources',
     href: '/resources',
     dropdown: [
-      { label: 'Blogs / FAQ', href: '/resources#blogs' },
       { label: 'Case Studies', href: '/resources#case-studies' },
+      { label: 'Blogs / FAQ', href: '/resources#blogs' },
     ],
   },
 ]
@@ -437,7 +437,7 @@ export const offices = {
       company: 'Canopus GBS Inc',
       address: ['200 S Washington St, Suite 300,', 'Crawfordsville, Indiana 47933, USA'],
       phone: '+1 (737) 228-1454',
-      email: 'Info_USA@canopusgbs.com',
+      // email: 'Info_USA@canopusgbs.com',
     },
   ],
 }
@@ -825,7 +825,6 @@ export const aboutPage = {
     title: 'Enabling a Future Where Technology Creates Possibility.',
     statement:
       'To be a trusted global technology partner that enables enterprises to transform, innovate, and grow through intelligent, secure, and connected digital ecosystems.',
-    text: 'We envision a future where technology is not simply an IT function, but a catalyst for business agility, innovation, resilience, and sustainable growth.',
   },
   mission: {
     eyebrow: 'Our Mission',
@@ -864,11 +863,11 @@ export const aboutPage = {
     lead: 'Our current presence includes:',
     // lon/lat place each pin on the dotted world map; label = which side the name sits
     countries: [
-      { code: 'us', name: 'United States', lon: -97, lat: 38, label: 'top' },
-      { code: 'ae', name: 'UAE', lon: 54, lat: 24, label: 'left' },
       { code: 'in', name: 'India', lon: 78, lat: 21, label: 'top' },
       { code: 'my', name: 'Malaysia', lon: 102, lat: 4, label: 'right' },
       { code: 'sg', name: 'Singapore', lon: 104, lat: 1, label: 'bottom' },
+      { code: 'ae', name: 'UAE', lon: 54, lat: 24, label: 'left' },
+      { code: 'us', name: 'United States', lon: -97, lat: 38, label: 'top' },
     ],
   },
   cta: {
