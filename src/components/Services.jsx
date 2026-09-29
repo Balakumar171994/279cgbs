@@ -33,7 +33,7 @@ export default function Services({ id = 'services', ids, showHead = true }) {
               <div className="services__icon">{s.icon}</div>
               <h4>{s.title}</h4>
               <p>{s.desc}</p>
-              <Link to="/contact" className="services__link">
+              <Link to={s.href || '/contact'} className="services__link">
                 Learn more &rarr;
               </Link>
             </div>

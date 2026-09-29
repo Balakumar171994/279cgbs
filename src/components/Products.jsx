@@ -23,7 +23,7 @@ export default function Products() {
                 <h3>{p.name}</h3>
                 <span className="products__tagline">{p.tagline}</span>
                 <p>{p.desc}</p>
-                <Link to="/contact" className="products__link">
+                <Link to={p.href || '/contact'} className="products__link">
                   See {p.name} in action &rarr;
                 </Link>
               </div>

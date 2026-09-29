@@ -30,23 +30,25 @@ export default function AboutUsLeadership() {
               <div className="au-team__photo">
                 <img src={photoUrl(p.photo)} alt={p.name} loading="lazy" />
                 <div className="au-team__overlay">
-                  <p className="au-team__bio">{p.bio}</p>
-                  <a
-                    href={p.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="au-team__linkedin"
-                    aria-label={`${p.name} on LinkedIn`}
-                  >
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      <path d={linkedinPath} fill="currentColor" />
-                    </svg>
-                  </a>
+                  {p.bio && <p className="au-team__bio">{p.bio}</p>}
+                  {p.linkedin && (
+                    <a
+                      href={p.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="au-team__linkedin"
+                      aria-label={`${p.name} on LinkedIn`}
+                    >
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d={linkedinPath} fill="currentColor" />
+                      </svg>
+                    </a>
+                  )}
                 </div>
               </div>
               <div className="au-team__info">
                 <h3 className="au-team__name">{p.name}</h3>
-                <p className="au-team__role">{p.title}</p>
+                {p.title && <p className="au-team__role">{p.title}</p>}
               </div>
             </li>
           ))}

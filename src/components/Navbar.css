@@ -46,12 +46,20 @@
   align-items: center;
   gap: 6px;
   padding: 10px 16px;
-  font-size: 0.92rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #1f2937;
   border-radius: 6px;
   transition: color 0.2s ease, background 0.2s ease;
   white-space: nowrap;
+}
+
+/* Menu heading with no page of its own (opens its dropdown only) */
+.navbar__link--button {
+  background: none;
+  border: 0;
+  font-family: inherit;
+  cursor: pointer;
 }
 
 .navbar--scrolled .navbar__link {
@@ -296,6 +304,13 @@
   display: block;
   text-align: center;
   margin: 20px 24px;
+}
+
+/* Narrow desktops: keep all six items on one line at the larger text size */
+@media (max-width: 1200px) {
+  .navbar__link {
+    padding: 10px 10px;
+  }
 }
 
 @media (max-width: 1024px) {

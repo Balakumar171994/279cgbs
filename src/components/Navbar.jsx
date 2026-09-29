@@ -54,13 +54,25 @@ export default function Navbar() {
               onMouseEnter={() => item.dropdown && setOpenMenu(item.label)}
               onMouseLeave={() => item.dropdown && setOpenMenu(null)}
             >
-              <Link
-                to={item.href}
-                className={`navbar__link ${isCurrent(item.href, pathname) ? 'navbar__link--active' : ''}`}
-              >
-                {item.label}
-                {item.dropdown && <span className="navbar__caret" />}
-              </Link>
+              {item.noPage ? (
+                <button
+                  type="button"
+                  className={`navbar__link navbar__link--button ${isCurrent(item.href, pathname) ? 'navbar__link--active' : ''}`}
+                  aria-expanded={openMenu === item.label}
+                  onClick={() => setOpenMenu((m) => (m === item.label ? null : item.label))}
+                >
+                  {item.label}
+                  <span className="navbar__caret" />
+                </button>
+              ) : (
+                <Link
+                  to={item.href}
+                  className={`navbar__link ${isCurrent(item.href, pathname) ? 'navbar__link--active' : ''}`}
+                >
+                  {item.label}
+                  {item.dropdown && <span className="navbar__caret" />}
+                </Link>
+              )}
 
               {item.dropdown && (
                 <div

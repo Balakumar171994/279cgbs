@@ -6,8 +6,13 @@ import HomePage from './pages/HomePage'
 import SapPage from './pages/SapPage'
 import SapSolutionsPage from './pages/SapSolutionsPage'
 import SapManagedPage from './pages/SapManagedPage'
-import DigitalServicesPage from './pages/DigitalServicesPage'
-import ProductsPage from './pages/ProductsPage'
+import DigitalInfraPage from './pages/DigitalInfraPage'
+import CyberTrustPage from './pages/CyberTrustPage'
+import DataAiPage from './pages/DataAiPage'
+import DigitalWorkplacePage from './pages/DigitalWorkplacePage'
+import CarinAiPage from './pages/CarinAiPage'
+import VegAiPage from './pages/VegAiPage'
+import SmartOpsPage from './pages/SmartOpsPage'
 import AboutPage from './pages/AboutPage'
 import ResourcesPage from './pages/ResourcesPage'
 import ContactPage from './pages/ContactPage'
@@ -40,8 +45,13 @@ export default function App() {
           <Route path="/sap" element={<SapPage />} />
           <Route path="/sap-solutions" element={<SapSolutionsPage />} />
           <Route path="/sap-managed-services" element={<SapManagedPage />} />
-          <Route path="/digital-services" element={<DigitalServicesPage />} />
-          <Route path="/products" element={<ProductsPage />} />
+          <Route path="/digital-services/infrastructure-cloud" element={<DigitalInfraPage />} />
+          <Route path="/digital-services/cybersecurity-digital-trust" element={<CyberTrustPage />} />
+          <Route path="/digital-services/data-analytics-ai" element={<DataAiPage />} />
+          <Route path="/digital-services/digital-workplace-automation" element={<DigitalWorkplacePage />} />
+          <Route path="/products/carinai" element={<CarinAiPage />} />
+          <Route path="/products/vegai" element={<VegAiPage />} />
+          <Route path="/products/smartops" element={<SmartOpsPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/resources" element={<ResourcesPage />} />
           <Route path="/contact" element={<ContactPage />} />

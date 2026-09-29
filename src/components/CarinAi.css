@@ -1,0 +1,1118 @@
+.ci-hero,
+.ci-beyond,
+.ci-why,
+.ci-adv,
+.ci-final {
+  --logo-blue: #2566ad;
+  --logo-yellow: #f5c400;
+  --gold-soft: #f3cf55;
+  --navy: #0a2c6e;
+  --navy-dark: #071d4a;
+  --ok: #1f9d6b;
+}
+
+/* ---------- Shared ---------- */
+.ci-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: clamp(0.9rem, 1.4vw, 1.05rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--logo-blue);
+  background: linear-gradient(90deg, rgba(37, 102, 173, 0.12), rgba(245, 196, 0, 0.16));
+  border: 1px solid rgba(37, 102, 173, 0.25);
+  border-radius: 999px;
+  padding: 9px 20px 9px 16px;
+  box-shadow: 0 6px 18px rgba(37, 102, 173, 0.1);
+}
+
+.ci-eyebrow::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--logo-blue), var(--logo-yellow));
+  box-shadow: 0 0 0 4px rgba(37, 102, 173, 0.15);
+}
+
+.ci-eyebrow--dark {
+  color: var(--gold-soft);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+}
+
+.ci-highlight {
+  background: linear-gradient(90deg, var(--logo-blue) 0%, var(--logo-blue) 30%, var(--logo-yellow) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.ci-highlight--dark {
+  background: linear-gradient(90deg, #8fc0f5, var(--gold-soft));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.ci-head {
+  max-width: 860px;
+  margin: 0 auto 44px;
+  text-align: center;
+}
+
+.ci-head--left {
+  margin: 0 0 22px;
+  text-align: left;
+}
+
+.ci-lead {
+  padding-left: 14px;
+  border-left: 4px solid var(--logo-yellow);
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.6;
+  color: #111111;
+}
+
+.ci-body {
+  margin-top: 14px;
+  color: #4a5262;
+  font-size: 1.02rem;
+  line-height: 1.75;
+}
+
+.ci-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 30px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.97rem;
+  color: #ffffff;
+  background: linear-gradient(90deg, var(--logo-blue), #3a86d0);
+  box-shadow: 0 14px 30px rgba(37, 102, 173, 0.3);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ci-btn span {
+  transition: transform 0.25s ease;
+}
+
+.ci-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(37, 102, 173, 0.4);
+}
+
+.ci-btn:hover span {
+  transform: translateX(5px);
+}
+
+.ci-btn--gold {
+  color: var(--navy);
+  background: linear-gradient(90deg, var(--logo-yellow), var(--gold-soft));
+  box-shadow: 0 14px 30px rgba(245, 196, 0, 0.35);
+}
+
+.ci-btn--gold:hover {
+  box-shadow: 0 20px 40px rgba(245, 196, 0, 0.45);
+}
+
+@keyframes ciUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes ciCardIn {
+  to { opacity: 1; transform: none; }
+}
+
+/* ---------- 1. Banner ---------- */
+.ci-hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(245, 196, 0, 0.12), transparent 40%),
+    linear-gradient(180deg, #ffffff 0%, #f5f8fd 100%);
+  padding: 140px 0 90px;
+  border-bottom: 1px solid rgba(37, 102, 173, 0.1);
+}
+
+.ci-hero__inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.ci-hero__logo {
+  display: block;
+  width: min(340px, 80%);
+  height: auto;
+  margin-bottom: 22px;
+  animation: ciUp 0.7s ease both;
+}
+
+.ci-hero__badge {
+  margin-bottom: 20px;
+  animation: ciUp 0.7s ease 0.1s both;
+}
+
+.ci-hero__title {
+  font-size: clamp(2.2rem, 4.6vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #111111;
+  margin-bottom: 12px;
+  animation: ciUp 0.7s ease 0.2s both;
+}
+
+.ci-hero__sub {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+  font-weight: 700;
+  color: var(--logo-blue);
+  margin-bottom: 18px;
+  animation: ciUp 0.7s ease 0.3s both;
+}
+
+.ci-hero__lead {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 12px;
+  padding-left: 14px;
+  border-left: 4px solid var(--logo-yellow);
+  animation: ciUp 0.7s ease 0.45s both;
+}
+
+.ci-hero__intro {
+  color: #333a47;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  margin-bottom: 12px;
+  animation: ciUp 0.7s ease 0.6s both;
+}
+
+.ci-hero__tagline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0 28px;
+  animation: ciUp 0.7s ease 0.8s both;
+}
+
+.ci-hero__tagline span {
+  padding: 9px 18px;
+  border-radius: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: var(--navy);
+  background: #ffffff;
+  border: 1px solid rgba(37, 102, 173, 0.2);
+}
+
+.ci-hero__tagline span:last-child {
+  background: linear-gradient(90deg, var(--logo-yellow), var(--gold-soft));
+  border-color: transparent;
+}
+
+.ci-hero .ci-btn {
+  animation: ciUp 0.7s ease 0.95s both;
+}
+
+/* Platform stack */
+.ci-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  animation: ciUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+}
+
+.ci-stack__outcome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  align-self: center;
+  padding: 12px 22px;
+  border-radius: 999px;
+  color: var(--navy);
+  background: linear-gradient(90deg, var(--logo-yellow), var(--gold-soft));
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  box-shadow: 0 14px 30px rgba(245, 196, 0, 0.35);
+  animation: ciGlow 2.4s ease-in-out infinite;
+}
+
+@keyframes ciGlow {
+  0%, 100% { box-shadow: 0 14px 30px rgba(245, 196, 0, 0.3); }
+  50% { box-shadow: 0 14px 40px rgba(245, 196, 0, 0.6); }
+}
+
+.ci-stack__outcome svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Connector with packets rising upwards */
+.ci-stack__link {
+  position: relative;
+  align-self: center;
+  width: 3px;
+  height: 44px;
+  background: repeating-linear-gradient(180deg, rgba(37, 102, 173, 0.35) 0 5px, transparent 5px 9px);
+}
+
+.ci-stack__link i {
+  position: absolute;
+  left: -3.5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--logo-yellow);
+  box-shadow: 0 0 8px rgba(245, 196, 0, 0.9);
+  animation: ciRise 1.5s ease-in infinite;
+}
+
+@keyframes ciRise {
+  from { top: 100%; opacity: 1; }
+  to { top: 0; opacity: 0; }
+}
+
+.ci-stack__engine {
+  padding: 22px 22px 24px;
+  border-radius: 22px;
+  background: #ffffff;
+  border: 2px solid rgba(37, 102, 173, 0.18);
+  box-shadow: 0 30px 70px rgba(37, 102, 173, 0.2);
+}
+
+.ci-stack__engine-logo {
+  display: block;
+  width: 150px;
+  height: auto;
+  margin: 0 auto 16px;
+}
+
+.ci-stack__engine ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ci-stack__engine li {
+  padding: 12px 10px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--navy);
+  background: #f5f8fd;
+  border: 1px solid rgba(37, 102, 173, 0.14);
+  animation: ciEngine 3.6s ease var(--d) infinite;
+}
+
+@keyframes ciEngine {
+  0%, 22% { color: #ffffff; background: var(--logo-blue); border-color: var(--logo-blue); }
+  28%, 100% { color: var(--navy); background: #f5f8fd; border-color: rgba(37, 102, 173, 0.14); }
+}
+
+.ci-stack__btp {
+  padding: 14px;
+  border-radius: 14px 14px 0 0;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: linear-gradient(90deg, var(--logo-blue), #3a86d0);
+}
+
+.ci-stack__core {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 0 0 18px 18px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: #ffffff;
+  background: var(--navy);
+  box-shadow: 0 18px 36px rgba(10, 44, 110, 0.3);
+}
+
+.ci-stack__core img {
+  width: 54px;
+  height: 30px;
+  object-fit: contain;
+  padding: 4px 6px;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+/* ---------- 2. Intelligence Beyond the SAP Core ---------- */
+.ci-beyond {
+  background: #ffffff;
+  padding: 100px 0;
+}
+
+.ci-beyond__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.ci-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.ci-legend__item {
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.ci-legend__item--manual {
+  color: #6b7485;
+  background: #f3f4f7;
+  border: 1.5px dashed rgba(107, 116, 133, 0.5);
+}
+
+.ci-legend__item--smart {
+  color: #ffffff;
+  background: var(--logo-blue);
+}
+
+.ci-legend__arrow {
+  color: var(--logo-yellow);
+  font-weight: 800;
+}
+
+.ci-orbit {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 1;
+  margin: 0 auto;
+}
+
+.ci-orbit__lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ci-orbit__spoke {
+  stroke: rgba(107, 116, 133, 0.3);
+  stroke-width: 0.4;
+  stroke-dasharray: 1 1.2;
+  transition: stroke 0.5s ease var(--d);
+}
+
+.is-in .ci-orbit__spoke {
+  stroke: var(--logo-blue);
+  animation: ciFlowOut 1.4s linear infinite;
+}
+
+@keyframes ciFlowOut {
+  to { stroke-dashoffset: -4.4; }
+}
+
+.ci-orbit__ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 52%;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 196, 0, 0.14), transparent 70%);
+}
+
+.ci-orbit__ring::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 3px dashed rgba(245, 196, 0, 0.9);
+  animation: ciSpin 16s linear infinite;
+}
+
+@keyframes ciSpin {
+  to { transform: rotate(360deg); }
+}
+
+.ci-orbit__ring-label {
+  position: absolute;
+  left: 50%;
+  top: -14px;
+  z-index: 1;
+  translate: -50% 0;
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--navy);
+  background: linear-gradient(90deg, var(--logo-yellow), var(--gold-soft));
+  box-shadow: 0 6px 16px rgba(245, 196, 0, 0.35);
+}
+
+.ci-orbit__core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 30%;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: var(--navy);
+  box-shadow: 0 18px 40px rgba(10, 44, 110, 0.35);
+}
+
+.ci-orbit__core img {
+  width: 58%;
+  height: auto;
+  padding: 4px 6px;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.ci-orbit__core span {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(0.72rem, 1.3vw, 0.9rem);
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.ci-orbit__node {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  translate: -50% -50%;
+}
+
+/* Starts as a grey, dashed "manual touchpoint" … */
+.ci-orbit__icon {
+  display: grid;
+  place-items: center;
+  width: clamp(46px, 6vw, 60px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  color: #8a93a3;
+  background: #f3f4f7;
+  border: 2px dashed rgba(107, 116, 133, 0.5);
+  transition: color 0.5s ease var(--d), background 0.5s ease var(--d), border-color 0.5s ease var(--d), box-shadow 0.5s ease var(--d), transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) var(--d);
+}
+
+/* … and becomes an "intelligent workflow" when CarinAI reaches it */
+.is-in .ci-orbit__icon {
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--logo-blue), #3a86d0);
+  border: 2px solid #ffffff;
+  box-shadow: 0 12px 26px rgba(37, 102, 173, 0.35);
+  transform: scale(1.08);
+}
+
+.ci-orbit__node:nth-child(odd) .ci-orbit__icon {
+  --smart: linear-gradient(135deg, var(--logo-yellow), var(--gold-soft));
+}
+
+.is-in .ci-orbit__node:nth-child(odd) .ci-orbit__icon {
+  color: var(--navy);
+  background: var(--smart);
+  box-shadow: 0 12px 26px rgba(245, 196, 0, 0.35);
+}
+
+.ci-orbit__icon svg {
+  width: 45%;
+  height: 45%;
+}
+
+.ci-orbit__label {
+  max-width: 110px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: #ffffff;
+  font-size: 0.76rem;
+  font-weight: 800;
+  line-height: 1.3;
+  text-align: center;
+  color: #333a47;
+  box-shadow: 0 4px 10px rgba(17, 17, 17, 0.06);
+}
+
+/* ---------- 3. Why CarinAI? ---------- */
+.ci-why {
+  padding: 100px 0 110px;
+  color: #ffffff;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px) 0 0 / 40px 40px,
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px) 0 0 / 40px 40px,
+    radial-gradient(circle at 15% 0%, rgba(245, 196, 0, 0.15), transparent 40%),
+    linear-gradient(160deg, var(--navy-dark), var(--navy) 65%, #0d3583);
+}
+
+.ci-why .ci-eyebrow {
+  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+}
+
+.ci-why__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ci-why__card {
+  display: flex;
+  flex-direction: column;
+  padding: 28px 26px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: background 0.35s ease, border-color 0.35s ease, translate 0.35s ease;
+}
+
+.is-in .ci-why__card {
+  animation: ciCardIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.ci-why__card:hover {
+  translate: 0 -6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(245, 196, 0, 0.5);
+}
+
+.ci-why__card--wide {
+  grid-column: span 2;
+  background: linear-gradient(150deg, rgba(245, 196, 0, 0.16), rgba(255, 255, 255, 0.05));
+  border-color: rgba(245, 196, 0, 0.4);
+}
+
+.ci-why__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.ci-why__icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 15px;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--logo-blue), #3a86d0);
+}
+
+.ci-why__icon--alt {
+  color: var(--navy);
+  background: linear-gradient(135deg, var(--logo-yellow), var(--gold-soft));
+}
+
+.ci-why__icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.ci-why__num {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.14);
+}
+
+.ci-why__card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.ci-why__card p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.ci-why__visual {
+  margin-top: auto;
+  padding-top: 22px;
+}
+
+/* SAP-native: CarinAI and BTP sit above an untouched core */
+.ci-v-native {
+  display: grid;
+  gap: 6px;
+  max-width: 460px;
+}
+
+.ci-v-native__layer {
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-align: center;
+  opacity: 0;
+}
+
+.is-in .ci-v-native__layer {
+  animation: ciUp 0.5s ease forwards;
+}
+
+.ci-v-native__layer--0 {
+  color: var(--navy);
+  background: linear-gradient(90deg, var(--logo-yellow), var(--gold-soft));
+}
+
+.ci-v-native__layer--1 {
+  color: #ffffff;
+  background: var(--logo-blue);
+}
+
+.ci-v-native__layer--2 {
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* Faster time to value: discovery → deployment */
+.ci-v-value {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.ci-v-value__track {
+  position: relative;
+  flex: 1;
+  height: 4px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.ci-v-value__track i {
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  border-radius: 50%;
+  background: var(--gold-soft);
+  box-shadow: 0 0 10px rgba(243, 207, 85, 0.9);
+  animation: ciTrack 2.2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes ciTrack {
+  0% { left: 0; }
+  80%, 100% { left: 100%; }
+}
+
+/* Scale: one process lights up, then many */
+.ci-v-scale {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  max-width: 200px;
+}
+
+.ci-v-scale i {
+  aspect-ratio: 1;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.12);
+  animation: ciScale 4s ease infinite;
+}
+
+@keyframes ciScale {
+  0%, 10% { background: rgba(255, 255, 255, 0.12); }
+  20%, 85% { background: var(--gold-soft); }
+  100% { background: rgba(255, 255, 255, 0.12); }
+}
+
+/* Control: each safeguard highlights in turn */
+.ci-v-control {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ci-v-control li {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: ciControl 2.4s ease infinite;
+}
+
+@keyframes ciControl {
+  0%, 22% { background: var(--gold-soft); border-color: var(--gold-soft); color: var(--navy); }
+  30%, 100% { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.2); color: #ffffff; }
+}
+
+/* Evolve: task automation grows into orchestration */
+.ci-v-evolve {
+  display: grid;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.ci-v-evolve strong {
+  justify-self: end;
+  color: var(--gold-soft);
+}
+
+.ci-v-evolve__bar {
+  position: relative;
+  height: 8px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+.ci-v-evolve__bar i {
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #8fc0f5, var(--gold-soft));
+  transform-origin: left;
+  transform: scaleX(0.15);
+  transition: transform 2s cubic-bezier(0.22, 1, 0.36, 1) 0.8s;
+}
+
+.is-in .ci-v-evolve__bar i {
+  transform: scaleX(1);
+}
+
+/* ---------- 4. The CarinAI Advantage ---------- */
+.ci-adv {
+  background: #f5f8fd;
+  padding: 100px 0 110px;
+}
+
+.ci-adv .ci-eyebrow {
+  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+}
+
+.ci-adv__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ci-adv__card {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 26px 24px 30px;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid rgba(37, 102, 173, 0.12);
+  box-shadow: 0 10px 26px rgba(37, 102, 173, 0.06);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: box-shadow 0.35s ease, border-color 0.35s ease, translate 0.35s ease;
+}
+
+.is-in .ci-adv__card {
+  animation: ciCardIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.ci-adv__card:hover {
+  translate: 0 -6px;
+  border-color: rgba(37, 102, 173, 0.3);
+  box-shadow: 0 22px 44px rgba(37, 102, 173, 0.15);
+}
+
+.ci-adv__icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--logo-blue), #3a86d0);
+  box-shadow: 0 12px 26px rgba(37, 102, 173, 0.28);
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.ci-adv__icon--alt {
+  color: var(--navy);
+  background: linear-gradient(135deg, var(--logo-yellow), var(--gold-soft));
+  box-shadow: 0 12px 26px rgba(245, 196, 0, 0.3);
+}
+
+.ci-adv__icon svg {
+  width: 27px;
+  height: 27px;
+}
+
+.ci-adv__card:hover .ci-adv__icon {
+  transform: rotate(-8deg) scale(1.1);
+}
+
+.ci-adv__card h3 {
+  font-size: 1.12rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #111111;
+  margin-bottom: 6px;
+}
+
+.ci-adv__card p {
+  color: #4a5262;
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+/* Accent line that fills on hover */
+.ci-adv__line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--logo-blue), var(--logo-yellow));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s ease;
+}
+
+.ci-adv__card:hover .ci-adv__line {
+  transform: scaleX(1);
+}
+
+/* ---------- 5. The Future of SAP ---------- */
+.ci-final {
+  position: relative;
+  overflow: hidden;
+  padding: 110px 0;
+  color: #ffffff;
+  text-align: center;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(245, 196, 0, 0.22), transparent 55%),
+    linear-gradient(160deg, var(--navy-dark), var(--navy) 60%, #0d3583);
+}
+
+.ci-final__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ci-final__title {
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.ci-final__title span {
+  display: block;
+}
+
+.ci-final__text {
+  max-width: 700px;
+  margin-top: 20px;
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.ci-final__steps {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 40px;
+  list-style: none;
+  margin: 32px 0 36px;
+  padding: 0;
+}
+
+.ci-final__steps li {
+  position: relative;
+  padding: 12px 26px;
+  border-radius: 14px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.is-in .ci-final__steps li {
+  animation: ciStepLit 3s ease var(--d) infinite;
+}
+
+@keyframes ciStepLit {
+  0%, 28% { background: var(--gold-soft); border-color: var(--gold-soft); color: var(--navy); }
+  34%, 100% { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.2); color: #ffffff; }
+}
+
+.ci-final__steps li:not(:last-child)::after {
+  content: '\2192';
+  position: absolute;
+  right: -28px;
+  top: 50%;
+  translate: 0 -50%;
+  color: var(--gold-soft);
+}
+
+.ci-final__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 28px;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.25);
+}
+
+.ci-final__brand img {
+  width: 220px;
+  height: auto;
+}
+
+.ci-final__brand span {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.ci-final__tagline {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 14px;
+  margin: 26px 0 32px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--gold-soft);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .ci-hero__inner,
+  .ci-beyond__grid {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+  .ci-why__grid,
+  .ci-adv__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .ci-hero {
+    padding: 120px 0 64px;
+  }
+  .ci-beyond,
+  .ci-why,
+  .ci-adv {
+    padding: 64px 0 76px;
+  }
+  .ci-final {
+    padding: 76px 0;
+  }
+  .ci-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .ci-why__grid,
+  .ci-adv__grid {
+    grid-template-columns: 1fr;
+  }
+  .ci-why__card--wide {
+    grid-column: auto;
+  }
+  .ci-orbit__label {
+    max-width: 80px;
+    font-size: 0.62rem;
+    padding: 2px 6px;
+  }
+  .ci-final__steps {
+    flex-direction: column;
+    gap: 22px;
+  }
+  .ci-final__steps li:not(:last-child)::after {
+    content: '\2193';
+    right: 50%;
+    top: auto;
+    bottom: -22px;
+    translate: 50% 0;
+  }
+  .ci-final__brand img {
+    width: 180px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ci-hero *,
+  .ci-beyond *,
+  .ci-why *,
+  .ci-adv *,
+  .ci-final * {
+    animation: none !important;
+    transition: none !important;
+  }
+  .ci-why__card,
+  .ci-adv__card,
+  .ci-v-native__layer {
+    opacity: 1;
+    transform: none;
+  }
+}

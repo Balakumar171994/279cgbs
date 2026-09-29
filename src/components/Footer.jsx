@@ -8,16 +8,18 @@ const pathFor = (label) => {
   const map = {
     'SAP Solutions': '/sap-solutions',
     'SAP Managed Services': '/sap-managed-services',
-    'Cloud & Infrastructure': '/digital-services#digital-infra',
-    'Cybersecurity': '/digital-services#cybersecurity',
-    'Data & AI': '/digital-services#data-ai',
-    'Digital Workplace': '/digital-services#digital-workplace',
-    'CarinAI': '/products#carinai',
-    'VegAI': '/products#vegai',
-    'SmartOps': '/products#smartops',
+    'Digital Infrastructure & Cloud': '/digital-services/infrastructure-cloud',
+    'Cybersecurity & Digital Trust': '/digital-services/cybersecurity-digital-trust',
+    'Data, Analytics & AI': '/digital-services/data-analytics-ai',
+    'Digital Workplace & Automation': '/digital-services/digital-workplace-automation',
+    'CarinAI': '/products/carinai',
+    'VegAI': '/products/vegai',
+    'SMARTOPS': '/products/smartops',
     'About Us': '/about',
-    'Blogs / FAQ': '/resources#blogs',
-    'Case Studies': '/resources#case-studies',
+    'FAQ': '/resources#faq',
+    // Placeholder until the Digital content is ready (same as the Resources menu)
+    'Digital': '/resources',
+    'Blogs': '/resources#blogs',
     'Contact': '/contact',
   }
   return map[label] || '/'

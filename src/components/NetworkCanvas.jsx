@@ -82,5 +82,6 @@ export default function NetworkCanvas({ className = '' }) {
     }
   }, [])
 
-  return <canvas ref={canvasRef} className={className} aria-hidden="true" />
+  // Hidden on all banners — remove the `style` prop to show the animation again
+  return <canvas ref={canvasRef} className={className} aria-hidden="true" style={{ display: 'none' }} />
 }
