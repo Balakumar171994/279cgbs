@@ -127,9 +127,27 @@
   min-width: 0;
 }
 
+/* Line offices up row by row: country, company, address and phone sit at the
+   same height in every column, however many lines each one wraps to.
+   (4 rows per office — add one if an office gets an email line.) */
+@supports (grid-template-rows: subgrid) {
+  .footer__office {
+    display: grid;
+    grid-row: span 4;
+    grid-template-rows: subgrid;
+    row-gap: 0.35rem;
+    align-content: start;
+  }
+
+  .footer__office-contact {
+    align-self: start;
+  }
+}
+
 .footer__office-country {
   display: flex;
   align-items: center;
+  align-self: start;
   gap: 0.5rem;
   font-family: 'Poppins', sans-serif;
   font-size: 0.95rem;

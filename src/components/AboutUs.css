@@ -582,19 +582,26 @@
   height: 14px;
 }
 
+/* Same space in every card (2 lines for the designation, 3 for the bio)
+   so designations and bios line up across each row */
 .au-team__role {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(2 * 1.4em);
   margin-top: 10px;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  line-height: 1.45;
+  line-height: 1.4;
   color: var(--logo-blue);
 }
 
 .au-team__bio {
   max-width: 280px;
-  margin-top: 12px;
-  font-size: 0.92rem;
-  line-height: 1.7;
+  min-height: calc(3 * 1.65em);
+  margin-top: 10px;
+  font-size: 0.88rem;
+  line-height: 1.65;
   color: #5b6475;
 }
 
@@ -1078,6 +1085,10 @@
 @media (max-width: 480px) {
   .au-team__grid {
     --cols: 1;
+  }
+  .au-team__role,
+  .au-team__bio {
+    min-height: 0;
   }
   .au-team__photo {
     max-width: 190px;

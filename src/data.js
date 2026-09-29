@@ -448,7 +448,7 @@ export const offices = {
     {
       country: 'Saudi Arabia',
       flag: 'sa',
-      // company: add the Saudi entity name when available
+      company: 'Canopus GBS',
       address: ['King Faisal Ibn Abd Al Aziz, Al Rakah Al Janubiyah,', 'Al Khobar 34226 - Saudi Arabia'],
       phone: '+971 5595 34203',
     },
