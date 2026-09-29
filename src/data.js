@@ -40,10 +40,10 @@ export const nav = [
     label: 'Resources',
     href: '/resources',
     dropdown: [
-      { label: 'FAQ', href: '/resources#faq' },
-      // Placeholder until the Digital content is ready
-      { label: 'Digital', href: '/resources' },
       { label: 'Blogs', href: '/resources#blogs' },
+      // Placeholder until the Digital Library content is ready
+      { label: 'Digital Library', href: '/resources' },
+      { label: 'FAQ', href: '/resources#faq' },
     ],
   },
 ]
@@ -446,6 +446,13 @@ export const offices = {
       phone: '+971 5595 34203',
     },
     {
+      country: 'Saudi Arabia',
+      flag: 'sa',
+      // company: add the Saudi entity name when available
+      address: ['King Faisal Ibn Abd Al Aziz, Al Rakah Al Janubiyah,', 'Al Khobar 34226 - Saudi Arabia'],
+      phone: '+971 5595 34203',
+    },
+    {
       country: 'USA',
       flag: 'us',
       company: 'Canopus GBS Inc',
@@ -482,7 +489,7 @@ export const footerLinks = {
   'SAP': ['SAP Solutions', 'SAP Managed Services'],
   'Digital Services': ['Digital Infrastructure & Cloud', 'Cybersecurity & Digital Trust', 'Data, Analytics & AI', 'Digital Workplace & Automation'],
   'Products': ['CarinAI', 'VegAI', 'SMARTOPS'],
-  'Company': ['About Us', 'FAQ', 'Digital', 'Blogs', 'Contact'],
+  'Company': ['About Us', 'Blogs', 'Digital Library', 'FAQ', 'Contact'],
 }
 
 export const sapHero = {
@@ -872,7 +879,7 @@ export const aboutPage = {
     highlight: 'Local Understanding.',
     intro: 'Canopus GBS combines global delivery capabilities with local market understanding to support customers across geographies.',
     stats: [
-      { value: '5', label: 'Countries' },
+      { value: '6', label: 'Countries' },
       { value: '8', label: 'Offices' },
       { value: '100+', label: 'Global Clients' },
     ],
@@ -882,7 +889,8 @@ export const aboutPage = {
       { code: 'in', name: 'India', lon: 78, lat: 21, label: 'top' },
       { code: 'my', name: 'Malaysia', lon: 102, lat: 4, label: 'right' },
       { code: 'sg', name: 'Singapore', lon: 104, lat: 1, label: 'bottom' },
-      { code: 'ae', name: 'UAE', lon: 54, lat: 24, label: 'left' },
+      { code: 'ae', name: 'UAE', lon: 54, lat: 24, label: 'bottom' },
+      { code: 'sa', name: 'Saudi Arabia', lon: 46.7, lat: 24.7, label: 'left' },
       { code: 'us', name: 'United States', lon: -97, lat: 38, label: 'top' },
     ],
   },

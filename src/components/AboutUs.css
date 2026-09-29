@@ -462,16 +462,29 @@
   line-height: 1.75;
 }
 
+/* Round photo, then name, LinkedIn, designation and bio — all centred.
+   Flex (not grid) so a short last row sits in the middle. */
 .au-team__grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 24px;
+  --cols: 4;
+  --gap-x: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 var(--gap-x);
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .au-team__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc((100% - (var(--cols) - 1) * var(--gap-x)) / var(--cols));
+  padding: 40px 8px 44px;
+  text-align: center;
+  /* Thin divider between rows, as in the reference */
+  border-bottom: 1px solid rgba(42, 106, 174, 0.14);
   opacity: 0;
   transform: translateY(34px);
 }
@@ -482,101 +495,64 @@
 
 .au-team__photo {
   position: relative;
-  aspect-ratio: 4 / 5;
-  border-radius: 20px;
-  overflow: hidden;
+  width: 100%;
+  max-width: 210px;
+  aspect-ratio: 1;
+  margin-bottom: 22px;
+  border-radius: 50%;
   background: #eef3fa;
-  box-shadow: 0 14px 32px rgba(17, 17, 17, 0.1);
+  box-shadow: 0 14px 32px rgba(17, 17, 17, 0.12);
 }
 
 .au-team__photo img {
   width: 100%;
   height: 100%;
+  border-radius: 50%;
   object-fit: cover;
-  object-position: center 22%;
+  object-position: center 18%;
   transition: transform 0.6s ease;
 }
 
-/* Gradient border glow on hover */
+/* Gradient ring on hover */
 .au-team__photo::after {
   content: '';
   position: absolute;
-  inset: 0;
-  border-radius: 20px;
+  inset: -7px;
+  border-radius: 50%;
   border: 3px solid transparent;
   background: linear-gradient(135deg, var(--logo-blue), var(--logo-yellow)) border-box;
   -webkit-mask: linear-gradient(#000 0 0) padding-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   opacity: 0;
-  transition: opacity 0.35s ease;
+  transform: scale(0.94);
+  transition: opacity 0.35s ease, transform 0.35s ease;
   pointer-events: none;
 }
 
 .au-team__card:hover .au-team__photo img {
-  transform: scale(1.06);
+  transform: scale(1.04);
 }
 
 .au-team__card:hover .au-team__photo::after {
   opacity: 1;
-}
-
-/* Bio slides up over the photo */
-.au-team__overlay {
-  position: absolute;
-  inset: auto 0 0 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 50px 16px 16px;
-  background: linear-gradient(180deg, transparent, rgba(7, 29, 74, 0.92) 40%);
-  color: #ffffff;
-  transform: translateY(100%);
-  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.au-team__card:hover .au-team__overlay,
-.au-team__card:focus-within .au-team__overlay {
   transform: none;
 }
 
-.au-team__bio {
-  font-size: 0.85rem;
-  line-height: 1.5;
-}
-
-.au-team__linkedin {
-  display: grid;
-  place-items: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 9px;
-  background: #0a66c2;
-  color: #ffffff;
-  transition: transform 0.25s ease, background 0.25s ease;
-}
-
-.au-team__linkedin:hover {
-  background: #ffffff;
-  color: #0a66c2;
-  transform: translateY(-2px);
-}
-
-.au-team__linkedin svg {
-  width: 17px;
-  height: 17px;
-}
-
-.au-team__info {
-  padding: 16px 4px 0;
-  text-align: center;
+/* Name with the LinkedIn icon right after it */
+.au-team__name-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 10px;
 }
 
 .au-team__name {
-  font-size: 1.08rem;
+  font-size: 1.12rem;
   font-weight: 800;
+  letter-spacing: 0.02em;
   color: #111111;
-  margin-bottom: 4px;
   transition: color 0.3s ease;
 }
 
@@ -584,10 +560,41 @@
   color: var(--logo-blue);
 }
 
+.au-team__linkedin {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  background: #0a66c2;
+  color: #ffffff;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.au-team__linkedin:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(10, 102, 194, 0.35);
+}
+
+.au-team__linkedin svg {
+  width: 14px;
+  height: 14px;
+}
+
 .au-team__role {
-  font-size: 0.86rem;
-  font-weight: 600;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  font-weight: 700;
   line-height: 1.45;
+  color: var(--logo-blue);
+}
+
+.au-team__bio {
+  max-width: 280px;
+  margin-top: 12px;
+  font-size: 0.92rem;
+  line-height: 1.7;
   color: #5b6475;
 }
 
@@ -992,7 +999,7 @@
 /* ---------- Responsive ---------- */
 @media (max-width: 1100px) {
   .au-team__grid {
-    grid-template-columns: repeat(3, 1fr);
+    --cols: 3;
   }
 }
 
@@ -1014,29 +1021,14 @@
 
 @media (max-width: 760px) {
   .au-team__grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
-  }
-  /* On touch screens show the bio under the name instead of on hover */
-  .au-team__overlay {
-    position: static;
-    transform: none;
-    padding: 10px 0 0;
-    background: none;
-    color: #4a5262;
-  }
-  .au-team__photo {
-    overflow: visible;
-  }
-  .au-team__photo img {
-    border-radius: 20px;
+    --cols: 2;
+    --gap-x: 18px;
   }
   .au-team__card {
-    display: flex;
-    flex-direction: column;
+    padding: 30px 4px 34px;
   }
-  .au-team__info {
-    order: -1;
+  .au-team__photo {
+    max-width: 160px;
   }
   .au-geo__pin-label {
     font-size: 0.62rem;
@@ -1080,6 +1072,15 @@
   .au-cta__btn {
     width: 100%;
     justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .au-team__grid {
+    --cols: 1;
+  }
+  .au-team__photo {
+    max-width: 190px;
   }
 }
 

@@ -27,6 +27,21 @@ const flags = {
       <rect width="7" height="24" fill="#FF0000" />
     </>
   ),
+  // Saudi Arabia: green field, white script (simplified) above a sword
+  sa: (
+    <>
+      <rect width="24" height="24" fill="#006C35" />
+      <path
+        d="M5.5 10.2c1-.9 1.8.9 2.8 0s1.8.9 2.8 0 1.8.9 2.8 0 1.8.9 2.8 0 1.8.9 2.3.2"
+        fill="none"
+        stroke="#FFFFFF"
+        strokeWidth="1.1"
+        strokeLinecap="round"
+      />
+      <path d="M7 14.6h9.8" stroke="#FFFFFF" strokeWidth="1" strokeLinecap="round" />
+      <path d="M16.8 13.8v1.6" stroke="#FFFFFF" strokeWidth="0.9" strokeLinecap="round" />
+    </>
+  ),
   sg: (
     <>
       <rect width="24" height="12" fill="#EF3340" />

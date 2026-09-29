@@ -348,11 +348,12 @@
   padding: 100px 0;
 }
 
+/* Circle column = circle width, so the arrow spans right up to it */
 .di-re__flow {
   display: grid;
-  grid-template-columns: 1fr 120px 1fr;
+  grid-template-columns: minmax(0, 270px) minmax(120px, 1fr) minmax(0, 440px);
   align-items: stretch;
-  max-width: 1000px;
+  max-width: 920px;
   margin: 0 auto;
 }
 
@@ -363,10 +364,42 @@
   transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* Round "old" box: label and fragmented chips centred inside a dashed circle */
 .di-re__card--from {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  justify-self: center;
+  width: 100%;
+  max-width: 270px;
+  aspect-ratio: 1;
+  padding: 28px;
+  border-radius: 50%;
+  text-align: center;
   background: #f3f4f7;
-  border: 1px dashed rgba(74, 82, 98, 0.3);
+  border: 2px dashed rgba(74, 82, 98, 0.3);
   transform: translateX(-30px);
+}
+
+.di-re__card--from .di-re__label {
+  margin-bottom: 14px;
+}
+
+.di-re__card--from .di-re__chips {
+  justify-content: center;
+  gap: 8px;
+}
+
+.di-re__card--from .di-re__chips li {
+  padding: 7px 12px;
+  font-size: 0.88rem;
+}
+
+/* Natural height, centred on the circle, so there is no empty space below the list */
+.di-re__card--to {
+  align-self: center;
 }
 
 .di-re__card--to {
@@ -470,7 +503,8 @@
   position: relative;
   align-self: center;
   height: 24px;
-  margin: 0 14px;
+  /* Small gap either side so the arrow never touches the circle or the box */
+  margin: 0 12px;
 }
 
 .di-re__arrow-line {
@@ -478,8 +512,8 @@
   left: 0;
   right: 10px;
   top: 50%;
-  height: 3px;
-  margin-top: -1.5px;
+  height: 4px;
+  margin-top: -2px;
   background: repeating-linear-gradient(90deg, var(--logo-blue) 0 8px, transparent 8px 14px);
   background-size: 28px 100%;
   animation: diFlow 0.8s linear infinite;

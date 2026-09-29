@@ -163,8 +163,11 @@
   animation: ciUp 0.7s ease 0.1s both;
 }
 
+/* "Make SAP Work Smarter." on one line (wraps only on phones) */
 .ci-hero__title {
-  font-size: clamp(2.2rem, 4.6vw, 3.4rem);
+  /* Same size as the VegAI and SMARTOPS banner headings */
+  font-size: clamp(1.6rem, 2.7vw, 2.2rem);
+  white-space: nowrap;
   font-weight: 800;
   line-height: 1.1;
   color: #111111;
@@ -1057,6 +1060,9 @@
 }
 
 @media (max-width: 600px) {
+  .ci-hero__title {
+    white-space: normal;
+  }
   .ci-hero {
     padding: 120px 0 64px;
   }

@@ -25,31 +25,29 @@ export default function AboutUsLeadership() {
             <li
               key={p.name}
               className="au-team__card"
-              style={{ animationDelay: `${(i % 5) * 0.08 + Math.floor(i / 5) * 0.2}s` }}
+              style={{ animationDelay: `${(i % 4) * 0.08 + Math.floor(i / 4) * 0.2}s` }}
             >
               <div className="au-team__photo">
                 <img src={photoUrl(p.photo)} alt={p.name} loading="lazy" />
-                <div className="au-team__overlay">
-                  {p.bio && <p className="au-team__bio">{p.bio}</p>}
-                  {p.linkedin && (
-                    <a
-                      href={p.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="au-team__linkedin"
-                      aria-label={`${p.name} on LinkedIn`}
-                    >
-                      <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d={linkedinPath} fill="currentColor" />
-                      </svg>
-                    </a>
-                  )}
-                </div>
               </div>
-              <div className="au-team__info">
+              <div className="au-team__name-row">
                 <h3 className="au-team__name">{p.name}</h3>
-                {p.title && <p className="au-team__role">{p.title}</p>}
+                {p.linkedin && (
+                  <a
+                    href={p.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="au-team__linkedin"
+                    aria-label={`${p.name} on LinkedIn`}
+                  >
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d={linkedinPath} fill="currentColor" />
+                    </svg>
+                  </a>
+                )}
               </div>
+              {p.title && <p className="au-team__role">{p.title}</p>}
+              {p.bio && <p className="au-team__bio">{p.bio}</p>}
             </li>
           ))}
         </ul>

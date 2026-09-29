@@ -16,10 +16,10 @@ const pathFor = (label) => {
     'VegAI': '/products/vegai',
     'SMARTOPS': '/products/smartops',
     'About Us': '/about',
-    'FAQ': '/resources#faq',
-    // Placeholder until the Digital content is ready (same as the Resources menu)
-    'Digital': '/resources',
     'Blogs': '/resources#blogs',
+    // Placeholder until the Digital Library content is ready (same as the Resources menu)
+    'Digital Library': '/resources',
+    'FAQ': '/resources#faq',
     'Contact': '/contact',
   }
   return map[label] || '/'
@@ -80,7 +80,7 @@ export default function Footer() {
                 <Flag code={o.flag} className="footer__flag" />
                 {o.country}
               </div>
-              <div className="footer__office-company">{o.company}</div>
+              {o.company && <div className="footer__office-company">{o.company}</div>}
               <p className="footer__office-address">
                 {o.address.map((line) => (
                   <span key={line}>{line}</span>

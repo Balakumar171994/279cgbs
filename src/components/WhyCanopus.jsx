@@ -4,6 +4,8 @@ import office1 from '../assets/office/office-1.jpg'
 import office2 from '../assets/office/office-2.jpg'
 import office3 from '../assets/office/office-3.jpg'
 import office4 from '../assets/office/office-4.jpg'
+import office5 from '../assets/office/office-5.jpg'
+import office6 from '../assets/office/office-6.jpg'
 import './WhyCanopus.css'
 
 const SLIDE_DELAY = 4500 // how long each photo stays
@@ -16,6 +18,8 @@ const photos = [
   { src: office2, alt: 'Canopus GBS team celebrating a client success' },
   { src: office3, alt: 'Canopus GBS consultants collaborating' },
   { src: office4, alt: 'Canopus GBS workspace' },
+  { src: office5, alt: 'Cloud platform connecting enterprise infrastructure' },
+  { src: office6, alt: 'AI connecting enterprise services and data' },
 ]
 
 // Line icons (24x24, stroke = currentColor)

@@ -146,7 +146,8 @@
 
 .vg-hero__inner {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  /* Wider text side so the two-line heading fits at a larger size */
+  grid-template-columns: 1.2fr 0.8fr;
   gap: 56px;
   align-items: center;
 }
@@ -164,8 +165,10 @@
   animation: vgUp 0.7s ease 0.1s both;
 }
 
+/* Exactly two lines: "From SAP Support That Reacts to" / "SAP Operations That Anticipate." (wraps only on phones) */
 .vg-hero__title {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.6rem, 2.7vw, 2.2rem);
+  white-space: nowrap;
   font-weight: 800;
   line-height: 1.15;
   color: #111111;
@@ -1168,6 +1171,9 @@
 }
 
 @media (max-width: 600px) {
+  .vg-hero__title {
+    white-space: normal;
+  }
   .vg-hero {
     padding: 120px 0 64px;
   }
