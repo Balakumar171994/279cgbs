@@ -585,24 +585,25 @@
 /* Same space in every card (2 lines for the designation, 3 for the bio)
    so designations and bios line up across each row */
 .au-team__role {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   min-height: calc(2 * 1.4em);
   margin-top: 10px;
   font-size: 0.85rem;
   font-weight: 700;
   line-height: 1.4;
   color: var(--logo-blue);
+  /* Even line lengths when a designation wraps */
+  text-wrap: balance;
 }
 
 .au-team__bio {
-  max-width: 280px;
-  min-height: calc(3 * 1.65em);
-  margin-top: 10px;
-  font-size: 0.88rem;
-  line-height: 1.65;
+  max-width: 290px;
+  min-height: calc(3 * 1.6em);
+  margin-top: 8px;
+  font-size: 0.82rem;
+  line-height: 1.6;
   color: #5b6475;
+  /* No single word left alone on the last line */
+  text-wrap: balance;
 }
 
 /* ---------- Global presence ---------- */

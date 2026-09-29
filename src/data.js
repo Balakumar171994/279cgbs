@@ -448,7 +448,7 @@ export const offices = {
     {
       country: 'Saudi Arabia',
       flag: 'sa',
-      company: 'Canopus GBS',
+      company: 'Canopus MENA',
       address: ['King Faisal Ibn Abd Al Aziz, Al Rakah Al Janubiyah,', 'Al Khobar 34226 - Saudi Arabia'],
       phone: '+971 5595 34203',
     },
@@ -869,8 +869,8 @@ export const aboutPage = {
       { photo: 'vijay-shrivastava.jpg', name: 'Vijay Shrivastava', title: 'Head of SAP Practice', bio: 'Leads SAP practice, solution delivery, and enterprise architecture excellence.', linkedin: 'https://www.linkedin.com/in/vishrivastava/' },
       { photo: 'george-baji-philip.jpg', name: 'George Baji Philip', title: 'President – Strategy & Operations', bio: 'Drives global operations strategy, governance, and organizational leadership.', linkedin: 'https://www.linkedin.com/in/georgebajiphilip/' },
       { photo: 'vinod-nair.jpg', name: 'Vinod Nair', title: 'Head / CISO – IT Infrastructure & Cybersecurity', bio: 'Leads cybersecurity, infrastructure strategy, and enterprise IT governance.', linkedin: 'https://www.linkedin.com/in/vinod-v-nair-23283176/' },
-      // Bio and LinkedIn to be added
-      { photo: 'samim.jpg', name: 'Samim Hossain', title: 'Director – Sales', bio: '', linkedin: '' },
+      // Temporary: LinkedIn search for him — replace with his profile URL when available
+      { photo: 'samim.jpg', name: 'Samim Hossain', title: 'Director – Sales', bio: "Leads the sales team and aligns sales goals with the company's broader business vision.", linkedin: 'https://www.linkedin.com/search/results/people/?keywords=Samim%20Hossain%20Canopus%20GBS' },
     ],
   },
   presence: {
