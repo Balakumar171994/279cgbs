@@ -57,10 +57,10 @@ export const hero = {
   statsHeading: 'Technology Expertise. Enterprise Experience. Measurable Outcomes.',
   stats: [
     { value: '10+ Years', label: 'SAP & IT Experience' },
-    { value: '270+', label: 'SAP & Cloud Consultants' },
+    { value: '450+', label: 'SAP & Cloud Consultants' },
     { value: '150+', label: 'Enterprise Projects' },
     { value: '100+', label: 'Global Enterprise Clients' },
-    { value: '5', label: 'Operating Countries' },
+    { value: '6', label: 'Operating Countries' },
   ],
 }
 
@@ -870,7 +870,7 @@ export const aboutPage = {
       { photo: 'george-baji-philip.jpg', name: 'George Baji Philip', title: 'President – Strategy & Operations', bio: 'Drives global operations strategy, governance, and organizational leadership.', linkedin: 'https://www.linkedin.com/in/georgebajiphilip/' },
       { photo: 'vinod-nair.jpg', name: 'Vinod Nair', title: 'Head / CISO – IT Infrastructure & Cybersecurity', bio: 'Leads cybersecurity, infrastructure strategy, and enterprise IT governance.', linkedin: 'https://www.linkedin.com/in/vinod-v-nair-23283176/' },
       // Temporary: LinkedIn search for him — replace with his profile URL when available
-      { photo: 'samim.jpg', name: 'Samim Hossain', title: 'Director – Sales', bio: "Leads the sales team and aligns sales goals with the company's broader business vision.", linkedin: 'https://www.linkedin.com/search/results/people/?keywords=Samim%20Hossain%20Canopus%20GBS' },
+      { photo: 'samim.jpg', name: 'Samim Hossain', title: 'Director – Sales & Alliances', bio: 'Driving enterprise growth through strategic partnerships and global alliances.', linkedin: 'https://www.linkedin.com/search/results/people/?keywords=Samim%20Hossain%20Canopus%20GBS' },
     ],
   },
   presence: {
