@@ -66,14 +66,13 @@ export default function AboutUsPresence() {
             ))}
           </svg>
 
-          {countries.map((c, i) => (
+          {countries.map((c) => (
             <div
               key={c.code}
               className={`au-geo__pin au-geo__pin--${c.label}`}
               style={{
                 left: `${(toX(c.lon) / 360) * 100}%`,
                 top: `${(toY(c.lat) / 140) * 100}%`,
-                animationDelay: `${0.3 + i * 0.2}s`,
               }}
             >
               <span className="au-geo__pin-dot" />
