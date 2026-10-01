@@ -35,6 +35,21 @@
   margin-top: 1.4rem;
 }
 
+/* Small ISO badges on white tiles so they read on the dark footer */
+.footer__certs {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1.1rem;
+}
+
+.footer__certs img {
+  height: 3.2rem;
+  width: auto;
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+  background: #ffffff;
+}
+
 .footer__social-link {
   width: 2.4rem;
   height: 2.4rem;

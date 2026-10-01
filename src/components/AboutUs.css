@@ -662,32 +662,6 @@
   fill: rgba(143, 192, 245, 0.35);
 }
 
-.au-geo__arc {
-  fill: none;
-  stroke: rgba(243, 207, 85, 0.35);
-  stroke-width: 0.5;
-  stroke-dasharray: 2 2;
-}
-
-.au-geo__arc-run {
-  fill: none;
-  stroke: #f3cf55;
-  stroke-width: 1;
-  stroke-linecap: round;
-  stroke-dasharray: 8 300;
-  stroke-dashoffset: 8;
-  opacity: 0;
-}
-
-.is-in .au-geo__arc-run {
-  opacity: 1;
-  animation: auArc 2.8s ease-in-out infinite;
-}
-
-@keyframes auArc {
-  to { stroke-dashoffset: -220; }
-}
-
 .au-geo__pin {
   position: absolute;
   z-index: 1;
@@ -729,11 +703,6 @@
   to { transform: scale(3); opacity: 0; }
 }
 
-.au-geo__pin--hub .au-geo__pin-dot {
-  background: #ffffff;
-  box-shadow: 0 0 0 4px rgba(243, 207, 85, 0.6), 0 0 16px rgba(255, 255, 255, 0.8);
-}
-
 .au-geo__pin-label {
   position: absolute;
   display: inline-flex;
@@ -761,9 +730,9 @@
 
 .au-geo__stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
-  max-width: 880px;
+  max-width: 600px;
   margin: 0 auto 40px;
 }
 
@@ -1101,7 +1070,6 @@
   .au-hero__title,
   .au-hero__intro,
   .au-geo__pin-dot::after,
-  .is-in .au-geo__arc-run,
   .au-cta__ring {
     animation: none;
   }

@@ -150,10 +150,23 @@
   align-items: center;
 }
 
+/* "Lyra" text wordmark (stands in until a Lyra logo image is supplied) */
+.ci-wordmark {
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  background: linear-gradient(90deg, var(--logo-blue) 0%, var(--logo-blue) 40%, var(--logo-yellow) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 .ci-hero__logo {
   display: block;
-  width: min(340px, 80%);
-  height: auto;
+  width: max-content;
+  font-size: clamp(3rem, 6vw, 4.5rem);
   margin-bottom: 22px;
   animation: ciUp 0.7s ease both;
 }
@@ -301,8 +314,8 @@
 
 .ci-stack__engine-logo {
   display: block;
-  width: 150px;
-  height: auto;
+  width: max-content;
+  font-size: 2.2rem;
   margin: 0 auto 16px;
 }
 
@@ -536,7 +549,7 @@
   transition: color 0.5s ease var(--d), background 0.5s ease var(--d), border-color 0.5s ease var(--d), box-shadow 0.5s ease var(--d), transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) var(--d);
 }
 
-/* … and becomes an "intelligent workflow" when CarinAI reaches it */
+/* … and becomes an "intelligent workflow" when Lyra reaches it */
 .is-in .ci-orbit__icon {
   color: #ffffff;
   background: linear-gradient(135deg, var(--logo-blue), #3a86d0);
@@ -573,7 +586,7 @@
   box-shadow: 0 4px 10px rgba(17, 17, 17, 0.06);
 }
 
-/* ---------- 3. Why CarinAI? ---------- */
+/* ---------- 3. Why Lyra? ---------- */
 .ci-why {
   padding: 100px 0 110px;
   color: #ffffff;
@@ -677,7 +690,7 @@
   padding-top: 22px;
 }
 
-/* SAP-native: CarinAI and BTP sit above an untouched core */
+/* SAP-native: Lyra and BTP sit above an untouched core */
 .ci-v-native {
   display: grid;
   gap: 6px;
@@ -831,7 +844,7 @@
   transform: scaleX(1);
 }
 
-/* ---------- 4. The CarinAI Advantage ---------- */
+/* ---------- 4. The Lyra Advantage ---------- */
 .ci-adv {
   background: #f5f8fd;
   padding: 100px 0 110px;
@@ -1021,9 +1034,8 @@
   box-shadow: 0 20px 44px rgba(0, 0, 0, 0.25);
 }
 
-.ci-final__brand img {
-  width: 220px;
-  height: auto;
+.ci-final__brand .ci-wordmark {
+  font-size: 3rem;
 }
 
 .ci-final__brand span {
@@ -1101,8 +1113,8 @@
     bottom: -22px;
     translate: 50% 0;
   }
-  .ci-final__brand img {
-    width: 180px;
+  .ci-final__brand .ci-wordmark {
+    font-size: 2.4rem;
   }
 }
 

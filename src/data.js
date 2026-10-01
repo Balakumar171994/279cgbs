@@ -30,9 +30,13 @@ export const nav = [
     href: '/products',
     noPage: true,
     dropdown: [
-      { label: 'CarinAI', href: '/products/carinai' },
-      { label: 'VegAI', href: '/products/vegai' },
-      { label: 'SMARTOPS', href: '/products/smartops' },
+      { label: 'Lyra', href: '/products/lyra' },
+      {
+        label: 'VegAI',
+        href: '/products/vegai',
+        // Side menu that opens from VegAI
+        dropdown: [{ label: 'SMARTOPS', href: '/products/smartops' }],
+      },
     ],
   },
   { label: 'About Us', href: '/about' },
@@ -41,9 +45,9 @@ export const nav = [
     href: '/resources',
     dropdown: [
       { label: 'Blogs', href: '/resources#blogs' },
-      // Placeholder until the Digital Library content is ready
-      { label: 'Digital Library', href: '/resources' },
-      { label: 'FAQ', href: '/resources#faq' },
+      { label: 'Case Studies', href: '/resources#case-studies' },
+      // Placeholder until the Events content is ready
+      { label: 'Events', href: '/resources' },
     ],
   },
 ]
@@ -57,8 +61,6 @@ export const hero = {
   statsHeading: 'Technology Expertise. Enterprise Experience. Measurable Outcomes.',
   stats: [
     { value: '10+ Years', label: 'SAP & IT Experience' },
-    { value: '450+', label: 'SAP & Cloud Consultants' },
-    { value: '150+', label: 'Enterprise Projects' },
     { value: '100+', label: 'Global Enterprise Clients' },
     { value: '6', label: 'Operating Countries' },
   ],
@@ -95,7 +97,7 @@ export const serviceHub = {
     { label: 'Cybersecurity', icon: 'shield' },
     { label: 'AI & Innovation', icon: 'ai' },
     { label: 'Data Analytics', icon: 'chart' },
-    { label: 'Managed Services', icon: 'headset' },
+    { label: '24/7', icon: 'headset' },
     { label: 'ERP', icon: 'erp' },
   ],
 }
@@ -115,7 +117,8 @@ export const industries = {
     { label: 'Pharmaceuticals & Healthcare', icon: 'health' },
     { label: 'Logistics & Supply Chain', icon: 'truck' },
     { label: 'Retail & Consumer', icon: 'bag' },
-    { label: 'Professional Services', icon: 'briefcase' },
+    { label: 'Alcobev', icon: 'bottle' },
+    { label: 'Semi-conductors', icon: 'chip' },
     { label: 'Other Enterprise Industries', icon: 'building' },
   ],
 }
@@ -191,7 +194,7 @@ export const pageHeaders = {
     eyebrow: 'Innovation & Products',
     title: 'Innovation &',
     highlight: 'Products',
-    text: 'CarinAI, VegAI and SmartOps — purpose-built platforms engineered specifically for the SAP ecosystem.',
+    text: 'Lyra, VegAI and SmartOps — purpose-built platforms engineered specifically for the SAP ecosystem.',
   },
   about: {
     eyebrow: 'About Us',
@@ -238,7 +241,7 @@ export const pillars = [
     title: 'Automate with AI Products',
     tag: 'Proprietary Innovation',
     bullets: [
-      'CarinAI resolves SAP tickets autonomously',
+      'Lyra resolves SAP tickets autonomously',
       'VegAI predicts and prevents system downtime',
       'SmartOps unifies IT service, asset & ops data',
       'Purpose-built IP, not generic tooling',
@@ -285,9 +288,9 @@ export const services = [
 
 export const products = [
   {
-    id: 'carinai',
-    name: 'CarinAI',
-    href: '/products/carinai',
+    id: 'lyra',
+    name: 'Lyra',
+    href: '/products/lyra',
     tagline: 'Intelligent SAP Automation Platform',
     desc: 'A machine-learning engine that auto-resolves L1/L2 SAP tickets, cutting ticket volume and manual effort dramatically.',
     accent: 'from-navy to-navy-light',
@@ -311,7 +314,7 @@ export const products = [
 ]
 
 export const stats2 = [
-  { value: '60%', label: 'Faster Issue Resolution', note: 'Powered by CarinAI' },
+  { value: '60%', label: 'Faster Issue Resolution', note: 'Powered by Lyra' },
   { value: '40%', label: 'Lower SAP Operations Cost', note: 'Via managed AMS' },
   { value: '99.9%', label: 'System Uptime', note: 'Across managed estates' },
   { value: '3x', label: 'Faster Migrations', note: 'Zero business disruption' },
@@ -326,7 +329,7 @@ export const testimonials = [
   },
   {
     quote:
-      'What impressed us most was the AMS transition. Ticket volumes dropped within the first quarter once CarinAI was in place, and our team finally got out of firefighting mode.',
+      'What impressed us most was the AMS transition. Ticket volumes dropped within the first quarter once Lyra was in place, and our team finally got out of firefighting mode.',
     name: 'Ananya Kapoor',
     role: 'VP IT Operations, Retail Group',
   },
@@ -362,7 +365,7 @@ export const caseStudies = [
     outcome: '45% faster financial close, zero downtime cutover.',
   },
   {
-    title: 'Retail Group Cuts SAP Ticket Volume by 60% with CarinAI',
+    title: 'Retail Group Cuts SAP Ticket Volume by 60% with Lyra',
     outcome: 'AI-driven auto-resolution freed up 3 FTEs for higher-value work.',
   },
   {
@@ -377,7 +380,7 @@ export const faqs = [
     a: 'Yes — we assess your landscape and recommend greenfield, brownfield, or selective data transition based on your business goals and technical debt.',
   },
   {
-    q: 'Can CarinAI and VegAI integrate with our existing AMS provider?',
+    q: 'Can Lyra and VegAI integrate with our existing AMS provider?',
     a: 'Both products are designed to sit natively on SAP BTP and integrate with standard ITSM tooling, so they can complement an existing AMS setup.',
   },
   {
@@ -405,7 +408,7 @@ export const finalCta = {
   eyebrow: 'Ready When You Are',
   title: 'Let\u2019s Engineer Your Next Phase of Growth',
   subtitle:
-    'Whether it\u2019s an S/4HANA migration, a cloud transformation, or deploying CarinAI across your SAP estate — our team is ready to scope it with you.',
+    'Whether it\u2019s an S/4HANA migration, a cloud transformation, or deploying Lyra across your SAP estate — our team is ready to scope it with you.',
   primaryCta: { label: 'Book a Strategy Call', href: '/contact' },
   secondaryCta: { label: 'Talk to an Expert', href: '/contact' },
 }
@@ -443,14 +446,14 @@ export const offices = {
       flag: 'ae',
       company: 'Canopus GBS FZCO',
       address: ['Building A2, Dubai Digital Park,', 'Dubai Silicon Oasis, Dubai, UAE'],
-      phone: '+971 5595 34203',
+      phone: '+971557033175',
     },
     {
       country: 'Saudi Arabia',
       flag: 'sa',
       company: 'Canopus MENA',
       address: ['King Faisal Ibn Abd Al Aziz, Al Rakah Al Janubiyah,', 'Al Khobar 34226 - Saudi Arabia'],
-      phone: '+971 5595 34203',
+      phone: '+966-533297422',
     },
     {
       country: 'USA',
@@ -488,7 +491,7 @@ export const socials = [
 export const footerLinks = {
   'SAP': ['SAP Solutions', 'SAP Managed Services'],
   'Digital Services': ['Digital Infrastructure & Cloud', 'Cybersecurity & Digital Trust', 'Data, Analytics & AI', 'Digital Workplace & Automation'],
-  'Products': ['CarinAI', 'VegAI', 'SMARTOPS'],
+  'Products': ['Lyra', 'VegAI', 'SMARTOPS'],
   'Company': ['About Us', 'Blogs', 'Digital Library', 'FAQ', 'Contact'],
 }
 
@@ -496,12 +499,12 @@ export const sapHero = {
   title: 'SAP Transformation to Continuous Innovation —',
   highlight: 'One Partner for Your Entire SAP Journey.',
   paragraphs: [
-    'Canopus GBS helps enterprises transform, modernize, and continuously optimize their SAP landscape with end-to-end capabilities across SAP S/4HANA, GROW with SAP, RISE with SAP, SAP BTP, integrations, custom development, automation, and SAP managed services.',
+    'Canopus GBS helps enterprises transform, modernize, and continuously optimize their SAP landscape with end-to-end capabilities across SAP S/4HANA, SAP GROW, RISE with SAP, SAP BTP, integrations, custom development, automation, and SAP managed services.',
     'From your first SAP transformation to migration, modernization, enhancement, and ongoing support, we help you build an SAP environment that is scalable, secure, intelligent, and aligned to your business goals.',
   ],
   primaryCta: { label: 'Explore SAP Solutions', href: '/sap#sap-journey' },
   secondaryCta: { label: 'Talk to an SAP Expert', href: '/contact' },
-  orbit: ['S/4HANA', 'RISE with SAP', 'GROW with SAP', 'SAP BTP', 'Integration', 'AMS'],
+  orbit: ['S/4HANA', 'RISE with SAP', 'SAP GROW', 'SAP BTP', 'Integration', 'AMS'],
 }
 
 export const sapJourney = {
@@ -550,7 +553,7 @@ export const sapSolutions = {
     },
     {
       icon: 'grow',
-      title: 'GROW with SAP',
+      title: 'SAP GROW',
       text: 'Accelerate your move to SAP S/4HANA Cloud Public Edition with a standardized, scalable, and cloud-first approach designed for organizations looking to adopt modern ERP with speed and agility.',
     },
     {
@@ -587,7 +590,7 @@ export const sapSolutions = {
 }
 
 export const sapCloudPath = {
-  eyebrow: 'GROW with SAP & RISE with SAP',
+  eyebrow: 'SAP GROW & RISE with SAP',
   title: 'Choose the SAP Cloud Path That',
   highlight: 'Fits Your Transformation',
   intro: [
@@ -597,7 +600,7 @@ export const sapCloudPath = {
   paths: [
     {
       icon: 'grow',
-      title: 'GROW with SAP',
+      title: 'SAP GROW',
       tagline: 'For organizations embracing a standardized cloud ERP journey.',
       points: [
         'SAP S/4HANA Cloud Public Edition',
@@ -810,7 +813,7 @@ export const sapCoe = {
 export const sapFinalCta = {
   title: 'Ready to Transform Your',
   highlight: 'SAP Landscape?',
-  text: "Whether you're evaluating GROW with SAP, RISE with SAP, S/4HANA, SAP migration, BTP, automation, or SAP managed services, Canopus GBS can help you define the right path and execute it with confidence.",
+  text: "Whether you're evaluating SAP GROW, RISE with SAP, S/4HANA, SAP migration, BTP, automation, or SAP managed services, Canopus GBS can help you define the right path and execute it with confidence.",
   tagline: "Let's Build Your Next-Generation SAP Enterprise.",
   primaryCta: { label: 'Talk to an SAP Expert', href: '/contact' },
   secondaryCta: { label: 'Explore SAP Solutions', href: '/sap-solutions' },
@@ -864,7 +867,7 @@ export const aboutPage = {
       { photo: 'sanjeev-tyagi.jpeg', name: 'Sanjeev Tyagi', title: 'Chief Digital Officer & President – MENA', bio: 'Drives digital transformation and enterprise modernization across the MENA region.', linkedin: 'https://www.linkedin.com/in/sanjeev-tyagi-85475329/' },
       { photo: 'ravichandra-m.jpeg', name: 'Ravichandra M', title: 'President – India', bio: 'Oversees India operations, SAP programs, and enterprise delivery initiatives.', linkedin: 'https://www.linkedin.com/in/ravichandra-mokshagundam-mrc/' },
       { photo: 'praveen-akolkar.jpeg', name: 'Praveen Akolkar', title: 'Chief Business Officer', bio: 'Leads business growth, customer success, and strategic engagements globally.', linkedin: 'https://www.linkedin.com/in/praveenakolkar/' },
-      { photo: 'george-baji-philip.jpg', name: 'George Baji Philip', title: 'President – Strategy & Operations', bio: 'Drives global operations strategy, governance, and organizational leadership.', linkedin: 'https://www.linkedin.com/in/georgebajiphilip/' },
+      { photo: 'george-baji-philip-web.jpg', name: 'George Baji Philip', title: 'President – Strategy & Operations', bio: 'Drives global operations strategy, governance, and organizational leadership.', linkedin: 'https://www.linkedin.com/in/georgebajiphilip/' },
       { photo: 'ss-reddy.jpeg', name: 'S S Reddy (Vasu)', title: 'Chief Finance Officer', bio: 'Heads finance, governance, and compliance across global Canopus operations.', linkedin: 'https://www.linkedin.com/in/seelareddy-s-35583116/' },
       { photo: 'ravi-chodavarapu.jpg', name: 'Ravi Chodavarapu', title: 'President – North America, Head of Data & AI', bio: 'Responsible for global Data & AI, strategic partnerships, and North America business.', linkedin: 'https://www.linkedin.com/in/ravichodavarapu/' },
       { photo: 'vijay-shrivastava.jpg', name: 'Vijay Shrivastava', title: 'Head of SAP Practice', bio: 'Leads SAP practice, solution delivery, and enterprise architecture excellence.', linkedin: 'https://www.linkedin.com/in/vishrivastava/' },
@@ -879,9 +882,8 @@ export const aboutPage = {
     highlight: 'Local Understanding.',
     intro: 'Canopus GBS combines global delivery capabilities with local market understanding to support customers across geographies.',
     stats: [
+      { value: '10', label: 'Offices' },
       { value: '6', label: 'Countries' },
-      { value: '8', label: 'Offices' },
-      { value: '100+', label: 'Global Clients' },
     ],
     lead: 'Our current presence includes:',
     // lon/lat place each pin on the dotted world map; label = which side the name sits
@@ -1471,13 +1473,13 @@ export const carinAi = {
   title: 'Make SAP Work',
   highlight: 'Smarter.',
   subtitle: 'From SAP Processes to Intelligent Outcomes.',
-  lead: 'SAP runs the enterprise. CarinAI makes it move faster.',
+  lead: 'SAP runs the enterprise. Lyra makes it move faster.',
   intro: [
-    'CarinAI is Canopus GBS’s intelligent automation platform, built on SAP BTP to transform repetitive, manual, and fragmented SAP processes into intelligent digital workflows.',
+    'Lyra is Canopus GBS’s intelligent automation platform, built on SAP BTP to transform repetitive, manual, and fragmented SAP processes into intelligent digital workflows.',
     'It brings together automation, AI, business rules, and process intelligence to simplify the work that happens around the SAP core—helping enterprises accelerate execution without compromising control, governance, or scalability.',
   ],
   tagline: ['Automate the Routine.', 'Accelerate the Critical.'],
-  cta: { label: 'See CarinAI in Action', href: '/contact' },
+  cta: { label: 'See Lyra in Action', href: '/contact' },
   // Banner platform graphic, top to bottom
   stack: {
     outcome: 'Intelligent Digital Workflows',
@@ -1488,9 +1490,9 @@ export const carinAi = {
 
   beyond: {
     eyebrow: 'Intelligence Beyond the SAP Core',
-    text: 'CarinAI is designed to address the operational gaps that traditional SAP implementations often leave behind.',
+    text: 'Lyra is designed to address the operational gaps that traditional SAP implementations often leave behind.',
     closing:
-      'From approvals and master data to procurement, finance, document processing, and access governance, CarinAI helps turn manual touchpoints into connected, intelligent workflows.',
+      'From approvals and master data to procurement, finance, document processing, and access governance, Lyra helps turn manual touchpoints into connected, intelligent workflows.',
     areas: [
       { icon: 'check', label: 'Approvals' },
       { icon: 'database', label: 'Master Data' },
@@ -1504,7 +1506,7 @@ export const carinAi = {
   },
 
   why: {
-    eyebrow: 'Why CarinAI?',
+    eyebrow: 'Why Lyra?',
     items: [
       {
         icon: 'layers',
@@ -1538,7 +1540,7 @@ export const carinAi = {
       },
     ],
     // Labels used by the small visuals inside the cards
-    nativeLayers: ['CarinAI', 'SAP BTP', 'SAP Core'],
+    nativeLayers: ['Lyra', 'SAP BTP', 'SAP Core'],
     valueSteps: ['Discovery', 'Deployment'],
     controlParts: ['AI', 'Business Rules', 'Governance', 'Human Oversight'],
     evolveFrom: 'Task automation',
@@ -1546,7 +1548,7 @@ export const carinAi = {
   },
 
   advantage: {
-    eyebrow: 'The CarinAI Advantage',
+    eyebrow: 'The Lyra Advantage',
     items: [
       { icon: 'hand', title: 'Less Manual Intervention', text: 'Reduce repetitive operational effort.' },
       { icon: 'fast', title: 'Faster Process Cycles', text: 'Move approvals, transactions, and workflows forward faster.' },
@@ -1560,9 +1562,9 @@ export const carinAi = {
   final: {
     title: "The Future of SAP Isn't Just Digital.",
     highlight: "It's Intelligent.",
-    text: 'CarinAI helps enterprises move from processes that require constant human effort to workflows that can intelligently understand, decide, and act.',
+    text: 'Lyra helps enterprises move from processes that require constant human effort to workflows that can intelligently understand, decide, and act.',
     steps: ['Understand', 'Decide', 'Act'],
-    byline: 'CarinAI by Canopus GBS',
+    byline: 'Lyra by Canopus GBS',
     tagline: ['Intelligent Automation.', 'Built for SAP.', 'Designed for Business.'],
   },
 }

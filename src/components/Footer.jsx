@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom'
 import { footerLinks, offices, socials } from '../data'
 import Flag from './Flag'
 import logo from '../assets/cgbs white.png'
+import iso9001 from '../assets/partner/ISO 9001.png'
+import iso27001 from '../assets/partner/ISO 27001.png'
 import './Footer.css'
 
 const pathFor = (label) => {
@@ -12,7 +14,7 @@ const pathFor = (label) => {
     'Cybersecurity & Digital Trust': '/digital-services/cybersecurity-digital-trust',
     'Data, Analytics & AI': '/digital-services/data-analytics-ai',
     'Digital Workplace & Automation': '/digital-services/digital-workplace-automation',
-    'CarinAI': '/products/carinai',
+    'Lyra': '/products/lyra',
     'VegAI': '/products/vegai',
     'SMARTOPS': '/products/smartops',
     'About Us': '/about',
@@ -48,6 +50,10 @@ export default function Footer() {
                 </svg>
               </a>
             ))}
+          </div>
+          <div className="footer__certs">
+            <img src={iso9001} alt="ISO 9001:2015 Certified" loading="lazy" />
+            <img src={iso27001} alt="ISO 27001 Certified" loading="lazy" />
           </div>
         </div>
 

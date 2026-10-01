@@ -17,6 +17,8 @@ import iso9001 from '../assets/partner/ISO 9001.png'
 import iso27001 from '../assets/partner/ISO 27001.png'
 import smartIndustry from '../assets/partner/Smart industry.png'
 import nasscom from '../assets/partner/Nasscom.png'
+// Softwareone.svg is really a WebP image, so the correctly named copy is used
+import softwareone from '../assets/partner/softwareone.webp'
 import './Partners.css'
 
 const technologyPartners = [
@@ -32,7 +34,11 @@ const technologyPartners = [
   { name: 'Kyndryl', logo: kyndryl },
   { name: 'ICT Distribution', logo: ict },
   { name: 'HOPE', logo: hope },
+  { name: 'SoftwareOne', logo: softwareone },
 ]
+
+// Certification cards under the moving row are hidden for now (ISO badges are in the footer)
+const SHOW_CERTIFICATIONS = false
 
 const certifications = [
   { name: 'UpGuard', logo: upguard },
@@ -111,13 +117,15 @@ export default function Partners() {
           </button>
           </div>
 
-          <ul className="partners__certs" aria-label="Certifications and memberships">
-            {certifications.map((c) => (
-              <li key={c.name} className="partners__cert">
-                <img src={c.logo} alt={c.name} className="partners__logo" loading="lazy" />
-              </li>
-            ))}
-          </ul>
+          {SHOW_CERTIFICATIONS && (
+            <ul className="partners__certs" aria-label="Certifications and memberships">
+              {certifications.map((c) => (
+                <li key={c.name} className="partners__cert">
+                  <img src={c.logo} alt={c.name} className="partners__logo" loading="lazy" />
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
     </section>

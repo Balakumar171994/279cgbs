@@ -48,19 +48,6 @@ export default function AboutUsPresence() {
     return out
   }, [])
 
-  // Arcs from India (hub) out to the other offices
-  const hub = countries.find((c) => c.code === 'in')
-  const arcs = countries
-    .filter((c) => c !== hub)
-    .map((c) => {
-      const x1 = toX(hub.lon)
-      const y1 = toY(hub.lat)
-      const x2 = toX(c.lon)
-      const y2 = toY(c.lat)
-      const lift = Math.max(8, Math.abs(x2 - x1) * 0.35)
-      return `M${x1} ${y1} Q${(x1 + x2) / 2} ${Math.min(y1, y2) - lift} ${x2} ${y2}`
-    })
-
   return (
     <section ref={ref} className={`au-geo${inView ? ' is-in' : ''}`}>
       <div className="container-xl">
@@ -77,18 +64,12 @@ export default function AboutUsPresence() {
             {dots.map(([x, y]) => (
               <circle key={`${x}-${y}`} cx={x} cy={y} r="0.9" className="au-geo__dot" />
             ))}
-            {arcs.map((d, i) => (
-              <g key={d}>
-                <path d={d} className="au-geo__arc" />
-                <path d={d} className="au-geo__arc-run" style={{ animationDelay: `${0.6 + i * 0.5}s` }} />
-              </g>
-            ))}
           </svg>
 
           {countries.map((c, i) => (
             <div
               key={c.code}
-              className={`au-geo__pin au-geo__pin--${c.label}${c === hub ? ' au-geo__pin--hub' : ''}`}
+              className={`au-geo__pin au-geo__pin--${c.label}`}
               style={{
                 left: `${(toX(c.lon) / 360) * 100}%`,
                 top: `${(toY(c.lat) / 140) * 100}%`,

@@ -49,6 +49,22 @@ const icons = {
       <path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 13h18" />
     </>
   ),
+  // Alcobev: bottle and glass
+  bottle: (
+    <>
+      <path d="M9 2h3M9.5 2v4.5L7.5 10v11h6V10l-2-3.5V2" />
+      <path d="M7.5 14h6" />
+      <path d="M16 11h5l-.6 5a1.9 1.9 0 0 1-3.8 0L16 11zM18.5 18v3M17 21h3" />
+    </>
+  ),
+  // Semi-conductors: microchip
+  chip: (
+    <>
+      <rect x="6" y="6" width="12" height="12" rx="1.5" />
+      <rect x="9.5" y="9.5" width="5" height="5" rx="0.8" />
+      <path d="M9 2.5V6M12 2.5V6M15 2.5V6M9 18v3.5M12 18v3.5M15 18v3.5M2.5 9H6M2.5 12H6M2.5 15H6M18 9h3.5M18 12h3.5M18 15h3.5" />
+    </>
+  ),
   building: (
     <>
       <path d="M4 21V4h10v17M14 9h6v12M2 21h20" />

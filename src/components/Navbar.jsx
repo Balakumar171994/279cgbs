@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { Fragment, useState, useRef, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { nav, socials } from '../data'
 import logo from '../assets/canopus-logo-landscape.png'
@@ -80,11 +80,31 @@ export default function Navbar() {
                     openMenu === item.label ? 'navbar__dropdown--open' : ''
                   }`}
                 >
-                  {item.dropdown.map((sub) => (
-                    <Link key={sub.label} to={sub.href} className="navbar__dropdown-link">
-                      <span className="navbar__dropdown-title">{sub.label}</span>
-                    </Link>
-                  ))}
+                  {item.dropdown.map((sub) =>
+                    sub.dropdown ? (
+                      // Item with its own side menu (e.g. VegAI → SMARTOPS)
+                      <div key={sub.label} className="navbar__dropdown-group">
+                        <Link
+                          to={sub.href}
+                          className="navbar__dropdown-link navbar__dropdown-link--parent"
+                        >
+                          <span className="navbar__dropdown-title">{sub.label}</span>
+                          <span className="navbar__subcaret" aria-hidden="true" />
+                        </Link>
+                        <div className="navbar__flyout">
+                          {sub.dropdown.map((child) => (
+                            <Link key={child.label} to={child.href} className="navbar__dropdown-link">
+                              <span className="navbar__dropdown-title">{child.label}</span>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      <Link key={sub.label} to={sub.href} className="navbar__dropdown-link">
+                        <span className="navbar__dropdown-title">{sub.label}</span>
+                      </Link>
+                    )
+                  )}
                 </div>
               )}
             </div>
@@ -147,9 +167,14 @@ function MobileItem({ item }) {
       {item.dropdown && (
         <div className={`navbar__mobile-sub ${open ? 'navbar__mobile-sub--open' : ''}`}>
           {item.dropdown.map((sub) => (
-            <Link key={sub.label} to={sub.href}>
-              {sub.label}
-            </Link>
+            <Fragment key={sub.label}>
+              <Link to={sub.href}>{sub.label}</Link>
+              {sub.dropdown?.map((child) => (
+                <Link key={child.label} to={child.href} className="navbar__mobile-subsub">
+                  {child.label}
+                </Link>
+              ))}
+            </Fragment>
           ))}
         </div>
       )}

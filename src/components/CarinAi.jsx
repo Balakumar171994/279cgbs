@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import useInView from '../hooks/useInView'
 import { carinAi } from '../data'
-import carinLogo from '../assets/products/carinai-logo.png'
 import sapLogo from '../assets/partner/SAP.png'
 import './CarinAi.css'
 
@@ -157,7 +156,7 @@ function CarinHero() {
     <section className="ci-hero">
       <div className="container-xl ci-hero__inner">
         <div className="ci-hero__text">
-          <img src={carinLogo} alt="CarinAI — Optimizing SAP with AI Intelligence" className="ci-hero__logo" />
+          <span className="ci-wordmark ci-hero__logo">Lyra</span>
           <span className="ci-eyebrow ci-hero__badge">{d.eyebrow}</span>
 
           <h1 className="ci-hero__title">
@@ -183,7 +182,7 @@ function CarinHero() {
           </Link>
         </div>
 
-        {/* Platform stack: SAP core → BTP → CarinAI engine → intelligent workflows */}
+        {/* Platform stack: SAP core → BTP → Lyra engine → intelligent workflows */}
         <div className="ci-stack" aria-hidden="true">
           <div className="ci-stack__outcome">
             <Icon name="spark" />
@@ -197,7 +196,7 @@ function CarinHero() {
           </div>
 
           <div className="ci-stack__engine">
-            <img src={carinLogo} alt="" className="ci-stack__engine-logo" />
+            <span className="ci-wordmark ci-stack__engine-logo">Lyra</span>
             <ul>
               {s.engine.map((e, i) => (
                 <li key={e} style={{ '--d': `${i * 0.9}s` }}>
@@ -246,7 +245,7 @@ function CarinBeyond() {
           </div>
         </div>
 
-        {/* SAP core at the centre, CarinAI ring around it, processes turn intelligent one by one */}
+        {/* SAP core at the centre, Lyra ring around it, processes turn intelligent one by one */}
         <div className="ci-orbit" aria-hidden="true">
           <svg className="ci-orbit__lines" viewBox="0 0 100 100">
             {b.areas.map((a, i) => {
@@ -256,7 +255,7 @@ function CarinBeyond() {
           </svg>
 
           <span className="ci-orbit__ring">
-            <span className="ci-orbit__ring-label">CarinAI</span>
+            <span className="ci-orbit__ring-label">Lyra</span>
           </span>
 
           <div className="ci-orbit__core">
@@ -285,7 +284,7 @@ function CarinBeyond() {
   )
 }
 
-/* ---------- 3. Why CarinAI? ---------- */
+/* ---------- 3. Why Lyra? ---------- */
 function WhyVisual({ type, w }) {
   if (type === 'native') {
     return (
@@ -375,7 +374,7 @@ function CarinWhy() {
   )
 }
 
-/* ---------- 4. The CarinAI Advantage ---------- */
+/* ---------- 4. The Lyra Advantage ---------- */
 function CarinAdvantage() {
   const a = carinAi.advantage
   const [ref, inView] = useInView(0.2)
@@ -427,7 +426,7 @@ function CarinFinal() {
         </ol>
 
         <div className="ci-final__brand">
-          <img src={carinLogo} alt="CarinAI" />
+          <span className="ci-wordmark">Lyra</span>
           <span>{f.byline}</span>
         </div>
 

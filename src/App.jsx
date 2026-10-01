@@ -49,7 +49,9 @@ export default function App() {
           <Route path="/digital-services/cybersecurity-digital-trust" element={<CyberTrustPage />} />
           <Route path="/digital-services/data-analytics-ai" element={<DataAiPage />} />
           <Route path="/digital-services/digital-workplace-automation" element={<DigitalWorkplacePage />} />
-          <Route path="/products/carinai" element={<CarinAiPage />} />
+          <Route path="/products/lyra" element={<CarinAiPage />} />
+          {/* Old address from before the CarinAI → Lyra rename */}
+          <Route path="/products/carinai" element={<Navigate to="/products/lyra" replace />} />
           <Route path="/products/vegai" element={<VegAiPage />} />
           <Route path="/products/smartops" element={<SmartOpsPage />} />
           <Route path="/about" element={<AboutPage />} />
