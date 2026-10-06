@@ -46,8 +46,7 @@ export const nav = [
     dropdown: [
       { label: 'Blogs', href: '/resources#blogs' },
       { label: 'Case Studies', href: '/resources#case-studies' },
-      // Placeholder until the Events content is ready
-      { label: 'Events', href: '/resources' },
+      { label: 'Events', href: '/resources/events' },
     ],
   },
 ]
@@ -1783,4 +1782,117 @@ export const smartOps = {
     outputs: ['Actionable insights', 'Faster decisions', 'Smarter outcomes'],
     verbs: ['See clearly.', 'Act quickly.', 'Operate proactively.'],
   },
+}
+
+// Events & culture gallery. Photos live in src/assets/events — replace a
+// placeholder by saving your photo over it with the same file name, or add a
+// new file and list it here.
+export const eventsPage = {
+  eyebrow: 'Events & Culture',
+  title: 'Life at',
+  highlight: 'Canopus GBS',
+  intro:
+    'Moments from our town halls, celebrations, webinars, expos and everyday life across our offices.',
+
+  // Banner carousel
+  allHands: {
+    label: 'All-Hands Meeting',
+    slides: [
+      { file: 'all-hands-1-web.jpg', title: 'Annual All-Hands Meeting', caption: 'Our teams come together to celebrate the year and set the vision ahead.' },
+      { file: 'all-hands-2-web.jpg', title: 'Leadership Town Hall', caption: 'Company strategy, milestones and priorities shared openly with every team.' },
+      { file: 'all-hands-3.jpg', title: 'Quarterly Business Review', caption: 'Recognising delivery excellence and the people behind it.' },
+      { file: 'all-hands-4.jpg', title: 'One Canopus', caption: 'Teams across India, Malaysia, Singapore, UAE, Saudi Arabia and the USA — one company.' },
+    ],
+  },
+
+  galleryTitle: 'Explore by',
+  galleryHighlight: 'Category',
+  allLabel: 'All Events',
+
+  categories: [
+    {
+      id: 'festivals',
+      name: 'Festivals & Celebrations',
+      icon: 'sparkle',
+      text: 'Diwali, Onam, Eid, Christmas, Pongal and every festival in between.',
+      photos: [
+        { file: 'festival-1.jpg', caption: 'Diwali Celebrations' },
+        { file: 'festival-2.jpg', caption: 'Onam Pookalam' },
+        { file: 'festival-3.jpg', caption: 'Christmas Get-Together' },
+        { file: 'festival-4.jpg', caption: 'Eid Celebrations' },
+        { file: 'festival-5.jpg', caption: 'Pongal Festivities' },
+        { file: 'festival-6.jpg', caption: 'New Year Celebration' },
+      ],
+    },
+    {
+      id: 'webinars',
+      name: 'Webinars & Virtual Sessions',
+      icon: 'screen',
+      text: 'Knowledge sessions on SAP, cloud, AI and digital transformation.',
+      photos: [
+        { file: 'webinar-1.jpg', caption: 'RISE with SAP Webinar' },
+        { file: 'webinar-2.jpg', caption: 'AI in Enterprise Operations' },
+        { file: 'webinar-3.jpg', caption: 'Clean Core Strategy Session' },
+        { file: 'webinar-4.jpg', caption: 'Cloud Migration Masterclass' },
+        { file: 'webinar-5.jpg', caption: 'Cybersecurity Briefing' },
+        { file: 'webinar-6.jpg', caption: 'Customer Success Live' },
+      ],
+    },
+    {
+      id: 'expos',
+      name: 'Expos & Trade Shows',
+      icon: 'booth',
+      text: 'Meeting customers and partners at industry events worldwide.',
+      photos: [
+        { file: 'expo-1.jpg', caption: 'SAP Industry Summit' },
+        { file: 'expo-2.jpg', caption: 'Canopus GBS Booth' },
+        { file: 'expo-3.jpg', caption: 'GITEX Technology Week' },
+        { file: 'expo-4.jpg', caption: 'Partner Pavilion' },
+        { file: 'expo-5.jpg', caption: 'Product Demo Zone' },
+        { file: 'expo-6.jpg', caption: 'Customer Meet & Greet' },
+      ],
+    },
+    {
+      id: 'marketing',
+      name: 'Marketing & Brand Events',
+      icon: 'megaphone',
+      text: 'Product launches, roundtables and brand experiences.',
+      photos: [
+        { file: 'marketing-1.jpg', caption: 'Product Launch' },
+        { file: 'marketing-2.jpg', caption: 'CXO Roundtable' },
+        { file: 'marketing-3.jpg', caption: 'Partner Networking Evening' },
+        { file: 'marketing-4.jpg', caption: 'Brand Experience Day' },
+        { file: 'marketing-5.jpg', caption: 'Customer Appreciation Event' },
+        { file: 'marketing-6.jpg', caption: 'Media Interaction' },
+      ],
+    },
+    {
+      id: 'workplace',
+      name: 'Workplace & Culture',
+      icon: 'building',
+      text: 'Our offices, collaboration spaces and the people who make them.',
+      photos: [
+        { file: 'workplace-1.jpg', caption: 'Bengaluru Office' },
+        { file: 'workplace-2.jpg', caption: 'Collaboration Space' },
+        { file: 'workplace-3.jpg', caption: 'Team Huddle' },
+        { file: 'workplace-4.jpg', caption: 'Wellness Day' },
+        { file: 'workplace-5.jpg', caption: 'Team Outing' },
+        { file: 'workplace-6.jpg', caption: 'Fun Friday' },
+      ],
+    },
+    {
+      id: 'awards',
+      name: 'Awards & Recognition',
+      icon: 'trophy',
+      text: 'Celebrating the achievements of our people and teams.',
+      photos: [
+        { file: 'awards-1.jpg', caption: 'Annual Excellence Awards' },
+        { file: 'awards-2.jpg', caption: 'Star Performer of the Quarter' },
+        { file: 'awards-3.jpg', caption: 'Long Service Recognition' },
+        { file: 'awards-4.jpg', caption: 'Customer Champion Award' },
+        { file: 'awards-5.jpg', caption: 'Innovation Award' },
+        { file: 'awards-6.jpg', caption: 'Team of the Year' },
+      ],
+    },
+  ],
 }

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import useInView from '../hooks/useInView'
 import { carinAi } from '../data'
 import sapLogo from '../assets/partner/SAP.png'
+import lyraLogo from '../assets/products/Lyra.png'
 import './CarinAi.css'
 
 // Line icons (24x24, stroke = currentColor)
@@ -156,7 +157,7 @@ function CarinHero() {
     <section className="ci-hero">
       <div className="container-xl ci-hero__inner">
         <div className="ci-hero__text">
-          <span className="ci-wordmark ci-hero__logo">Lyra</span>
+          <img src={lyraLogo} alt="Lyra" className="ci-logo ci-hero__logo" />
           <span className="ci-eyebrow ci-hero__badge">{d.eyebrow}</span>
 
           <h1 className="ci-hero__title">
@@ -196,7 +197,7 @@ function CarinHero() {
           </div>
 
           <div className="ci-stack__engine">
-            <span className="ci-wordmark ci-stack__engine-logo">Lyra</span>
+            <img src={lyraLogo} alt="" className="ci-logo ci-stack__engine-logo" />
             <ul>
               {s.engine.map((e, i) => (
                 <li key={e} style={{ '--d': `${i * 0.9}s` }}>
@@ -426,7 +427,7 @@ function CarinFinal() {
         </ol>
 
         <div className="ci-final__brand">
-          <span className="ci-wordmark">Lyra</span>
+          <img src={lyraLogo} alt="Lyra" className="ci-logo" />
           <span>{f.byline}</span>
         </div>
 

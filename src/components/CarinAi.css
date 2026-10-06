@@ -150,23 +150,15 @@
   align-items: center;
 }
 
-/* "Lyra" text wordmark (stands in until a Lyra logo image is supplied) */
-.ci-wordmark {
-  display: inline-block;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.01em;
-  background: linear-gradient(90deg, var(--logo-blue) 0%, var(--logo-blue) 40%, var(--logo-yellow) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+/* Lyra logo image */
+.ci-logo {
+  display: block;
+  width: auto;
+  max-width: 100%;
 }
 
 .ci-hero__logo {
-  display: block;
-  width: max-content;
-  font-size: clamp(3rem, 6vw, 4.5rem);
+  height: clamp(64px, 9vw, 100px);
   margin-bottom: 22px;
   animation: ciUp 0.7s ease both;
 }
@@ -313,9 +305,7 @@
 }
 
 .ci-stack__engine-logo {
-  display: block;
-  width: max-content;
-  font-size: 2.2rem;
+  height: 48px;
   margin: 0 auto 16px;
 }
 
@@ -1034,8 +1024,8 @@
   box-shadow: 0 20px 44px rgba(0, 0, 0, 0.25);
 }
 
-.ci-final__brand .ci-wordmark {
-  font-size: 3rem;
+.ci-final__brand .ci-logo {
+  height: 64px;
 }
 
 .ci-final__brand span {
@@ -1113,8 +1103,8 @@
     bottom: -22px;
     translate: 50% 0;
   }
-  .ci-final__brand .ci-wordmark {
-    font-size: 2.4rem;
+  .ci-final__brand .ci-logo {
+    height: 52px;
   }
 }
 

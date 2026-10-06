@@ -15,6 +15,7 @@ import VegAiPage from './pages/VegAiPage'
 import SmartOpsPage from './pages/SmartOpsPage'
 import AboutPage from './pages/AboutPage'
 import ResourcesPage from './pages/ResourcesPage'
+import EventsPage from './pages/EventsPage'
 import ContactPage from './pages/ContactPage'
 
 // New page -> start at the top; link with #section -> jump to that section
@@ -56,6 +57,7 @@ export default function App() {
           <Route path="/products/smartops" element={<SmartOpsPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/resources" element={<ResourcesPage />} />
+          <Route path="/resources/events" element={<EventsPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
