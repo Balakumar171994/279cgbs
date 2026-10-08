@@ -12,20 +12,7 @@ export const nav = [
     ],
   },
   {
-    label: 'Digital Services',
-    // No overview page: the item only opens its dropdown, and stays
-    // highlighted while on any /digital-services/... page
-    href: '/digital-services',
-    noPage: true,
-    dropdown: [
-      { label: 'Digital Infrastructure & Cloud', href: '/digital-services/infrastructure-cloud' },
-      { label: 'Cybersecurity & Digital Trust', href: '/digital-services/cybersecurity-digital-trust' },
-      { label: 'Data, Analytics & AI', href: '/digital-services/data-analytics-ai' },
-      { label: 'Digital Workplace & Automation', href: '/digital-services/digital-workplace-automation' },
-    ],
-  },
-  {
-    label: 'Innovation & Products',
+    label: 'AI Innovation',
     // No overview page, same as Digital Services
     href: '/products',
     noPage: true,
@@ -37,6 +24,19 @@ export const nav = [
         // Side menu that opens from VegAI
         dropdown: [{ label: 'SMARTOPS', href: '/products/smartops' }],
       },
+    ],
+  },
+  {
+    label: 'Digital Services',
+    // No overview page: the item only opens its dropdown, and stays
+    // highlighted while on any /digital-services/... page
+    href: '/digital-services',
+    noPage: true,
+    dropdown: [
+      { label: 'Digital Infrastructure & Cloud', href: '/digital-services/infrastructure-cloud' },
+      { label: 'Cybersecurity & Digital Trust', href: '/digital-services/cybersecurity-digital-trust' },
+      { label: 'Data, Analytics & AI', href: '/digital-services/data-analytics-ai' },
+      { label: 'Digital Workplace & Automation', href: '/digital-services/digital-workplace-automation' },
     ],
   },
   { label: 'About Us', href: '/about' },
@@ -110,15 +110,15 @@ export const industries = {
   lead:
     'Canopus GBS combines industry understanding with technology expertise to deliver solutions aligned with real-world business requirements.',
   items: [
+    { label: 'Alcobev', icon: 'bottle' },
     { label: 'Manufacturing', icon: 'factory' },
-    { label: 'Automotive', icon: 'car' },
+    { label: 'Semi-conductors', icon: 'chip' },
+    { label: 'Oil & Gas', icon: 'oil' },
     { label: 'Engineering', icon: 'wrench' },
     { label: 'Pharmaceuticals & Healthcare', icon: 'health' },
     { label: 'Logistics & Supply Chain', icon: 'truck' },
     { label: 'Retail & Consumer', icon: 'bag' },
-    { label: 'Alcobev', icon: 'bottle' },
-    { label: 'Semi-conductors', icon: 'chip' },
-    { label: 'Other Enterprise Industries', icon: 'building' },
+    { label: 'Other Enterprise', icon: 'building' },
   ],
 }
 
@@ -1467,107 +1467,6 @@ export const digitalWorkplace = {
   },
 }
 
-export const carinAi = {
-  eyebrow: 'Intelligent SAP Automation Platform',
-  title: 'Make SAP Work',
-  highlight: 'Smarter.',
-  subtitle: 'From SAP Processes to Intelligent Outcomes.',
-  lead: 'SAP runs the enterprise. Lyra makes it move faster.',
-  intro: [
-    'Lyra is Canopus GBS’s intelligent automation platform, built on SAP BTP to transform repetitive, manual, and fragmented SAP processes into intelligent digital workflows.',
-    'It brings together automation, AI, business rules, and process intelligence to simplify the work that happens around the SAP core—helping enterprises accelerate execution without compromising control, governance, or scalability.',
-  ],
-  tagline: ['Automate the Routine.', 'Accelerate the Critical.'],
-  cta: { label: 'See Lyra in Action', href: '/contact' },
-  // Banner platform graphic, top to bottom
-  stack: {
-    outcome: 'Intelligent Digital Workflows',
-    engine: ['Automation', 'AI', 'Business Rules', 'Process Intelligence'],
-    platform: 'Built on SAP BTP',
-    core: 'SAP Core',
-  },
-
-  beyond: {
-    eyebrow: 'Intelligence Beyond the SAP Core',
-    text: 'Lyra is designed to address the operational gaps that traditional SAP implementations often leave behind.',
-    closing:
-      'From approvals and master data to procurement, finance, document processing, and access governance, Lyra helps turn manual touchpoints into connected, intelligent workflows.',
-    areas: [
-      { icon: 'check', label: 'Approvals' },
-      { icon: 'database', label: 'Master Data' },
-      { icon: 'cart', label: 'Procurement' },
-      { icon: 'coins', label: 'Finance' },
-      { icon: 'doc', label: 'Document Processing' },
-      { icon: 'key', label: 'Access Governance' },
-    ],
-    manual: 'Manual touchpoint',
-    intelligent: 'Intelligent workflow',
-  },
-
-  why: {
-    eyebrow: 'Why Lyra?',
-    items: [
-      {
-        icon: 'layers',
-        title: 'SAP-Native by Design',
-        text: 'Built with SAP BTP at its foundation, enabling organizations to extend their SAP landscape without unnecessary core modifications.',
-        visual: 'native',
-      },
-      {
-        icon: 'rocket',
-        title: 'Faster Time to Value',
-        text: 'Pre-built automation patterns help reduce the effort required to move from process discovery to deployment.',
-        visual: 'value',
-      },
-      {
-        icon: 'grow',
-        title: 'Designed for Scale',
-        text: 'Start with a single process and expand automation across functions and enterprise workflows.',
-        visual: 'scale',
-      },
-      {
-        icon: 'shield',
-        title: 'Intelligence With Control',
-        text: 'Combine AI capabilities with business rules, governance, and human oversight.',
-        visual: 'control',
-      },
-      {
-        icon: 'flow',
-        title: 'Automation That Evolves',
-        text: 'Move beyond task automation toward intelligent orchestration of end-to-end processes.',
-        visual: 'evolve',
-      },
-    ],
-    // Labels used by the small visuals inside the cards
-    nativeLayers: ['Lyra', 'SAP BTP', 'SAP Core'],
-    valueSteps: ['Discovery', 'Deployment'],
-    controlParts: ['AI', 'Business Rules', 'Governance', 'Human Oversight'],
-    evolveFrom: 'Task automation',
-    evolveTo: 'Intelligent orchestration',
-  },
-
-  advantage: {
-    eyebrow: 'The Lyra Advantage',
-    items: [
-      { icon: 'hand', title: 'Less Manual Intervention', text: 'Reduce repetitive operational effort.' },
-      { icon: 'fast', title: 'Faster Process Cycles', text: 'Move approvals, transactions, and workflows forward faster.' },
-      { icon: 'target', title: 'Greater Accuracy', text: 'Reduce errors associated with repetitive data entry and manual processing.' },
-      { icon: 'eye', title: 'Better Visibility', text: 'Create greater transparency across automated processes.' },
-      { icon: 'grow', title: 'Scalable Automation', text: 'Expand from individual use cases to enterprise-wide automation.' },
-      { icon: 'agile', title: 'Stronger Business Agility', text: 'Respond faster as processes, regulations, and business requirements change.' },
-    ],
-  },
-
-  final: {
-    title: "The Future of SAP Isn't Just Digital.",
-    highlight: "It's Intelligent.",
-    text: 'Lyra helps enterprises move from processes that require constant human effort to workflows that can intelligently understand, decide, and act.',
-    steps: ['Understand', 'Decide', 'Act'],
-    byline: 'Lyra by Canopus GBS',
-    tagline: ['Intelligent Automation.', 'Built for SAP.', 'Designed for Business.'],
-  },
-}
-
 export const vegAi = {
   eyebrow: 'Intelligent SAP Operations, Reimagined',
   title: 'From SAP Support That Reacts to',
@@ -1753,7 +1652,6 @@ export const smartOps = {
     eyebrow: 'From Reactive IT to Proactive IT',
     lead: 'Traditional IT operations often begin with a problem.',
     shift: 'SMARTOPS helps organizations shift the starting point.',
-    reactiveStart: 'Problem reported',
     steps: ['Detect', 'Understand', 'Predict', 'Automate', 'Resolve'],
     text: 'Instead of waiting for users to report an issue, teams can use connected operational intelligence to identify patterns, prioritize risks, and take action earlier.',
   },
@@ -1800,7 +1698,7 @@ export const eventsPage = {
     slides: [
       { file: 'all-hands-1-web.jpg', title: 'Annual All-Hands Meeting', caption: 'Our teams come together to celebrate the year and set the vision ahead.' },
       { file: 'all-hands-2-web.jpg', title: 'Leadership Town Hall', caption: 'Company strategy, milestones and priorities shared openly with every team.' },
-      { file: 'all-hands-3.jpg', title: 'Quarterly Business Review', caption: 'Recognising delivery excellence and the people behind it.' },
+      { file: 'all-hands-3-web.jpg', position: '50% 58%', title: 'Quarterly Business Review', caption: 'Recognising delivery excellence and the people behind it.' },
       { file: 'all-hands-4.jpg', title: 'One Canopus', caption: 'Teams across India, Malaysia, Singapore, UAE, Saudi Arabia and the USA — one company.' },
     ],
   },

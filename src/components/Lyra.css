@@ -1,0 +1,985 @@
+.ly-hero,
+.ly-towers,
+.ly-platform,
+.ly-position,
+.ly-trust {
+  --logo-blue: #2566ad;
+  --logo-yellow: #f5c400;
+  --gold-soft: #f3cf55;
+  --navy: #0a2c6e;
+  --navy-dark: #071d4a;
+}
+
+/* ---------- Shared ---------- */
+.ly-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: clamp(0.9rem, 1.4vw, 1.05rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--logo-blue);
+  background: linear-gradient(90deg, rgba(37, 102, 173, 0.12), rgba(245, 196, 0, 0.16));
+  border: 1px solid rgba(37, 102, 173, 0.25);
+  border-radius: 999px;
+  padding: 9px 20px 9px 16px;
+  box-shadow: 0 6px 18px rgba(37, 102, 173, 0.1);
+}
+
+.ly-eyebrow::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--logo-blue), var(--logo-yellow));
+  box-shadow: 0 0 0 4px rgba(37, 102, 173, 0.15);
+}
+
+.ly-eyebrow--dark {
+  color: var(--gold-soft);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+}
+
+.ly-highlight {
+  background: linear-gradient(90deg, var(--logo-blue) 0%, var(--logo-blue) 35%, var(--logo-yellow) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.ly-highlight--dark {
+  background: linear-gradient(90deg, #8fc0f5, var(--gold-soft));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.ly-head {
+  max-width: 860px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+
+.ly-head__title {
+  margin-top: 20px;
+  font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #111111;
+}
+
+/* Highlighted half sits on its own line */
+.ly-head__title .ly-highlight,
+.ly-head__title .ly-highlight--dark {
+  display: block;
+}
+
+.ly-head__text {
+  margin-top: 18px;
+  color: #4a5262;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.ly-platform .ly-head__title {
+  color: #ffffff;
+}
+
+.ly-platform .ly-head__text {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.ly-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 30px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.97rem;
+  color: #ffffff;
+  background: linear-gradient(90deg, var(--logo-blue), #3a86d0);
+  box-shadow: 0 14px 30px rgba(37, 102, 173, 0.3);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ly-btn span {
+  transition: transform 0.25s ease;
+}
+
+.ly-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(37, 102, 173, 0.4);
+}
+
+.ly-btn:hover span {
+  transform: translateX(5px);
+}
+
+.ly-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--logo-blue), #3a86d0);
+}
+
+.ly-icon--alt {
+  color: var(--navy);
+  background: linear-gradient(135deg, var(--logo-yellow), var(--gold-soft));
+}
+
+.ly-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+@keyframes lyUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes lyCardIn {
+  to { opacity: 1; transform: none; }
+}
+
+/* ---------- 1. Banner ---------- */
+.ly-hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(245, 196, 0, 0.12), transparent 40%),
+    linear-gradient(180deg, #ffffff 0%, #f5f8fd 100%);
+  padding: 140px 0 90px;
+  border-bottom: 1px solid rgba(37, 102, 173, 0.1);
+}
+
+.ly-hero__inner {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.ly-hero__logo {
+  display: block;
+  height: clamp(70px, 9vw, 104px);
+  width: auto;
+  max-width: 100%;
+  margin: 0 0 18px -14px;
+  /* JPG has a white background - multiply lets it blend into the hero */
+  mix-blend-mode: multiply;
+  animation: lyUp 0.7s ease both;
+}
+
+.ly-hero__badge {
+  margin-bottom: 20px;
+  animation: lyUp 0.7s ease 0.1s both;
+}
+
+.ly-hero__title {
+  font-size: clamp(1.9rem, 3.4vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #111111;
+  margin-bottom: 22px;
+  animation: lyUp 0.7s ease 0.2s both;
+}
+
+.ly-hero__title .ly-highlight {
+  display: block;
+}
+
+.ly-hero__lead {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.6;
+  color: #111111;
+  margin-bottom: 12px;
+  padding-left: 14px;
+  border-left: 4px solid var(--logo-yellow);
+  animation: lyUp 0.7s ease 0.35s both;
+}
+
+.ly-hero__intro {
+  color: #333a47;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  margin-bottom: 24px;
+  animation: lyUp 0.7s ease 0.5s both;
+}
+
+.ly-hero__towers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  margin: 0 0 30px;
+  padding: 0;
+  animation: lyUp 0.7s ease 0.6s both;
+}
+
+.ly-chip {
+  --tone: var(--logo-blue);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px 8px 12px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid rgba(37, 102, 173, 0.18);
+  box-shadow: 0 6px 16px rgba(37, 102, 173, 0.08);
+  font-size: 0.9rem;
+  color: #4a5262;
+}
+
+.ly-chip i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--tone);
+}
+
+.ly-chip b {
+  color: #111111;
+}
+
+.ly-chip--navy { --tone: var(--navy); }
+.ly-chip--gold { --tone: var(--logo-yellow); }
+
+.ly-hero .ly-btn {
+  animation: lyUp 0.7s ease 0.75s both;
+}
+
+/* Sign-in card, styled like the VegAI console */
+.ly-access {
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+  border-radius: 22px;
+  background: #ffffff;
+  border: 1px solid rgba(37, 102, 173, 0.16);
+  box-shadow: 0 30px 70px rgba(37, 102, 173, 0.18);
+  overflow: hidden;
+  animation: lyUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+}
+
+.ly-access__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: #f5f8fd;
+  border-bottom: 1px solid rgba(37, 102, 173, 0.1);
+}
+
+.ly-access__dots {
+  display: flex;
+  gap: 6px;
+}
+
+.ly-access__dots i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.ly-access__dots i:nth-child(1) { background: #f08a7e; }
+.ly-access__dots i:nth-child(2) { background: var(--gold-soft); }
+.ly-access__dots i:nth-child(3) { background: #6cc49b; }
+
+.ly-access__name {
+  flex: 1;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #111111;
+}
+
+.ly-access__env {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(37, 102, 173, 0.1);
+  color: var(--logo-blue);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ly-access__body {
+  padding: 18px 20px 20px;
+}
+
+.ly-access__label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  margin: 14px 0 8px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8a94a6;
+}
+
+.ly-access__label:first-child {
+  margin-top: 0;
+}
+
+.ly-access__label small {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #6b7280;
+}
+
+.ly-seg {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.ly-seg button {
+  min-width: 0;
+  padding: 10px 6px;
+  border-radius: 12px;
+  border: 1px solid rgba(37, 102, 173, 0.16);
+  background: #ffffff;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ly-seg button:hover {
+  border-color: rgba(37, 102, 173, 0.4);
+  background: #f7f9fc;
+}
+
+.ly-seg b {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #111111;
+}
+
+.ly-seg em {
+  display: block;
+  margin-top: 2px;
+  font-style: normal;
+  font-size: 0.72rem;
+  color: #8a94a6;
+}
+
+.ly-seg button[aria-pressed='true'] {
+  border-color: var(--logo-blue);
+  background: linear-gradient(135deg, rgba(37, 102, 173, 0.08), rgba(245, 196, 0, 0.1));
+  box-shadow: inset 0 0 0 1px var(--logo-blue);
+}
+
+.ly-seg button[aria-pressed='true'] b {
+  color: var(--logo-blue);
+}
+
+.ly-access__hint {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.ly-input {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 11px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(37, 102, 173, 0.18);
+  background: #ffffff;
+  font-size: 0.92rem;
+  color: #111111;
+}
+
+.ly-input::placeholder {
+  color: #9aa3b2;
+}
+
+.ly-input:focus {
+  outline: none;
+  border-color: var(--logo-blue);
+  box-shadow: 0 0 0 3px rgba(37, 102, 173, 0.15);
+}
+
+.ly-access__signin {
+  width: 100%;
+  padding: 12px;
+  border: 0;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: #ffffff;
+  background: linear-gradient(90deg, var(--logo-blue), #3a86d0);
+  box-shadow: 0 10px 22px rgba(37, 102, 173, 0.28);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ly-access__signin:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(37, 102, 173, 0.36);
+}
+
+.ly-access__sso {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  padding: 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(37, 102, 173, 0.2);
+  background: #ffffff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--navy);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.ly-access__sso:hover {
+  border-color: var(--logo-blue);
+  background: #f7f9fc;
+}
+
+.ly-access__sso svg {
+  width: 16px;
+  height: 16px;
+  color: var(--logo-blue);
+}
+
+.ly-access__or {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #9aa3b2;
+}
+
+.ly-access__or::before,
+.ly-access__or::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(37, 102, 173, 0.14);
+}
+
+.ly-access__note {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--logo-blue);
+}
+
+.ly-access__dest {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(37, 102, 173, 0.1);
+  overflow: hidden;
+}
+
+.ly-access__dest svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: #9aa3b2;
+}
+
+.ly-access__dest code {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.78rem;
+  color: var(--logo-blue);
+}
+
+.ly-access__small {
+  margin-top: 10px;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: #6b7280;
+}
+
+/* ---------- 2. Three towers ---------- */
+.ly-towers {
+  background: #ffffff;
+  padding: 100px 0 110px;
+  scroll-margin-top: 70px;
+}
+
+.ly-towers__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ly-tower {
+  --tone: var(--logo-blue);
+  --tone-2: #3a86d0;
+  --tone-ink: #ffffff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 24px 26px;
+  border-radius: 22px;
+  background: #f7f9fc;
+  border: 1px solid rgba(37, 102, 173, 0.12);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: translate 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.ly-tower--navy {
+  --tone: var(--navy);
+  --tone-2: #1e4a9e;
+}
+
+.ly-tower--gold {
+  --tone: var(--logo-yellow);
+  --tone-2: var(--gold-soft);
+  --tone-ink: var(--navy);
+}
+
+/* Coloured strip along the top of each tower */
+.ly-tower::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 5px;
+  background: linear-gradient(90deg, var(--tone), var(--tone-2));
+}
+
+.is-in .ly-tower {
+  animation: lyCardIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.ly-tower:hover {
+  translate: 0 -6px;
+  border-color: rgba(37, 102, 173, 0.3);
+  box-shadow: 0 24px 50px rgba(37, 102, 173, 0.14);
+}
+
+.ly-tower__head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.ly-tower__tile {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  color: var(--tone-ink);
+  background: linear-gradient(135deg, var(--tone), var(--tone-2));
+}
+
+.ly-tower__name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #111111;
+  line-height: 1.25;
+}
+
+.ly-tower__tag {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--logo-blue);
+}
+
+.ly-tower--gold .ly-tower__tag {
+  color: #b8860b;
+}
+
+.ly-tower__count {
+  margin-left: auto;
+  align-self: flex-start;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid rgba(37, 102, 173, 0.14);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #6b7280;
+  white-space: nowrap;
+}
+
+.ly-tower__text {
+  color: #4a5262;
+  font-size: 0.97rem;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.ly-tower__mods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ly-mod {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 13px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid rgba(37, 102, 173, 0.16);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.ly-mod::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--tone);
+}
+
+.ly-tower__group {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(37, 102, 173, 0.2);
+}
+
+.ly-tower__group-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8a94a6;
+}
+
+/* ---------- 3. The platform ---------- */
+.ly-platform {
+  padding: 100px 0 110px;
+  color: #ffffff;
+  scroll-margin-top: 70px;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px) 0 0 / 40px 40px,
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px) 0 0 / 40px 40px,
+    radial-gradient(circle at 85% 0%, rgba(245, 196, 0, 0.15), transparent 40%),
+    linear-gradient(160deg, var(--navy-dark), var(--navy) 65%, #0d3583);
+}
+
+.ly-platform__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ly-platform__grid li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 26px 22px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  opacity: 0;
+  transform: translateY(24px);
+  transition: background 0.3s ease, border-color 0.3s ease, translate 0.3s ease;
+}
+
+.is-in .ly-platform__grid li {
+  animation: lyCardIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.ly-platform__grid li:hover {
+  translate: 0 -5px;
+  background: rgba(255, 255, 255, 0.11);
+  border-color: rgba(243, 207, 85, 0.55);
+}
+
+.ly-platform__grid strong {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.ly-platform__grid p {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.93rem;
+  line-height: 1.65;
+}
+
+/* ---------- 4. Clean core position + hosting options ---------- */
+.ly-position {
+  background: #f5f8fd;
+  padding: 100px 0 110px;
+}
+
+.ly-quote {
+  max-width: 860px;
+  margin: 0 auto 52px;
+  text-align: center;
+}
+
+.ly-quote__text {
+  margin: 22px 0 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(2rem, 4.2vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #111111;
+}
+
+.ly-quote__text .ly-highlight {
+  display: block;
+}
+
+.ly-deploy {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.ly-deploy__card {
+  position: relative;
+  padding: 28px 26px;
+  border-radius: 22px;
+  background: #ffffff;
+  border: 1px solid rgba(37, 102, 173, 0.12);
+  box-shadow: 0 14px 34px rgba(37, 102, 173, 0.08);
+  opacity: 0;
+  transform: translateY(24px);
+  transition: translate 0.3s ease, box-shadow 0.3s ease;
+}
+
+.is-in .ly-deploy__card {
+  animation: lyCardIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.ly-deploy__card:hover {
+  translate: 0 -5px;
+  box-shadow: 0 24px 50px rgba(37, 102, 173, 0.14);
+}
+
+.ly-deploy__head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.ly-deploy__name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #111111;
+}
+
+.ly-deploy__tag {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--logo-blue);
+}
+
+.ly-deploy__list {
+  display: grid;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ly-deploy__list li {
+  position: relative;
+  padding-left: 30px;
+  color: #333a47;
+  font-size: 0.97rem;
+  line-height: 1.6;
+}
+
+/* Tick in a soft circle */
+.ly-deploy__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(37, 102, 173, 0.1);
+}
+
+.ly-deploy__list li::after {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 7px;
+  width: 5px;
+  height: 9px;
+  border: solid var(--logo-blue);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* ---------- 5. Security and governance ---------- */
+.ly-trust {
+  background: #ffffff;
+  padding: 100px 0 110px;
+  scroll-margin-top: 70px;
+}
+
+.ly-trust__chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  max-width: 1000px;
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+}
+
+.ly-trust__chips li {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: #f7f9fc;
+  border: 1px solid rgba(37, 102, 173, 0.14);
+  font-size: 0.9rem;
+  color: #6b7280;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, translate 0.25s ease;
+}
+
+.ly-trust__chips li:hover {
+  translate: 0 -3px;
+  border-color: rgba(37, 102, 173, 0.35);
+  box-shadow: 0 12px 26px rgba(37, 102, 173, 0.12);
+}
+
+.ly-trust__chips b {
+  color: #111111;
+  font-weight: 700;
+}
+
+.ly-trust__sap {
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  background: linear-gradient(135deg, #00aeef, #0a4e9b);
+}
+
+.ly-trust__note {
+  max-width: 760px;
+  margin: 28px auto 0;
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.93rem;
+  line-height: 1.7;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+  .ly-towers__grid {
+    grid-template-columns: 1fr;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .ly-platform__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 991px) {
+  .ly-hero__inner {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+  .ly-deploy {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .ly-hero {
+    padding: 120px 0 70px;
+  }
+  .ly-towers,
+  .ly-platform,
+  .ly-position,
+  .ly-trust {
+    padding: 72px 0 80px;
+  }
+  .ly-platform__grid {
+    grid-template-columns: 1fr;
+  }
+  .ly-tower__count {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ly-hero *,
+  .ly-tower,
+  .is-in .ly-tower,
+  .ly-platform__grid li,
+  .is-in .ly-platform__grid li,
+  .ly-deploy__card,
+  .is-in .ly-deploy__card {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}

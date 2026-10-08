@@ -110,6 +110,7 @@ function EventsHero() {
         <img
           key={s.file}
           src={photoUrl(s.file)}
+          style={s.position ? { objectPosition: s.position } : undefined}
           alt={s.title}
           className={`ev-hero__img${i === active ? ' is-active' : ''}`}
           aria-hidden={i !== active}
@@ -118,46 +119,50 @@ function EventsHero() {
       <span className="ev-hero__shade" aria-hidden="true" />
 
       <div className="container-xl ev-hero__content">
-        <span className="ev-eyebrow">{eyebrow}</span>
-        <h1 className="ev-hero__title">
-          {title} <span className="ev-highlight">{highlight}</span>
-        </h1>
-        <p className="ev-hero__intro">{intro}</p>
-
-        <div className="ev-hero__caption" key={current.file}>
-          <span className="ev-hero__tag">{allHands.label}</span>
-          <strong>{current.title}</strong>
-          <p>{current.caption}</p>
+        <div className="ev-hero__main">
+          <span className="ev-eyebrow">{eyebrow}</span>
+          <h1 className="ev-hero__title">
+            {title} <span className="ev-highlight">{highlight}</span>
+          </h1>
+          <p className="ev-hero__intro">{intro}</p>
         </div>
 
-        <div className="ev-hero__controls">
-          <button type="button" className="ev-hero__arrow" onClick={() => go(active - 1)} aria-label="Previous slide">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M15 5l-7 7 7 7" />
-            </svg>
-          </button>
-          <div className="ev-hero__dots">
-            {slides.map((s, i) => (
-              <button
-                key={s.file}
-                type="button"
-                className={`ev-hero__dot${i === active ? ' is-active' : ''}`}
-                onClick={() => go(i)}
-                aria-label={`Show slide ${i + 1}`}
-                aria-current={i === active}
-              >
-                {i === active && !paused && !reduceMotion && <span className="ev-hero__dot-fill" />}
-              </button>
-            ))}
+        <div className="ev-hero__side">
+          <div className="ev-hero__caption" key={current.file}>
+            <span className="ev-hero__tag">{allHands.label}</span>
+            <strong>{current.title}</strong>
+            <p>{current.caption}</p>
           </div>
-          <button type="button" className="ev-hero__arrow" onClick={() => go(active + 1)} aria-label="Next slide">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-          <span className="ev-hero__count">
-            {String(active + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
-          </span>
+
+          <div className="ev-hero__controls">
+            <button type="button" className="ev-hero__arrow" onClick={() => go(active - 1)} aria-label="Previous slide">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M15 5l-7 7 7 7" />
+              </svg>
+            </button>
+            <div className="ev-hero__dots">
+              {slides.map((s, i) => (
+                <button
+                  key={s.file}
+                  type="button"
+                  className={`ev-hero__dot${i === active ? ' is-active' : ''}`}
+                  onClick={() => go(i)}
+                  aria-label={`Show slide ${i + 1}`}
+                  aria-current={i === active}
+                >
+                  {i === active && !paused && !reduceMotion && <span className="ev-hero__dot-fill" />}
+                </button>
+              ))}
+            </div>
+            <button type="button" className="ev-hero__arrow" onClick={() => go(active + 1)} aria-label="Next slide">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+            <span className="ev-hero__count">
+              {String(active + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
+            </span>
+          </div>
         </div>
       </div>
     </section>

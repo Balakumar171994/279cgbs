@@ -44,12 +44,6 @@ const icons = {
       <path d="M9 8v8" />
     </>
   ),
-  flag: (
-    <>
-      <path d="M5 21V4" />
-      <path d="M5 4h11l-2 4 2 4H5" />
-    </>
-  ),
 }
 
 function Icon({ name }) {
@@ -372,13 +366,7 @@ function SmartProactive() {
           <p className="so-pro__shift">{r.shift}</p>
         </Head>
 
-        {/* The starting point slides from "problem reported" back to "detect" */}
         <div className="so-shift" aria-hidden="true">
-          <span className="so-shift__old">
-            <Icon name="flag" />
-            {r.reactiveStart}
-          </span>
-          <span className="so-shift__pin">Start</span>
           <ol className="so-shift__steps" style={{ '--n': r.steps.length }}>
             <span className="so-shift__track">
               <span className="so-shift__runner" />

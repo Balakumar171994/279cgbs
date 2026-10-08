@@ -10,7 +10,7 @@ import DigitalInfraPage from './pages/DigitalInfraPage'
 import CyberTrustPage from './pages/CyberTrustPage'
 import DataAiPage from './pages/DataAiPage'
 import DigitalWorkplacePage from './pages/DigitalWorkplacePage'
-import CarinAiPage from './pages/CarinAiPage'
+import LyraPage from './pages/LyraPage'
 import VegAiPage from './pages/VegAiPage'
 import SmartOpsPage from './pages/SmartOpsPage'
 import AboutPage from './pages/AboutPage'
@@ -50,7 +50,7 @@ export default function App() {
           <Route path="/digital-services/cybersecurity-digital-trust" element={<CyberTrustPage />} />
           <Route path="/digital-services/data-analytics-ai" element={<DataAiPage />} />
           <Route path="/digital-services/digital-workplace-automation" element={<DigitalWorkplacePage />} />
-          <Route path="/products/lyra" element={<CarinAiPage />} />
+          <Route path="/products/lyra" element={<LyraPage />} />
           {/* Old address from before the CarinAI → Lyra rename */}
           <Route path="/products/carinai" element={<Navigate to="/products/lyra" replace />} />
           <Route path="/products/vegai" element={<VegAiPage />} />

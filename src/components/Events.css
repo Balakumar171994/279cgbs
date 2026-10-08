@@ -111,10 +111,21 @@
     linear-gradient(90deg, rgba(7, 29, 74, 0.7), transparent 65%);
 }
 
+/* Title block on the left, slide caption + controls on the right */
 .ev-hero__content {
   position: relative;
   z-index: 1;
   width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 40px 64px;
+  align-items: end;
+}
+
+.ev-hero__side {
+  justify-self: end;
+  width: 100%;
+  max-width: 520px;
 }
 
 .ev-hero__title {
@@ -139,8 +150,6 @@
 }
 
 .ev-hero__caption {
-  max-width: 520px;
-  margin-top: 34px;
   padding: 18px 22px;
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.1);
@@ -653,6 +662,13 @@
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
+  .ev-hero__content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .ev-hero__side {
+    justify-self: start;
+  }
   .ev-cats__grid {
     grid-template-columns: repeat(2, 1fr);
   }

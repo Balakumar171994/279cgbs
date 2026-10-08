@@ -1118,63 +1118,7 @@
 .so-shift {
   position: relative;
   max-width: 1000px;
-  margin: 0 auto;
-  padding-top: 70px;
-}
-
-.so-shift__old {
-  position: absolute;
-  right: 0;
-  top: 0;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 14px;
-  border-radius: 999px;
-  font-size: 0.8rem;
-  font-weight: 800;
-  color: rgba(255, 255, 255, 0.55);
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px dashed rgba(255, 255, 255, 0.3);
-  text-decoration: line-through;
-  text-decoration-color: rgba(240, 138, 126, 0.8);
-}
-
-.so-shift__old svg {
-  width: 16px;
-  height: 16px;
-}
-
-/* The "start" pin slides from the problem back to detection */
-.so-shift__pin {
-  position: absolute;
-  top: 42px;
-  left: 90%;
-  translate: -50% 0;
-  padding: 3px 10px;
-  border-radius: 999px;
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--navy);
-  background: var(--gold-soft);
-  box-shadow: 0 6px 16px rgba(243, 207, 85, 0.4);
-  transition: left 1.8s cubic-bezier(0.65, 0, 0.35, 1) 0.5s;
-}
-
-.so-shift__pin::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 100%;
-  margin-left: -5px;
-  border: 5px solid transparent;
-  border-top-color: var(--gold-soft);
-}
-
-.is-in .so-shift__pin {
-  left: 10%;
+  margin: 44px auto 0;
 }
 
 .so-shift__steps {
@@ -1633,17 +1577,8 @@
     grid-template-columns: repeat(3, 1fr);
     row-gap: 24px;
   }
-  .so-shift__track,
-  .so-shift__pin {
+  .so-shift__track {
     display: none;
-  }
-  .so-shift {
-    padding-top: 56px;
-  }
-  .so-shift__old {
-    left: 50%;
-    right: auto;
-    translate: -50% 0;
   }
   .so-flow {
     grid-template-columns: 1fr;

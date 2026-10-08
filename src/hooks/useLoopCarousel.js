@@ -4,7 +4,9 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 // Render `copies` (three copies of the items) and apply `trackStyle` +
 // `onTransitionEnd` to the track. We stay in the middle copy and silently
 // jump back by one copy after each move, so it loops in both directions.
-export default function useLoopCarousel(items, { perView, slideMs, delay }) {
+// Pass `active: false` to stop auto moves (e.g. while off screen); `reset()`
+// jumps straight back to the first item without animating.
+export default function useLoopCarousel(items, { perView, slideMs, delay, active = true }) {
   const count = items.length
   const [index, setIndex] = useState(count)
   const [animate, setAnimate] = useState(true)
@@ -17,6 +19,12 @@ export default function useLoopCarousel(items, { perView, slideMs, delay }) {
     setAnimate(true)
     setIndex((i) => i + dir)
   }, [])
+
+  const reset = useCallback(() => {
+    moving.current = false
+    setAnimate(false)
+    setIndex(count)
+  }, [count])
 
   const onTransitionEnd = (e) => {
     if (e.target !== e.currentTarget) return
@@ -37,15 +45,16 @@ export default function useLoopCarousel(items, { perView, slideMs, delay }) {
   // Auto move right-to-left; any move restarts the wait
   useEffect(() => {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (paused || reduceMotion) return
+    if (paused || !active || reduceMotion) return
     const t = setTimeout(() => move(1), delay)
     return () => clearTimeout(t)
-  }, [index, paused, move, delay])
+  }, [index, paused, active, move, delay])
 
   return {
     index,
     copies: [...items, ...items, ...items],
     move,
+    reset,
     setPaused,
     onTransitionEnd,
     trackStyle: {

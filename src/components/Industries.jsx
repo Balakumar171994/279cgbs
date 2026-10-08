@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react'
 import { industries } from '../data'
 import useLoopCarousel, { useResponsiveValue } from '../hooks/useLoopCarousel'
 import './Industries.css'
@@ -13,12 +14,11 @@ const icons = {
       <path d="M7 17h2M12 17h2M17 17h1" />
     </>
   ),
-  car: (
+  // Oil & Gas: oil drop
+  oil: (
     <>
-      <path d="M3 16v-3l2.2-5h13.6L21 13v3H3z" />
-      <path d="M3 13h18" />
-      <circle cx="7.5" cy="17.5" r="1.8" />
-      <circle cx="16.5" cy="17.5" r="1.8" />
+      <path d="M12 3s6 6.6 6 11a6 6 0 0 1-12 0c0-4.4 6-11 6-11z" />
+      <path d="M9.5 14.5a2.5 2.5 0 0 0 2.5 2.5" />
     </>
   ),
   wrench: (
@@ -83,14 +83,33 @@ function cardsPerView(w) {
 export default function Industries() {
   const { items } = industries
   const perView = useResponsiveValue(cardsPerView)
-  const { index, copies, move, setPaused, onTransitionEnd, trackStyle } = useLoopCarousel(items, {
+  const sectionRef = useRef(null)
+  const [visible, setVisible] = useState(false)
+  const { index, copies, move, reset, setPaused, onTransitionEnd, trackStyle } = useLoopCarousel(items, {
     perView,
     slideMs: SLIDE_MS,
     delay: AUTO_DELAY,
+    active: visible,
   })
 
+  // Every time the section scrolls into view, start again from the first card
+  // (Alcobev) and auto-scroll; stop while it is off screen
+  useEffect(() => {
+    const el = sectionRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) reset()
+        setVisible(entry.isIntersecting)
+      },
+      { threshold: 0.3 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [reset])
+
   return (
-    <section id="industries" className="industries">
+    <section id="industries" className="industries" ref={sectionRef}>
       <div className="container-xl">
         <div className="industries__header">
           <span className="section-eyebrow industries__eyebrow">{industries.eyebrow}</span>

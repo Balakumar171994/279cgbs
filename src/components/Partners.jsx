@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import sap from '../assets/partner/SAP.png'
 import aws from '../assets/partner/AWS.jpg'
-import kyndryl from '../assets/partner/kindryl.jpg'
 import suse from '../assets/partner/suse.png'
 import ibm from '../assets/partner/IBM.jpg'
 import docusign from '../assets/partner/docusign.png'
@@ -10,15 +9,12 @@ import monday from '../assets/partner/monday.com.png'
 import azure from '../assets/partner/azure.png'
 import microsoft from '../assets/partner/microsoft.png'
 import ict from '../assets/partner/ICT.png'
-import hope from '../assets/partner/hope.jpg'
 import upguard from '../assets/partner/upguard.jpg'
 import mscMalaysia from '../assets/partner/malaysia.jpg'
 import iso9001 from '../assets/partner/ISO 9001.png'
 import iso27001 from '../assets/partner/ISO 27001.png'
 import smartIndustry from '../assets/partner/Smart industry.png'
 import nasscom from '../assets/partner/Nasscom.png'
-// Softwareone.svg is really a WebP image, so the correctly named copy is used
-import softwareone from '../assets/partner/softwareone.webp'
 import './Partners.css'
 
 const technologyPartners = [
@@ -31,10 +27,7 @@ const technologyPartners = [
   { name: 'Motadata', logo: motadata },
   { name: 'monday.com', logo: monday },
   { name: 'SUSE', logo: suse },
-  { name: 'Kyndryl', logo: kyndryl },
   { name: 'ICT Distribution', logo: ict },
-  { name: 'HOPE', logo: hope },
-  { name: 'SoftwareOne', logo: softwareone },
 ]
 
 // Certification cards under the moving row are hidden for now (ISO badges are in the footer)
@@ -75,7 +68,7 @@ export default function Partners() {
     <section id="partners" className="partners">
       <div className="container-xl partners__inner">
         <div className="partners__head">
-          <span className="section-eyebrow partners__eyebrow">Partners &amp; Certifications</span>
+          <span className="section-eyebrow partners__eyebrow">Partners</span>
           <h2 className="partners__title">
             Trusted Technology. <span className="partners__highlight">Recognized Expertise.</span>
           </h2>

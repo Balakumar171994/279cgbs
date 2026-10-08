@@ -78,18 +78,8 @@ export default function SapMigration() {
   const { capabilities, approach } = sapMigration
   const [gridRef, gridIn] = useInView(0.15)
   const [roadRef, roadIn] = useInView(0.35)
-  const [step, setStep] = useState(0)
-
-  // Walk the rocket along the roadmap, pausing a little longer at the end
-  useEffect(() => {
-    if (!roadIn) return
-    const last = approach.length - 1
-    const t = setTimeout(
-      () => setStep((s) => (s >= last ? 0 : s + 1)),
-      step === last ? 2400 : 1200
-    )
-    return () => clearTimeout(t)
-  }, [roadIn, step, approach.length])
+  // Step under the mouse (or keyboard focus); -1 = none
+  const [step, setStep] = useState(-1)
 
   return (
     <section id="sap-migration" className="sap-mig">
@@ -142,26 +132,13 @@ export default function SapMigration() {
         <div
           ref={roadRef}
           className={`sap-mig__road${roadIn ? ' is-in' : ''}`}
-          style={{ '--step': step, '--steps': approach.length }}
+          style={{ '--step': Math.max(step, 0), '--steps': approach.length }}
         >
           <h3 className="sap-mig__road-title">{sapMigration.approachTitle}</h3>
 
           <div className="sap-mig__route">
             <div className="sap-mig__track" aria-hidden="true">
-              <span
-                className="sap-mig__track-fill"
-                style={step === 0 ? { transition: 'none' } : undefined}
-              />
-              <span
-                className="sap-mig__rocket"
-                style={step === 0 ? { transition: 'none' } : undefined}
-              >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 15c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2.1-.1-2.9a2.1 2.1 0 0 0-2.9-.1z" />
-                  <path d="M12 15l-3-3a22 22 0 0 1 2-3.9A12.9 12.9 0 0 1 22 2c0 2.7-.8 7.5-6 11a22.4 22.4 0 0 1-4 2z" />
-                  <path d="M9 12H4s.6-3 2-4c1.6-1.1 5 0 5 0M12 15v5s3-.6 4-2c1.1-1.6 0-5 0-5" />
-                </svg>
-              </span>
+              <span className="sap-mig__track-fill" />
             </div>
 
             <ol className="sap-mig__steps">
@@ -170,7 +147,16 @@ export default function SapMigration() {
                 if (i === step) classes.push('is-active')
                 if (i < step) classes.push('is-done')
                 return (
-                  <li key={s} className={classes.join(' ')} style={{ animationDelay: `${i * 0.1}s` }}>
+                  <li
+                    key={s}
+                    className={classes.join(' ')}
+                    style={{ animationDelay: `${i * 0.1}s` }}
+                    tabIndex={0}
+                    onMouseEnter={() => setStep(i)}
+                    onMouseLeave={() => setStep(-1)}
+                    onFocus={() => setStep(i)}
+                    onBlur={() => setStep(-1)}
+                  >
                     <span className="sap-mig__milestone">{i + 1}</span>
                     <span className="sap-mig__step-label">{s}</span>
                   </li>

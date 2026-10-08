@@ -254,42 +254,6 @@
   transform: scaleX(calc(var(--step) / (var(--steps) - 1)));
 }
 
-/* Rocket riding above the track */
-.sap-mig__rocket {
-  position: absolute;
-  bottom: 34px;
-  left: 0;
-  z-index: 2;
-  display: grid;
-  place-items: center;
-  width: 40px;
-  height: 40px;
-  margin-left: -20px;
-  border-radius: 50%;
-  background: #ffffff;
-  color: var(--logo-blue);
-  box-shadow: 0 8px 20px rgba(42, 106, 174, 0.25);
-  opacity: 0;
-  transition: left 1s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.5s ease;
-}
-
-.sap-mig__rocket svg {
-  width: 22px;
-  height: 22px;
-  transform: rotate(45deg);
-}
-
-.is-in .sap-mig__rocket {
-  opacity: 1;
-  left: calc(100% * var(--step) / (var(--steps) - 1));
-  animation: sapMigHover 1.2s ease-in-out infinite;
-}
-
-@keyframes sapMigHover {
-  0%, 100% { translate: 0 0; }
-  50% { translate: 0 -5px; }
-}
-
 .sap-mig__steps {
   position: relative;
   display: grid;
@@ -307,6 +271,8 @@
   text-align: center;
   opacity: 0;
   transform: translateY(20px);
+  cursor: pointer;
+  outline: none;
 }
 
 .is-in .sap-mig__step {
@@ -345,6 +311,38 @@
   color: #ffffff;
   transform: scale(1.18);
   box-shadow: 0 0 0 6px rgba(232, 184, 40, 0.22), 0 14px 30px rgba(42, 106, 174, 0.3);
+}
+
+/* Hovered number: two rings ripple out from the circle */
+.sap-mig__milestone::before,
+.sap-mig__milestone::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 2px solid var(--logo-yellow);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sap-mig__step.is-active .sap-mig__milestone::before,
+.sap-mig__step.is-active .sap-mig__milestone::after {
+  animation: sapMigRipple 1.6s ease-out infinite;
+}
+
+.sap-mig__step.is-active .sap-mig__milestone::after {
+  border-color: var(--logo-blue);
+  animation-delay: 0.8s;
+}
+
+@keyframes sapMigRipple {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+
+.sap-mig__step:focus-visible .sap-mig__milestone {
+  outline: 3px solid var(--logo-blue);
+  outline-offset: 4px;
 }
 
 .sap-mig__step-label {
@@ -400,10 +398,6 @@
     transform: scaleY(calc(var(--step) / (var(--steps) - 1)));
   }
 
-  .sap-mig__rocket {
-    display: none;
-  }
-
   .sap-mig__steps {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -437,11 +431,11 @@
     transform: none;
   }
   .sap-mig__track-fill,
-  .sap-mig__rocket,
   .sap-mig__milestone {
     transition: none;
   }
-  .is-in .sap-mig__rocket {
+  .sap-mig__step.is-active .sap-mig__milestone::before,
+  .sap-mig__step.is-active .sap-mig__milestone::after {
     animation: none;
   }
 }
