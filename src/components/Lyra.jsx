@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import useInView from '../hooks/useInView'
-import lyraLogo from '../assets/products/Lyra.jpg'
+import lyraLogo from '../assets/products/lyra2.png'
 import './Lyra.css'
 
 // Lyra product page. Content comes from the lyra.canopusgbs.com prototype,

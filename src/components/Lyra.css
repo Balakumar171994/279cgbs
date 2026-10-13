@@ -170,12 +170,10 @@
 
 .ly-hero__logo {
   display: block;
-  height: clamp(70px, 9vw, 104px);
-  width: auto;
-  max-width: 100%;
-  margin: 0 0 18px -14px;
-  /* JPG has a white background - multiply lets it blend into the hero */
-  mix-blend-mode: multiply;
+  /* lyra2.png has empty space under the wordmark, which acts as the gap below */
+  width: min(260px, 70%);
+  height: auto;
+  margin-bottom: 4px;
   animation: lyUp 0.7s ease both;
 }
 
