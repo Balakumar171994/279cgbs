@@ -707,30 +707,6 @@
   background: repeating-linear-gradient(180deg, rgba(42, 106, 174, 0.35) 0 6px, transparent 6px 11px);
 }
 
-.dw-jour__token {
-  position: absolute;
-  left: -5.5px;
-  top: 0;
-  width: 14px;
-  height: 14px;
-  margin-top: -7px;
-  border-radius: 50%;
-  background: var(--logo-yellow);
-  box-shadow: 0 0 12px rgba(232, 184, 40, 0.9);
-  opacity: 0;
-}
-
-.is-in .dw-jour__token {
-  animation: dwDown 6s linear 1s infinite;
-}
-
-@keyframes dwDown {
-  0% { top: 0; opacity: 1; }
-  83% { top: 100%; opacity: 1; }
-  92% { top: 100%; opacity: 0; }
-  100% { top: 0; opacity: 0; }
-}
-
 .dw-jour__steps li {
   position: relative;
   display: flex;
@@ -753,18 +729,11 @@
   width: 54px;
   height: 54px;
   border-radius: 50%;
-  color: var(--logo-blue);
-  background: #ffffff;
-  border: 2px solid rgba(42, 106, 174, 0.25);
-}
-
-.is-in .dw-jour__icon {
-  animation: dwJourLit 6s ease calc(1s + var(--d)) infinite;
-}
-
-@keyframes dwJourLit {
-  0%, 14% { color: #ffffff; background: var(--logo-blue); border-color: var(--logo-blue); box-shadow: 0 0 0 6px rgba(42, 106, 174, 0.15); }
-  20%, 100% { color: var(--logo-blue); background: #ffffff; border-color: rgba(42, 106, 174, 0.25); box-shadow: none; }
+  /* Same blue the circles used to flash, now kept on (Outcome stays yellow below) */
+  color: #ffffff;
+  background: var(--logo-blue);
+  border: 2px solid var(--logo-blue);
+  box-shadow: 0 0 0 6px rgba(42, 106, 174, 0.15);
 }
 
 .dw-jour__icon svg {
@@ -790,7 +759,6 @@
   background: linear-gradient(135deg, var(--logo-yellow), #f3cf55);
   border-color: #ffffff;
   box-shadow: 0 10px 24px rgba(232, 184, 40, 0.4);
-  animation: none;
 }
 
 .dw-jour__steps li.is-outcome strong {
@@ -1667,8 +1635,5 @@
     opacity: 1;
     transform: none;
     scale: 1;
-  }
-  .dw-jour__token {
-    display: none;
   }
 }

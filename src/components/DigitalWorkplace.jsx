@@ -392,14 +392,12 @@ function WorkJourney() {
         </div>
 
         <ol className="dw-jour__steps" style={{ '--n': j.steps.length }}>
-          <span className="dw-jour__rail" aria-hidden="true">
-            <span className="dw-jour__token" />
-          </span>
+          <span className="dw-jour__rail" aria-hidden="true" />
           {j.steps.map((s, i) => (
             <li
               key={s.label}
               className={i === j.steps.length - 1 ? 'is-outcome' : ''}
-              style={{ '--d': `${i}s`, '--in': `${0.2 + i * 0.12}s` }}
+              style={{ '--in': `${0.2 + i * 0.12}s` }}
             >
               <span className="dw-jour__icon">
                 <Icon name={s.icon} />

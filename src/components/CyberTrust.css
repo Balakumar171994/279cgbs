@@ -976,39 +976,6 @@
   background: rgba(42, 106, 174, 0.18);
 }
 
-.ct-gates__token {
-  position: absolute;
-  top: -15px;
-  left: 0;
-  z-index: 2;
-  display: grid;
-  place-items: center;
-  width: 32px;
-  height: 32px;
-  margin-left: -16px;
-  border-radius: 50%;
-  color: var(--navy);
-  background: #f3cf55;
-  box-shadow: 0 0 0 5px rgba(243, 207, 85, 0.25), 0 8px 18px rgba(232, 184, 40, 0.4);
-  opacity: 0;
-}
-
-.ct-gates__token svg {
-  width: 16px;
-  height: 16px;
-}
-
-.is-in .ct-gates__token {
-  animation: ctRun 5s linear 1s infinite;
-}
-
-@keyframes ctRun {
-  0% { left: 0; opacity: 1; }
-  80% { left: 100%; opacity: 1; }
-  90% { left: 100%; opacity: 0; }
-  100% { left: 0; opacity: 0; }
-}
-
 .ct-gate {
   display: flex;
   flex-direction: column;
@@ -1035,28 +1002,11 @@
   height: 64px;
   margin: -34px 0 14px;
   border-radius: 50%;
-  color: var(--logo-blue);
-  background: #ffffff;
-  border: 2px solid rgba(42, 106, 174, 0.25);
-}
-
-.is-in .ct-gate__icon {
-  animation: ctGateLit 5s ease calc(1s + var(--d)) infinite;
-}
-
-@keyframes ctGateLit {
-  0%, 16% {
-    color: #ffffff;
-    background: var(--ok);
-    border-color: #ffffff;
-    box-shadow: 0 0 0 7px rgba(31, 157, 107, 0.15);
-  }
-  26%, 100% {
-    color: var(--logo-blue);
-    background: #ffffff;
-    border-color: rgba(42, 106, 174, 0.25);
-    box-shadow: none;
-  }
+  /* Same green the circles used to flash, now kept on */
+  color: #ffffff;
+  background: var(--ok);
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 0 7px rgba(31, 157, 107, 0.15);
 }
 
 .ct-gate__icon svg {
@@ -1877,7 +1827,6 @@
     opacity: 1;
     transform: none;
   }
-  .ct-gates__token,
   .ct-orbit__scan,
   .ct-radar__sweep {
     display: none;

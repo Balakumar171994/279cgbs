@@ -433,15 +433,10 @@ function CyberZeroTrust() {
           <p className="ct-head__text">{z.text}</p>
         </Head>
 
-        {/* An access request passes every checkpoint, left to right */}
-        <ol className="ct-gates" style={{ '--n': z.principles.length }}>
-          <span className="ct-gates__track" aria-hidden="true">
-            <span className="ct-gates__token">
-              <Icon name="key" />
-            </span>
-          </span>
+                <ol className="ct-gates" style={{ '--n': z.principles.length }}>
+          <span className="ct-gates__track" aria-hidden="true" />
           {z.principles.map((g, i) => (
-            <li key={g.title} className="ct-gate" style={{ '--d': `${i}s`, '--in': `${0.2 + i * 0.12}s` }}>
+            <li key={g.title} className="ct-gate" style={{ '--in': `${0.2 + i * 0.12}s` }}>
               <span className="ct-gate__icon">
                 <Icon name={g.icon} />
               </span>

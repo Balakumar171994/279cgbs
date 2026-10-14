@@ -732,6 +732,9 @@
 .da-bento__agent {
   display: flex;
   flex-wrap: wrap;
+  /* Centred in the card, below the text */
+  justify-content: center;
+  align-self: center;
   gap: 10px 34px;
   list-style: none;
   margin: 0;

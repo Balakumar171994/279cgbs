@@ -494,14 +494,12 @@ function DigitalInfraAlwaysOn() {
           </div>
 
           <ol className="di-ops__steps" style={{ '--n': a.steps.length }}>
-            <span className="di-ops__track" aria-hidden="true">
-              <span className="di-ops__runner" />
-            </span>
+            <span className="di-ops__track" aria-hidden="true" />
             {a.steps.map((step, i) => (
               <li
                 key={step.title}
                 className="di-ops__step"
-                style={{ '--d': `${i}s`, '--in': `${0.2 + i * 0.15}s` }}
+                style={{ '--in': `${0.2 + i * 0.15}s` }}
               >
                 <span className="di-ops__icon">
                   <Icon name={step.icon} />

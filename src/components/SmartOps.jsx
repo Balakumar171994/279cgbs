@@ -368,11 +368,9 @@ function SmartProactive() {
 
         <div className="so-shift" aria-hidden="true">
           <ol className="so-shift__steps" style={{ '--n': r.steps.length }}>
-            <span className="so-shift__track">
-              <span className="so-shift__runner" />
-            </span>
+            <span className="so-shift__track" />
             {r.steps.map((s, i) => (
-              <li key={s} style={{ '--d': `${i}s` }}>
+              <li key={s}>
                 <span className="so-shift__num">{String(i + 1).padStart(2, '0')}</span>
                 {s}
               </li>
