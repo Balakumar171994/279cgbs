@@ -466,7 +466,7 @@ export const offices = {
   ],
 }
 
-// TODO: replace "#" with the company's YouTube / X page URLs
+// TODO: replace "#" with the company's X page URL
 export const socials = [
   {
     key: 'linkedin',
@@ -477,7 +477,7 @@ export const socials = [
   {
     key: 'youtube',
     name: 'YouTube',
-    href: '#',
+    href: 'https://www.youtube.com/watch?v=sBxN2tLv4v8',
     path: 'M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6z',
   },
   {
@@ -492,7 +492,8 @@ export const footerLinks = {
   'SAP': ['SAP Solutions', 'SAP Managed Services'],
   'Digital Services': ['Digital Infrastructure & Cloud', 'Cybersecurity & Digital Trust', 'Data, Analytics & AI', 'Digital Workplace & Automation'],
   'Products': ['Lyra', 'VegAI', 'SMARTOPS'],
-  'Company': ['About Us', 'Blogs', 'Digital Library', 'FAQ', 'Contact'],
+  // Hidden for now: 'Blogs', 'Digital Library', 'FAQ', 'Contact' - add them back to this list to show them again
+  'Company': ['About Us'],
 }
 
 export const sapHero = {

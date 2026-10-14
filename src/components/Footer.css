@@ -29,21 +29,31 @@
   max-width: 360px;
 }
 
+/* One row: social icons, a thin divider, then the ISO badges */
+.footer__badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem 1.1rem;
+  margin-top: 1.4rem;
+}
+
 .footer__social {
   display: flex;
   gap: 0.6rem;
-  margin-top: 1.4rem;
 }
 
 /* Small ISO badges on white tiles so they read on the dark footer */
 .footer__certs {
   display: flex;
+  align-items: center;
   gap: 0.6rem;
-  margin-top: 1.1rem;
+  padding-left: 1.1rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .footer__certs img {
-  height: 3.2rem;
+  height: 2.8rem;
   width: auto;
   padding: 0.3rem;
   border-radius: 0.5rem;
@@ -77,9 +87,11 @@
 .footer__social-link--youtube:hover { background: #ff0000; }
 .footer__social-link--x:hover { background: #000000; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25); }
 
+/* Each column is as wide as its longest link, so links stay on one line */
 .footer__cols {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, auto);
+  justify-content: space-between;
   gap: 2rem;
 }
 
@@ -99,6 +111,12 @@
 .footer__col a {
   font-size: 0.88rem;
   color: #9aa4bd;
+}
+
+@media (min-width: 641px) {
+  .footer__col a {
+    white-space: nowrap;
+  }
 }
 
 .footer__col a:hover {

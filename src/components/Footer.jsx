@@ -37,24 +37,27 @@ export default function Footer() {
             AI Transformation Partner for Enterprise Growth — SAP, Cloud, Cybersecurity, Data & AI,
             and proprietary AI products under one roof.
           </p>
-          <div className="footer__social">
-            {socials.map((s) => (
-              <a
-                key={s.name}
-                href={s.href}
-                aria-label={s.name}
-                className={`footer__social-link footer__social-link--${s.key}`}
-                {...(s.href !== '#' && { target: '_blank', rel: 'noopener noreferrer' })}
-              >
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d={s.path} />
-                </svg>
-              </a>
-            ))}
-          </div>
-          <div className="footer__certs">
-            <img src={iso9001} alt="ISO 9001:2015 Certified" loading="lazy" />
-            <img src={iso27001} alt="ISO 27001 Certified" loading="lazy" />
+          {/* Social icons and ISO badges share one row */}
+          <div className="footer__badges">
+            <div className="footer__social">
+              {socials.map((s) => (
+                <a
+                  key={s.name}
+                  href={s.href}
+                  aria-label={s.name}
+                  className={`footer__social-link footer__social-link--${s.key}`}
+                  {...(s.href !== '#' && { target: '_blank', rel: 'noopener noreferrer' })}
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d={s.path} />
+                  </svg>
+                </a>
+              ))}
+            </div>
+            <div className="footer__certs">
+              <img src={iso9001} alt="ISO 9001:2015 Certified" loading="lazy" />
+              <img src={iso27001} alt="ISO 27001 Certified" loading="lazy" />
+            </div>
           </div>
         </div>
 
