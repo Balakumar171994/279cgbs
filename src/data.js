@@ -40,15 +40,16 @@ export const nav = [
     ],
   },
   { label: 'About Us', href: '/about' },
-  {
-    label: 'Resources',
-    href: '/resources',
-    dropdown: [
-      { label: 'Blogs', href: '/resources#blogs' },
-      { label: 'Case Studies', href: '/resources#case-studies' },
-      { label: 'Events', href: '/resources/events' },
-    ],
-  },
+  // Hidden for now - remove the comment markers to show Resources in the menu again
+  // {
+  //   label: 'Resources',
+  //   href: '/resources',
+  //   dropdown: [
+  //     { label: 'Blogs', href: '/resources#blogs' },
+  //     { label: 'Case Studies', href: '/resources#case-studies' },
+  //     { label: 'Events', href: '/resources/events' },
+  //   ],
+  // },
 ]
 
 export const hero = {
@@ -56,7 +57,7 @@ export const hero = {
   subtitle:
     'From digital core to intelligent enterprise, we connect SAP, AI, Cloud, Data, Automation, ERP, and Managed Services to help businesses modernize faster, operate smarter, and innovate securely.',
   primaryCta: { label: 'Explore Our Services', href: '/#our-services' },
-  secondaryCta: { label: 'Talk to Our Experts', href: '/contact' },
+  secondaryCta: { label: 'Talk to Our Experts', href: '/about#leadership' },
   statsHeading: 'Technology Expertise. Enterprise Experience. Measurable Outcomes.',
   stats: [
     { value: '10+ Years', label: 'SAP & IT Experience' },
@@ -465,12 +466,12 @@ export const offices = {
   ],
 }
 
-// TODO: replace "#" with the company's LinkedIn / YouTube / X page URLs
+// TODO: replace "#" with the company's YouTube / X page URLs
 export const socials = [
   {
     key: 'linkedin',
     name: 'LinkedIn',
-    href: '#',
+    href: 'https://www.linkedin.com/company/canopusgbs/posts/?feedView=all',
     path: 'M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.6c0-1.34-.03-3.06-1.86-3.06-1.87 0-2.15 1.46-2.15 2.96V21H9z',
   },
   {
@@ -901,7 +902,7 @@ export const aboutPage = {
     lines: ['Technology transformation can be complex.', 'The right partner makes it connected, structured, and purposeful.'],
     text: 'Imagine what your enterprise could achieve when technology works as one. Canopus GBS brings the expertise, innovation, and connected capabilities to make that possibility real.',
     tagline: 'Let’s Build What’s Next, Together.',
-    primaryCta: { label: 'Talk to Our Experts', href: '/contact' },
+    primaryCta: { label: 'Talk to Our Experts', href: '/about#leadership' },
     secondaryCta: { label: 'Explore Our Services', href: '/#our-services' },
   },
 }
@@ -1302,7 +1303,7 @@ export const digitalWorkplace = {
     'Canopus GBS connects the digital workplace with intelligent automation to remove the friction behind everyday work—bringing people, processes, applications, and AI together so work moves naturally from intent to action.',
   ],
   tagline: ['Connect.', 'Simplify.', 'Automate.', 'Accelerate.'],
-  cta: { label: 'Talk to Our Experts', href: '/contact' },
+  cta: { label: 'Talk to Our Experts', href: '/about#leadership' },
   // Banner graphic: a work item travels from intent to action through these stops
   path: [
     { icon: 'users', label: 'People' },

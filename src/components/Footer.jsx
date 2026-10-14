@@ -44,6 +44,7 @@ export default function Footer() {
                 href={s.href}
                 aria-label={s.name}
                 className={`footer__social-link footer__social-link--${s.key}`}
+                {...(s.href !== '#' && { target: '_blank', rel: 'noopener noreferrer' })}
               >
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path d={s.path} />
